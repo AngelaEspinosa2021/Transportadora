@@ -1,0 +1,75 @@
+﻿@model IEnumerable<TransportadoraMVC.Models.Trazabilidad>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TipoOperacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaisOrigen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CiudadOrigen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaisDestino)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CiudadDesstino)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Kilos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Teus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Embarque.Direccion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TipoOperacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaisOrigen)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CiudadOrigen)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaisDestino)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CiudadDesstino)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Kilos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Teus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Embarque.Direccion)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

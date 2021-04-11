@@ -129,7 +129,12 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ActividadController.cs" />
+    <Compile Include="Controllers\EmbarquesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MonedasController.cs" />
+    <Compile Include="Controllers\ProcesosController.cs" />
+    <Compile Include="Controllers\TrazabilidadesController.cs" />
+    <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -226,6 +231,31 @@
     <Content Include="Views\Actividad\Details.cshtml" />
     <Content Include="Views\Actividad\Edit.cshtml" />
     <Content Include="Views\Actividad\Index.cshtml" />
+    <Content Include="Views\Embarques\Create.cshtml" />
+    <Content Include="Views\Embarques\Delete.cshtml" />
+    <Content Include="Views\Embarques\Details.cshtml" />
+    <Content Include="Views\Embarques\Edit.cshtml" />
+    <Content Include="Views\Embarques\Index.cshtml" />
+    <Content Include="Views\Monedas\Create.cshtml" />
+    <Content Include="Views\Monedas\Delete.cshtml" />
+    <Content Include="Views\Monedas\Details.cshtml" />
+    <Content Include="Views\Monedas\Edit.cshtml" />
+    <Content Include="Views\Monedas\Index.cshtml" />
+    <Content Include="Views\Procesos\Create.cshtml" />
+    <Content Include="Views\Procesos\Delete.cshtml" />
+    <Content Include="Views\Procesos\Details.cshtml" />
+    <Content Include="Views\Procesos\Edit.cshtml" />
+    <Content Include="Views\Procesos\Index.cshtml" />
+    <Content Include="Views\Trazabilidades\Create.cshtml" />
+    <Content Include="Views\Trazabilidades\Delete.cshtml" />
+    <Content Include="Views\Trazabilidades\Details.cshtml" />
+    <Content Include="Views\Trazabilidades\Edit.cshtml" />
+    <Content Include="Views\Trazabilidades\Index.cshtml" />
+    <Content Include="Views\Usuarios\Create.cshtml" />
+    <Content Include="Views\Usuarios\Delete.cshtml" />
+    <Content Include="Views\Usuarios\Details.cshtml" />
+    <Content Include="Views\Usuarios\Edit.cshtml" />
+    <Content Include="Views\Usuarios\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
