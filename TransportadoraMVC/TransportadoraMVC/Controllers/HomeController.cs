@@ -9,20 +9,9 @@ namespace TransportadoraMVC.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index(string txtUsuario, string txtPassword)
+        public ActionResult Index()
         {
-            //using (TransportadoraEntities db = new TransportadoraEntities())
-            //{
-            //    var listaUsuario = (from m in db.Usuario
-            //                        where m.Correo == txtUsuario && m.Contraseña == txtPassword
-            //                        select m).ToList();
-            //    if (listaUsuario.Count() > 0)
-            //    {
-            //        Usuario User = listaUsuario.First();
-            //        Session["User"] = User;
-            //        return View(listaUsuario);
-            //    }
-            //}
+            
             return View();
         }
 
