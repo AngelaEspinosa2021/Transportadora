@@ -17,9 +17,14 @@ namespace TransportadoraMVC.Controllers
         // GET: Usuarios
         public ActionResult Index()
         {
-            return View(db.Usuario.ToList());
-        }
+            var usuarios = (from m in db.Usuario
+                           select m).ToList();
 
+            return View(usuarios);
+
+        }
+        
+        
         // GET: Usuarios/Details/5
         public ActionResult Details(long? id)
         {
@@ -46,7 +51,7 @@ namespace TransportadoraMVC.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Correo,Constrasena")] Usuario usuario)
+        public ActionResult Create([Bind(Include = "Id,Correo,Contraseña")] Usuario usuario)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +83,7 @@ namespace TransportadoraMVC.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Correo,Constrasena")] Usuario usuario)
+        public ActionResult Edit([Bind(Include = "Id,Correo,Contraseña")] Usuario usuario)
         {
             if (ModelState.IsValid)
             {

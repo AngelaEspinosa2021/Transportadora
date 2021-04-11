@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="TransportadoraModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="TransportadoraModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Actividad">
           <Key>
             <PropertyRef Name="Id" />
@@ -79,7 +79,7 @@
           </Key>
           <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Correo" Type="nvarchar" MaxLength="50" />
-          <Property Name="Constrasena" Type="nvarchar" MaxLength="8" />
+          <Property Name="Contraseña" Type="nvarchar" MaxLength="8" />
         </EntityType>
         <Association Name="FK_Actividad_Proceso">
           <End Role="Proceso" Type="Self.Proceso" Multiplicity="0..1" />
@@ -153,8 +153,7 @@
             <End Role="Trazabilidad" EntitySet="Trazabilidad" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TransportadoraModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -238,9 +237,9 @@
           </Key>
           <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Correo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Constrasena" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Actividad" Relationship="Self.FK_Actividad_Usuario" FromRole="Usuario" ToRole="Actividad" />
           <NavigationProperty Name="Actividad1" Relationship="Self.FK_Actividad_Usuario1" FromRole="Usuario" ToRole="Actividad" />
+          <Property Name="Contraseña" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_Actividad_Proceso">
           <End Role="Proceso" Type="Self.Proceso" Multiplicity="0..1" />
@@ -396,9 +395,9 @@
           <EntitySetMapping Name="Usuario">
             <EntityTypeMapping TypeName="TransportadoraModel.Usuario">
               <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="Contraseña" ColumnName="Contraseña" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Correo" ColumnName="Correo" />
-                <ScalarProperty Name="Constrasena" ColumnName="Constrasena" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -16,3 +16,25 @@ $(document).ready(function () {
 $(document).ready(function () {
     $('.timepicker').timepicker();
 });
+
+
+$(document).ready(function () {
+
+    $('.frm').submit(function (e) {
+        e.preventDefault();
+
+        Url = "@Url.Content('~/Access/Enter')"
+        parametro = $(this).serialize();
+
+        $.post(url, parametros, function (data) {
+            if (data == "1") {
+                document.location.href = "@Url.Content('~/')";
+            }
+            else {
+                alert(data)
+            }
+        })
+    })
+
+});
+
