@@ -1,0 +1,82 @@
+﻿@model TransportadoraMVC.Models.Actividad
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Actividad</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Asunto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Asunto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaVencimiento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaVencimiento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Observacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Observacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Prioridad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prioridad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Proceso.Sucursal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Proceso.Sucursal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Usuario.Correo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuario.Correo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Usuario1.Correo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuario1.Correo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

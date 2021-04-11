@@ -128,19 +128,43 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ActividadController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Actividad.cs">
+      <DependentUpon>TransportadoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Embarque.cs">
+      <DependentUpon>TransportadoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Moneda.cs">
+      <DependentUpon>TransportadoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Proceso.cs">
+      <DependentUpon>TransportadoraModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TransportadoraModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>TransportadoraModel.Context.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\TransportadoraModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TransportadoraModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\TransportadoraModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>TransportadoraModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Trazabilidad.cs">
+      <DependentUpon>TransportadoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Usuario.cs">
+      <DependentUpon>TransportadoraModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -156,6 +180,12 @@
     <Content Include="Models\TransportadoraModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>TransportadoraModel.Context.cs</LastGenOutput>
+      <DependentUpon>TransportadoraModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\TransportadoraModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TransportadoraModel.edmx</DependentUpon>
+      <LastGenOutput>TransportadoraModel.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -163,9 +193,9 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>TransportadoraModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Models\TransportadoraModel.edmx.diagram">
+    <Content Include="Models\TransportadoraModel.edmx.diagram">
       <DependentUpon>TransportadoraModel.edmx</DependentUpon>
-    </None>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -191,6 +221,11 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Actividad\Create.cshtml" />
+    <Content Include="Views\Actividad\Delete.cshtml" />
+    <Content Include="Views\Actividad\Details.cshtml" />
+    <Content Include="Views\Actividad\Edit.cshtml" />
+    <Content Include="Views\Actividad\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
