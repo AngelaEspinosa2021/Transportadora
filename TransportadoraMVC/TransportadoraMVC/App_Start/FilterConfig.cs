@@ -8,6 +8,7 @@ namespace TransportadoraMVC
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
+            filters.Add(new Filters.VerifySession()); // asi damos de alta a nuestro filtro
         }
     }
 }

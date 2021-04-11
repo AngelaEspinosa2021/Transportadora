@@ -136,6 +136,7 @@
     <Compile Include="Controllers\ProcesosController.cs" />
     <Compile Include="Controllers\TrazabilidadesController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
+    <Compile Include="Filters\VerifySession.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
