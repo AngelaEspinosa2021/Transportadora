@@ -1,17 +1,16 @@
-﻿<!DOCTYPE html>
+﻿
+@{
+    ViewBag.Title = "_LayoutLogin";
+}
+
+<!DOCTYPE html>
 <html>
 <head>
     <script src="~/Scripts/jquery-3.6.0.min.js"></script>
     <script src="~/Scripts/materialize/js/materialize.js"></script>
     <link href="~/Scripts/materialize/css/materialize.css" rel="stylesheet" />
     <script src="~/Scripts/iniciarMaterialize.js"></script>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-</head>
+ </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
@@ -23,14 +22,7 @@
                 </button>
                 @Html.ActionLink("Nombre de la aplicación", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Cerrar Sesión", "Logout", "Access")</li>
-                </ul>
-            </div>
+           
         </div>
     </div>
     <div class="container body-content">
@@ -46,3 +38,5 @@
     @RenderSection("scripts", required: false)
 </body>
 </html>
+
+

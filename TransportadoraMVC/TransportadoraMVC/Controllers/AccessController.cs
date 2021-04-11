@@ -43,5 +43,12 @@ namespace TransportadoraMVC.Controllers
                 return Content("Ocurrio un error :("+ex.Message);
             }
         }
+
+        public ActionResult Logout()
+        {
+            Session["User"] = null;
+            return Content("1");
+        }
+
     }
 }

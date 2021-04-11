@@ -267,6 +267,7 @@
     <Content Include="Scripts\materialize\LICENSE" />
     <Content Include="Scripts\materialize\README.md" />
     <Content Include="Views\Access\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutLogin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
