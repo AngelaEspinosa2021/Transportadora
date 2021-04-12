@@ -1,0 +1,49 @@
+body{
+    font-family: 'Bebas Neue', cursive;
+}
+
+.logo{
+    margin-top: 20px;
+    margin-left: 150px;
+    margin-right: 80px;
+    width: 130px;
+}
+
+li{
+    display: inline;
+    margin-right: 20px;
+    font-size: 24px;
+}
+
+li > a{
+    color: #546e7a;
+}
+
+li:hover{
+    border-bottom: 4px #48add9 solid;
+    cursor: pointer;
+}
+
+footer{
+    background-color: #48add9 !important;
+    padding: 20px;
+}
+
+.texto-footer{
+    color: white;
+    font-family: 'Rajdhani', sans-serif;;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+.margen-Menu{
+    margin-top: 45px;
+    margin-left: 200px;
+}
+
+.bienvenida{
+    color: #607d8b ;
+    font-weight: bold;
+    font-family: 'Fjalla One', sans-serif;;
+}
+

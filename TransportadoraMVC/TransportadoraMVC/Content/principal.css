@@ -1,0 +1,96 @@
+
+.img{
+    padding-top: 10px;
+}
+
+.btningresar{
+    background-color: #48add9;
+    border: none;
+    width: 120px;
+    height: 35px;
+    border-radius: 10px;
+    margin: 5px;
+    color: #ffffff;
+    font-weight: bold;   
+}
+
+.logo{
+    margin-top: 15px;
+    width: 130px;
+}
+
+.contenedor{
+    border-radius: 30px;
+}
+
+
+html,
+body {
+    height: 100%;
+}
+html {
+    display: table;
+    margin: auto;
+}
+body {
+    display: table-cell;
+    vertical-align: middle;    
+}
+
+#login-page {
+    width: 500px;
+}
+
+.input-field .prefix.active{
+    color: #48add9;
+}
+
+.input-field input[type]:not([readonly]),
+    .input-field input[type]:focus:not([readonly]),
+    .input-field textarea:not([readonly]),
+    .input-field textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #48add9;
+    box-shadow: 0 1px 0 0 #48add9;
+    }
+    
+    .input-field input[type]:focus:not([readonly])+label,
+    .input-field textarea:focus:not([readonly])+label {
+      color: #48add9;
+    }
+
+    .input-field input[type].invalid,
+    .input-field input[type].invalid:focus,
+    .input-field textarea.invalid,
+    .input-field textarea.invalid:focus {
+      border-bottom: 1px solid #e57373;
+      box-shadow: 0 1px 0 0 #e57373;
+    }
+    
+    .input-field input[type].invalid:focus+label,
+    .input-field input[type].invalid~.helper-text::after,
+    .input-field input[type].invalid:focus~.helper-text::after, 
+    .input-field textarea.invalid:focus+label,
+    .input-field textarea.invalid~.helper-text::after,
+    .input-field textarea.invalid:focus~.helper-text::after {
+      color: #e57373;
+    }
+
+    .input-field input[type].valid,
+    .input-field input[type].valid:focus,
+    .input-field textarea.valid,
+    .input-field textarea.valid:focus {
+      border-bottom: 1px solid #26a69a;
+      box-shadow: 0 1px 0 0 #26a69a;
+    }
+    
+    .input-field input[type].valid:focus+label,
+    .input-field input[type].valid~.helper-text::after,
+    .input-field input[type].valid:focus~.helper-text::after,
+    .input-field textarea.valid:focus+label,
+    .input-field textarea.valid~.helper-text::after,
+    .input-field textarea.valid:focus~.helper-text::after {
+      color: #26a 69a;
+    }
+
+
+

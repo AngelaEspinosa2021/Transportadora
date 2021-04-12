@@ -1,29 +1,41 @@
 ﻿
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Inicio Transportadora";
     Layout = "~/Views/Shared/_LayoutLogin.cshtml";
 }
 
 
-<div class="row center">
-    <form class="frm">
-        <div class="col s4"></div>
-        <div class="col s4 center">
-            <div class="row input-field">
-                <label for="txtUsuario">Usuario</label>
-                <input type="text" name="txtUsuario" id="txtUsuario" />
+<div id="login-page" class="row">
+    <div class="col s12 z-depth-6 card-panel contenedor">
+        <form class="frm login-form">
+            <div class="row center">                
+                <img src="~/image/logo.png" class="responsive-img circle logo">
             </div>
-            <div class="row input-field">
-                <label for="txtPassword">Contraseña</label>
-                <input type="password" name="txtPassword" id="txtPassword" />
+            <div class="row center">
+                <h5>Iniciar Sesión</h5>
             </div>
             <div class="row">
-                <button type="submit" class="btn btn-success" value="Entrar">Login</button>
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">mail_outline</i>
+                    <input class="validate" id="txtUsuario" name="txtUsuario" type="text">
+                    <label for="txtUsuario" data-error="wrong" data-success="right">Usuario</label>
+                </div>
             </div>
-        </div>
-    </form>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">lock_outline</i>
+                    <input id="txtPassword" name="txtPassword" type="password">
+                    <label for="txtPassword">Contraseña</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12 center">
+                    <input type="submit" class="btningresar" value="INGRESAR" />
+                </div>
+            </div>
+        </form>
+    </div>
 </div>
-
 
 
 @section scripts
