@@ -1,38 +1,59 @@
-﻿<!DOCTYPE html>
+﻿
+@{ 
+    var user = (TransportadoraMVC.Models.Usuario) HttpContext.Current.Session["User"] ?? new TransportadoraMVC.Models.Usuario();
+}
+
+
+
+<!DOCTYPE html>
 <html>
 <head>
     <script src="~/Scripts/jquery-3.6.0.min.js"></script>
-    <script src="~/Scripts/materialize/js/materialize.js"></script>
-    <link href="~/Scripts/materialize/css/materialize.css" rel="stylesheet" />
     <script src="~/Scripts/iniciarMaterialize.js"></script>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta charset="utf-8" />
+    <link href="~/Scripts/materialize/css/materialize.css" rel="stylesheet" />
+    @*<link href="~/Content/principal.css" rel="stylesheet" />*@
+    <script src="~/Scripts/materialize/js/materialize.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+
+
+    <title>Inicio Transportadora</title>
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Nombre de la aplicación", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Cerrar Sesión", "Logout", "Access")</li>
-                </ul>
+    <nav>
+        <div class="nav-wrapper">
+            <div class="row">
+                <div class="col s2">
+
+                    <a href="#" data-target="menu-responsive" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
+                </div>
+                <div class="col s8">
+                    <label for="txtCorreoUsuario" data-error="wrong" data-success="right">
+                        @user.Correo;
+                    </label>
+                </div>
+                <div class="col s2">
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li>@Html.ActionLink("Cerrar Sesión", "Logout", "Access")</li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
+    </nav>
+
+    <ul class="sidenav" id="menu-responsive">
+        <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+        <li>@Html.ActionLink("Actividad", "Index", "Actividad")</li>
+        <li>@Html.ActionLink("Embarques", "Index", "Embarques")</li>
+        <li>@Html.ActionLink("Monedas", "Index", "Monedas")</li>
+        <li>@Html.ActionLink("Procesos", "Index", "Procesos")</li>
+        <li>@Html.ActionLink("Trazabilidad", "Index", "Trazabilidad")</li>
+        <li>@Html.ActionLink("Mi Cuenta", "Index", "Usuarios")</li>
+    </ul>
+
     <div class="container body-content">
         @RenderBody()
         <hr />
@@ -41,8 +62,21 @@
         </footer>
     </div>
 
+
+    @section scripts
+{
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var elems = document.querySelectorAll('.sidenav');
+                var instances = M.Sidenav.init(elems, options);
+            });
+
+        </script>
+    }
+
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
 </html>
+
