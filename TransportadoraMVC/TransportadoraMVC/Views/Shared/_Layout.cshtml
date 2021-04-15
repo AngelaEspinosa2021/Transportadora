@@ -14,7 +14,7 @@
     <script src="~/Scripts/materialize/js/materialize.js"></script>
 
     @*PROPIAS*@
-    <link href="~/Content/principal.css" rel="stylesheet" />
+    @*<link href="~/Content/principal.css" rel="stylesheet" />*@
     <link href="~/Content/estilos.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -30,7 +30,7 @@
 <body>
     <div class="row">
         <div class="col s3">            
-            <img class="responsive-img circle logo" src="~/image/logo.png" width="100" />
+            <img class="responsive-img circle logo" src="~/image/logo.png"/>
         </div>
         <div class="col s6">
             <ul class="margen-Menu" id="menu-responsive">
@@ -39,7 +39,7 @@
                 <li>@Html.ActionLink("Embarques", "Index", "Embarques")</li>
                 <li>@Html.ActionLink("Monedas", "Index", "Monedas")</li>
                 <li>@Html.ActionLink("Procesos", "Index", "Procesos")</li>
-                <li>@Html.ActionLink("Trazabilidad", "Index", "Trazabilidad")</li>
+                @*<li>@Html.ActionLink("Trazabilidad", "Index", "Trazabilidad")</li>*@
                 <li>@Html.ActionLink("Mi Cuenta", "Index", "Usuarios")</li>
             </ul>
         </div>
