@@ -4,27 +4,27 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Lista Monedas</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Crear Moneda", "Create", null, new { @class = "btnGenerico", type = "button" })
 </p>
-<table class="table">
+<table class="highlight">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Nombre)
+        <th class="fuente">
+            Nombre
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Codigo)
+        <th class="fuente">
+            Código
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Valor)
+        <th class="fuente">
+            Valor Moneda
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Fecha)
+        <th class="fuente">
+            Fecha
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Descripcion)
+        <th class="fuente">
+            Descripción
         </th>
         <th></th>
     </tr>
@@ -47,9 +47,9 @@
             @Html.DisplayFor(modelItem => item.Descripcion)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Editar", "Edit", new { id=item.Id }, new { @class = "btnGenerico", type = "button" })
+            @Html.ActionLink("Detalles", "Details", new { id=item.Id }, new { @class = "btnGenerico", type = "button" })
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.Id }, new { @class = "btnGenerico", type = "button" })
         </td>
     </tr>
 }

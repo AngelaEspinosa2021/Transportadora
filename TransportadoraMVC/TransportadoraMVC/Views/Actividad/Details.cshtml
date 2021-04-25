@@ -4,79 +4,79 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Detalles de Actividad</h2>
 
 <div>
     <h4>Actividad</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Asunto)
-        </dt>
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="fuente">Asunto</div>
+            <div class="col-md-10 fuenteTitulo">
+                @Html.DisplayFor(model => model.Asunto)
+                <hr />
+            </div>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Asunto)
-        </dd>
+        <div class="form-group">
+            <div class="fuente">Fecha Vencimiento</div>
+            <div class="col-md-10 fuenteTitulo">
+                @Html.DisplayFor(model => model.FechaVencimiento)
+                <hr />
+            </div>
+        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.FechaVencimiento)
-        </dt>
+        <div class="form-group">
+            <div class="fuente">Estado</div>
+            <div class="col-md-10 fuenteTitulo">
+                @Html.DisplayFor(model => model.Estado)
+                <hr />
+            </div>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.FechaVencimiento)
-        </dd>
+        <div class="form-group">
+            <div class="fuente">Prioridad</div>
+            <div class="col-md-10 fuenteTitulo">
+                @Html.DisplayFor(model => model.Prioridad)
+                <hr />
+            </div>
+        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Observacion)
-        </dt>
+        <div class="form-group">
+            <div class="fuente">Sucursal</div>
+            <div class="col-md-10 fuenteTitulo">
+                @Html.DisplayFor(model => model.Proceso.Sucursal)
+                <hr />
+            </div>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Observacion)
-        </dd>
+        <div class="form-group">
+            <div class="fuente">Correo</div>
+            <div class="col-md-10 fuenteTitulo">
+                @Html.DisplayFor(model => model.Usuario.Correo)
+                <hr />
+            </div>
+        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Estado)
-        </dt>
+        <div class="form-group">
+            <div class="fuente">Correo</div>
+            <div class="col-md-10 fuenteTitulo">
+                @Html.DisplayFor(model => model.Usuario1.Correo)
+                <hr />
+            </div>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Estado)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Prioridad)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Prioridad)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Proceso.Sucursal)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Proceso.Sucursal)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Usuario.Correo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Usuario.Correo)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Usuario1.Correo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Usuario1.Correo)
-        </dd>
-
-    </dl>
+        <div class="form-group">
+            <div class="fuente">Observación</div>
+            <div class="col-md-10 fuenteTitulo">
+                @Html.DisplayFor(model => model.Observacion)
+                <hr />
+            </div>
+        </div>
+    </div>
 </div>
+
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btnGenerico", type = "button" })
+    @Html.ActionLink("Regresar", "Index", null, new { @class = "btnGenerico", type = "button" })
 </p>

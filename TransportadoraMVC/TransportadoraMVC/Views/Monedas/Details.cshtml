@@ -4,55 +4,54 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Detalles</h2>
 
 <div>
     <h4>Moneda</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Nombre)
-        </dt>
+    <div class="form-horizontal">        
+        <div class="form-group">
+            <div class="fuente">Nombre</div>
+            <div class="col-md-10 fuenteTitulo">
+                @Html.DisplayFor(model => model.Nombre)
+                <hr />
+            </div>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Nombre)
-        </dd>
+        <div class="form-group">
+            <div class="fuente">Código</div>            
+            <div class="col-md-10 fuenteTitulo">
+                @Html.DisplayFor(model => model.Codigo)
+                <hr />
+            </div>
+        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Codigo)
-        </dt>
+        <div class="form-group">
+            <div class="fuente">Valor Moneda</div>            
+            <div class="col-md-10 fuenteTitulo">
+                @Html.DisplayFor(model => model.Valor)
+                <hr />
+            </div>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Codigo)
-        </dd>
+        <div class="form-group">
+            <div class="fuente">Fecha</div>            
+            <div class="col-md-10 fuenteTitulo">
+                @Html.DisplayFor(model => model.Fecha)
+                <hr />
+            </div>
+        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Valor)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Valor)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Fecha)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Fecha)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Descripcion)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Descripcion)
-        </dd>
-
-    </dl>
+        <div class="form-group">
+            <div class="fuente">Descripción</div>            
+            <div class="col-md-10 fuenteTitulo">
+                @Html.DisplayFor(model => model.Descripcion)
+                <hr />
+            </div>
+        </div>    
+    </div>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar", "Edit", new { id = Model.Id }, new { @class = "btnGenerico", type = "button" })
+    @Html.ActionLink("Regresar", "Index", null, new { @class = "btnGenerico", type = "button" })
 </p>

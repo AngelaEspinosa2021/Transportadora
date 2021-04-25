@@ -4,72 +4,70 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Lista Actividades</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Crear Actividad", "Create", null, new { @class = "btnContrasena", type = "button" })
 </p>
-<table class="table">
+
+<table class="highlight">
     <tr>
-        <th>
+        <th class="fuente">
             @Html.DisplayNameFor(model => model.Asunto)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FechaVencimiento)
+        <th class="fuente">
+            Fecha Vencimiento
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Observacion)
-        </th>
-        <th>
+        <th class="fuente">
             @Html.DisplayNameFor(model => model.Estado)
         </th>
-        <th>
+        <th class="fuente">
             @Html.DisplayNameFor(model => model.Prioridad)
         </th>
-        <th>
+        <th class="fuente">
             @Html.DisplayNameFor(model => model.Proceso.Sucursal)
         </th>
-        <th>
+        <th class="fuente">
             @Html.DisplayNameFor(model => model.Usuario.Correo)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Usuario1.Correo)
+        <th class="fuente">
+            @Html.DisplayNameFor(model => model.Observacion)
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Asunto)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FechaVencimiento)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Observacion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Estado)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Prioridad)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Proceso.Sucursal)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Usuario.Correo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Usuario1.Correo)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td class="fuente">
+                @Html.DisplayFor(modelItem => item.Asunto)
+            </td>
+            <td class="fuente">
+                @Html.DisplayFor(modelItem => item.FechaVencimiento)
+            </td>
+            <td class="fuente">
+                @Html.DisplayFor(modelItem => item.Estado)
+            </td>
+            <td class="fuente">
+                @Html.DisplayFor(modelItem => item.Prioridad)
+            </td>
+            <td class="fuente">
+                @Html.DisplayFor(modelItem => item.Proceso.Sucursal)
+            </td>
+            <td class="fuente">
+                @Html.DisplayFor(modelItem => item.Usuario.Correo)
+            </td>
+                        <td class="fuente">
+                @Html.DisplayFor(modelItem => item.Observacion)
+            </td>
 
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btnGenerico margenBoton", type = "button" })
+                @Html.ActionLink("Detalles", "Details", new { id = item.Id }, new { @class = "btnGenerico margenBoton", type = "button" }) 
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.Id }, new { @class = "btnGenerico margenBoton", type = "button" })
+            </td>
+        </tr>
+    }
 </table>
+
+

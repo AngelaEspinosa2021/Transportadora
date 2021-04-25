@@ -20,6 +20,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Old+Standard+TT&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap" rel="stylesheet">
     <script src="~/Scripts/iniciarMaterialize.js"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,10 +31,10 @@
 </head>
 <body>
     <div class="row">
-        <div class="col s3">            
+        <div class="col s2">            
             <img class="responsive-img circle logo" src="~/image/logo.png"/>
         </div>
-        <div class="col s6">
+        <div class="col s7">
             <ul class="margen-Menu" id="menu-responsive">
                 <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
                 <li>@Html.ActionLink("Actividad", "Index", "Actividad")</li>
@@ -45,17 +47,17 @@
         </div>
         <div class="col s3">
             <div>
-                <h6 class="right-align">Usuario: <b>@user.Correo</b></h6>
+                <h6 class="right-align fuenteTitulo">Usuario: <b>@user.Correo</b></h6>
             </div>
             <div>
-                <h6 class="right-align"><b>@Html.ActionLink("Cerrar Sesión", "Logout", "Access")</b></h6>
+                <h6 class="right-align fuenteTitulo"><b>@Html.ActionLink("Cerrar Sesión", "Logout", "Access")</b></h6>
             </div>
         </div>
     </div>
     <div class="container">
         @RenderBody()
     </div>
-    <footer class="page-footer" style="position: fixed;bottom: 0; left: 0;width: 100%;">
+    <footer class="page-footer" style= "left: 0;width: 100%;">
         <div class="footer-copyright">
             <div class="container texto-footer center">
                 <div>Manizales, Caldas, Colombia</div>

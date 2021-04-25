@@ -4,31 +4,31 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Detalle de Usuario</h2>
 
 <div>
     <h4>Usuario</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Correo)
-        </dt>
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="fuente">Nombre</div>
+            <div class="col-md-10 fuenteTitulo">
+                @Html.DisplayFor(model => model.Correo)
+                <hr />
+            </div>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Correo)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Contraseña)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Contraseña)
-        </dd>
-
-    </dl>
+        <div class="form-group">
+            <div class="fuente">Contraseña</div>
+            <div class="col-md-10 fuenteTitulo">
+                @Html.DisplayFor(model => model.Contraseña)
+                <hr />
+            </div>
+        </div>
+    </div>
 </div>
+
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar", "Edit", new { id = Model.Id }, new { @class = "btnGenerico", type = "button" })
+    @Html.ActionLink("Regresar", "Index", null, new { @class = "btnGenerico", type = "button" })
 </p>
