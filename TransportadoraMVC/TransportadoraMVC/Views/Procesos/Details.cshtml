@@ -4,39 +4,38 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Detalles</h2>
 
 <div>
     <h4>Proceso</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Sucursal)
-        </dt>
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="fuente">Sucursal</div>
+            <div class="col-md-10 fuenteTitulo">
+                @Html.DisplayFor(model => model.Sucursal)
+                <hr />
+            </div>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Sucursal)
-        </dd>
+        <div class="form-group">
+            <div class="fuente">Nombre</div>
+            <div class="col-md-10 fuenteTitulo">
+                @Html.DisplayFor(model => model.Nombre)
+                <hr />
+            </div>
+        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Nombre)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Nombre)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Estado)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Estado)
-        </dd>
-
-    </dl>
-</div>
+        <div class="form-group">
+            <div class="fuente">Estado</div>
+            <div class="col-md-10 fuenteTitulo">
+                @Html.DisplayFor(model => model.Estado)
+                <hr />
+            </div>
+        </div>
+    </div>
+ </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar", "Edit", new { id = Model.Id }, new { @class = "btnGenerico", type = "button" }) |
+    @Html.ActionLink("Regresar", "Index", null, new { @class = "btnGenerico", type = "button" })
 </p>
