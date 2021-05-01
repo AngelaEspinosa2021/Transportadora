@@ -20,10 +20,10 @@ namespace TransportadoraMVC.Controllers
             try
             {
                 using (TransportadoraEntities db = new TransportadoraEntities())
-                { 
+                {
                     var listaUsuario = (from m in db.Usuario
-                                            where m.Correo == txtUsuario && m.Contraseña == txtPassword
-                                            select m);
+                                        where m.Correo == txtUsuario && m.Contraseña == txtPassword
+                                        select m);
                     if (listaUsuario.Count() > 0)
                     {
                         Usuario User = listaUsuario.First(); //creacion de sesion en c#
@@ -40,7 +40,7 @@ namespace TransportadoraMVC.Controllers
             }
             catch (Exception ex)
             {
-                return Content("Ocurrio un error :("+ex.Message);
+                return Content("Ocurrio un error :(" + ex.Message);
             }
         }
 
@@ -49,6 +49,5 @@ namespace TransportadoraMVC.Controllers
             Session["User"] = null;
             return Content("1");
         }
-
     }
 }

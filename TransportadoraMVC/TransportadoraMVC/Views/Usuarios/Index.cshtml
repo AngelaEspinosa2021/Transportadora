@@ -29,8 +29,9 @@
             @Html.DisplayFor(modelItem => item.Contraseña)
         </td>
         <td>
-            @Html.ActionLink("Detalles", "Details", new { id = item.Id }, new { @class = "btnGenerico", type = "button" })
+            @*@Html.ActionLink("Detalles", "Details", new { id = item.Id }, new { @class = "btnGenerico", type = "button" })*@
             @Html.ActionLink("Cambiar Contraseña", "Edit", new { id = item.Id }, new { @class = "btnContrasena", type = "button" })
+            @Html.ActionLink("Eliminar", "Delete", new { id = item.Id }, new { @class = "btnContrasena", type = "button" })
             @*@Html.ActionLink("Eliminar", "Delete", new { id=item.Id })*@
         </td>
     </tr>

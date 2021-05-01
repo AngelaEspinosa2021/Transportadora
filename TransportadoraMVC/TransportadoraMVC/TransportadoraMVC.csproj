@@ -192,6 +192,7 @@
       <DependentUpon>TransportadoraModel.edmx</DependentUpon>
       <LastGenOutput>TransportadoraModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Scripts\CambiarPassword.js" />
     <Content Include="Scripts\otros\bootstrap.js" />
     <Content Include="Scripts\otros\bootstrap.min.js" />
     <EntityDeploy Include="Models\TransportadoraModel.edmx">
