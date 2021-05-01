@@ -192,8 +192,6 @@
       <DependentUpon>TransportadoraModel.edmx</DependentUpon>
       <LastGenOutput>TransportadoraModel.cs</LastGenOutput>
     </Content>
-    <Content Include="Scripts\otros\bootstrap.js" />
-    <Content Include="Scripts\otros\bootstrap.min.js" />
     <EntityDeploy Include="Models\TransportadoraModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>TransportadoraModel.Designer.cs</LastGenOutput>
@@ -201,23 +199,12 @@
     <Content Include="Models\TransportadoraModel.edmx.diagram">
       <DependentUpon>TransportadoraModel.edmx</DependentUpon>
     </Content>
-    <None Include="Scripts\otros\jquery-3.4.1.intellisense.js" />
-    <Content Include="Scripts\otros\jquery-3.4.1.js" />
-    <Content Include="Scripts\otros\jquery-3.4.1.min.js" />
-    <Content Include="Scripts\otros\jquery-3.4.1.slim.js" />
-    <Content Include="Scripts\otros\jquery-3.4.1.slim.min.js" />
-    <None Include="Scripts\otros\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\otros\jquery.validate.js" />
-    <Content Include="Scripts\otros\jquery.validate.min.js" />
-    <Content Include="Scripts\otros\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\otros\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\materialize\css\materialize.css" />
     <Content Include="Scripts\materialize\css\materialize.min.css" />
     <Content Include="Scripts\iniciarMaterialize.js" />
     <Content Include="Scripts\jquery-3.6.0.min.js" />
     <Content Include="Scripts\materialize\js\materialize.js" />
     <Content Include="Scripts\materialize\js\materialize.min.js" />
-    <Content Include="Scripts\otros\modernizr-2.8.3.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -269,6 +256,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Scripts\otros\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -276,8 +264,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="packages.config" />
-    <Content Include="Scripts\otros\jquery-3.4.1.slim.min.map" />
-    <Content Include="Scripts\otros\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
