@@ -4,70 +4,25 @@
     ViewBag.Title = "Index";
 }
 
+<script src="~/Scripts/actividades.js"></script>
 <h2>Lista Actividades</h2>
 
 <p>
     @Html.ActionLink("Crear Actividad", "Create", null, new { @class = "btnContrasena", type = "button" })
 </p>
 
-<table class="highlight">
-    <tr>
-        <th class="fuente">
-            @Html.DisplayNameFor(model => model.Asunto)
-        </th>
-        <th class="fuente">
-            Fecha Vencimiento
-        </th>
-        <th class="fuente">
-            @Html.DisplayNameFor(model => model.Estado)
-        </th>
-        <th class="fuente">
-            @Html.DisplayNameFor(model => model.Prioridad)
-        </th>
-        <th class="fuente">
-            @Html.DisplayNameFor(model => model.Proceso.Sucursal)
-        </th>
-        <th class="fuente">
-            @Html.DisplayNameFor(model => model.Usuario.Correo)
-        </th>
-        <th class="fuente">
-            @Html.DisplayNameFor(model => model.Observacion)
-        </th>
-        <th></th>
-    </tr>
+<div id="datosActividades">
+</div>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td class="fuente">
-                @Html.DisplayFor(modelItem => item.Asunto)
-            </td>
-            <td class="fuente">
-                @Html.DisplayFor(modelItem => item.FechaVencimiento)
-            </td>
-            <td class="fuente">
-                @Html.DisplayFor(modelItem => item.Estado)
-            </td>
-            <td class="fuente">
-                @Html.DisplayFor(modelItem => item.Prioridad)
-            </td>
-            <td class="fuente">
-                @Html.DisplayFor(modelItem => item.Proceso.Sucursal)
-            </td>
-            <td class="fuente">
-                @Html.DisplayFor(modelItem => item.Usuario.Correo)
-            </td>
-                        <td class="fuente">
-                @Html.DisplayFor(modelItem => item.Observacion)
-            </td>
-
-            <td>
-                @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btnGenerico margenBoton", type = "button" })
-                @Html.ActionLink("Detalles", "Details", new { id = item.Id }, new { @class = "btnGenerico margenBoton", type = "button" }) 
-                @Html.ActionLink("Eliminar", "Delete", new { id = item.Id }, new { @class = "btnGenerico margenBoton", type = "button" })
-            </td>
-        </tr>
-    }
-</table>
-
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+    <div class="modal-content">
+        <h4>Detalle Actividad</h4>
+        <div id="datosdetalleActividad">
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cerrar</a>
+    </div>
+</div>
 

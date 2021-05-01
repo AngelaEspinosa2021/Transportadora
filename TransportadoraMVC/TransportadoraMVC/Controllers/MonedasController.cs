@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -20,6 +21,18 @@ namespace TransportadoraMVC.Controllers
             return View(db.Moneda.ToList());
         }
 
+        public string Listar()
+        {
+            var monedas = (from m in db.Moneda
+                               select m).ToList();
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(monedas,
+                new JsonSerializerSettings
+                {
+                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                });
+        }
+
         // GET: Monedas/Details/5
         public ActionResult Details(long? id)
         {
@@ -33,6 +46,17 @@ namespace TransportadoraMVC.Controllers
                 return HttpNotFound();
             }
             return View(moneda);
+        }
+
+        public string Detalle(long? id)
+        {
+            var detalleActividad = db.Moneda.Find(id);
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(detalleActividad,
+                new JsonSerializerSettings
+                {
+                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                });
         }
 
         // GET: Monedas/Create

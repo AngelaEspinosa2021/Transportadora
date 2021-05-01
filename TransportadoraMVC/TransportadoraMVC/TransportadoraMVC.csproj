@@ -199,12 +199,16 @@
     <Content Include="Models\TransportadoraModel.edmx.diagram">
       <DependentUpon>TransportadoraModel.edmx</DependentUpon>
     </Content>
+    <Content Include="Scripts\actividades.js" />
     <Content Include="Scripts\materialize\css\materialize.css" />
     <Content Include="Scripts\materialize\css\materialize.min.css" />
     <Content Include="Scripts\iniciarMaterialize.js" />
     <Content Include="Scripts\jquery-3.6.0.min.js" />
     <Content Include="Scripts\materialize\js\materialize.js" />
     <Content Include="Scripts\materialize\js\materialize.min.js" />
+    <Content Include="Scripts\monedas.js" />
+    <Content Include="Scripts\procesos.js" />
+    <Content Include="Scripts\usuarios.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

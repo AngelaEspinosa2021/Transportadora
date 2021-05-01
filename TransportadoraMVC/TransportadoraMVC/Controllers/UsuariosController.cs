@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -23,8 +24,19 @@ namespace TransportadoraMVC.Controllers
             return View(usuarios);
 
         }
-        
-        
+        public string Listar()
+        {
+            var actividades = (from u in db.Usuario
+                               select u).ToList();
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(actividades,
+                new JsonSerializerSettings
+                {
+                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                });
+        }
+
+
         // GET: Usuarios/Details/5
         public ActionResult Details(long? id)
         {
@@ -38,6 +50,17 @@ namespace TransportadoraMVC.Controllers
                 return HttpNotFound();
             }
             return View(usuario);
+        }
+
+        public string Detalle(long? id)
+        {
+            var detalleUsuario = db.Usuario.Find(id);
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(detalleUsuario,
+                new JsonSerializerSettings
+                {
+                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                });
         }
 
         // GET: Usuarios/Create

@@ -49,6 +49,17 @@ namespace TransportadoraMVC.Controllers
             return View(actividad);
         }
 
+        public string Detalle(long? id)
+        {
+            var detalleActividad = db.Actividad.Find(id);
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(detalleActividad,
+                new JsonSerializerSettings
+                {
+                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                });
+        }
+
         // GET: Actividad/Create
         public ActionResult Create()
         {

@@ -3,47 +3,25 @@
 @{
     ViewBag.Title = "Index";
 }
+<script src="~/Scripts/procesos.js"></script>
 
 <h2>Lista Procesos</h2>
 
 <p>
     @Html.ActionLink("Crear Proceso", "Create", null, new { @class = "btnGenerico", type = "button" })
 </p>
-<table class="highlight">
-    <tr>
-        <th class="fuente">
-            Sucursal
-        </th>
-        <th class="fuente">
-            Nombre
-        </th>
-        <th class="fuente">
-            Valor Moneda
-        </th>
-        <th class="fuente">
-            Estado
-        </th>
-        <th></th>
-    </tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Sucursal)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Estado)
-            </td>
-            <td>
-                @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btnGenerico", type = "button" }) |
-                @Html.ActionLink("Detalles", "Details", new { id = item.Id }, new { @class = "btnGenerico", type = "button" }) |
-                @Html.ActionLink("Eliminar", "Delete", new { id = item.Id }, new { @class = "btnGenerico", type = "button" })
-            </td>
-        </tr>
-    }
+<div id="datosProcesos">
+</div>
 
-</table>
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+    <div class="modal-content">
+        <h4>Detalle Proceso</h4>
+        <div id="datosdetalleProceso">
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cerrar</a>
+    </div>
+</div>
