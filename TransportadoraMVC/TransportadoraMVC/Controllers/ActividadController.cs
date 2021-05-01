@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -19,6 +20,18 @@ namespace TransportadoraMVC.Controllers
         {
             var actividad = db.Actividad.Include(a => a.Proceso).Include(a => a.Usuario).Include(a => a.Usuario1);
             return View(actividad.ToList());
+        }
+
+        public string Listar()
+        {
+            var actividades = (from a in db.Actividad
+                               select a).ToList();
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(actividades,
+                new JsonSerializerSettings
+                {
+                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                });
         }
 
         // GET: Actividad/Details/5
