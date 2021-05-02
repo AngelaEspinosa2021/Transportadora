@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -24,6 +25,19 @@ namespace TransportadoraMVC.Controllers
             return View(usuarios);
 
         }
+
+        public string Listar()
+        {
+            var actividades = (from u in db.Usuario
+                               select u).ToList();
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(actividades,
+                new JsonSerializerSettings
+                {
+                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                });
+        }
+
         
         public string CambiarPassword(long? id, string contraseñaActual,string nuevaContraseña)
         {
@@ -52,6 +66,7 @@ namespace TransportadoraMVC.Controllers
         {
             Usuario usuario = db.Usuario.Find(id);
             return View(usuario);
+
         }
 
 
@@ -68,6 +83,17 @@ namespace TransportadoraMVC.Controllers
                 return HttpNotFound();
             }
             return View(usuario);
+        }
+
+        public string Detalle(long? id)
+        {
+            var detalleUsuario = db.Usuario.Find(id);
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(detalleUsuario,
+                new JsonSerializerSettings
+                {
+                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                });
         }
 
         // GET: Usuarios/Create

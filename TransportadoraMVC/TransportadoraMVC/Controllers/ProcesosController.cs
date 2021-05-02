@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -20,6 +21,18 @@ namespace TransportadoraMVC.Controllers
             return View(db.Proceso.ToList());
         }
 
+        public string Listar()
+        {
+            var procesos = (from p in db.Proceso
+                               select p).ToList();
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(procesos,
+                new JsonSerializerSettings
+                {
+                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                });
+        }
+
         // GET: Procesos/Details/5
         public ActionResult Details(long? id)
         {
@@ -33,6 +46,17 @@ namespace TransportadoraMVC.Controllers
                 return HttpNotFound();
             }
             return View(proceso);
+        }
+
+        public string Detalle(long? id)
+        {
+            var detalleProceso = db.Proceso.Find(id);
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(detalleProceso,
+                new JsonSerializerSettings
+                {
+                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                });
         }
 
         // GET: Procesos/Create
