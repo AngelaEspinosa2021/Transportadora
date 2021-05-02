@@ -17,7 +17,7 @@
                 tabla += '<td class="fuenteTitulo">' + datos[i].Sucursal + '</td>';
                 tabla += '<td class="fuenteTitulo">' + datos[i].Nombre + '</td>';
                 tabla += '<td class="fuenteTitulo">' + datos[i].Estado + '</td>';
-                tabla += '<td><a href="/Procesos/Edit/' + datos[i].Id + '" type="button" class="btnGenerico margenBoton">Editar</a><a href="#modal1" onclick="detalleProcesos(' + datos[i].Id + ');" type="button" class="btnGenerico margenBoton modal-trigger">Detalle</a><a href="/Procesos/Delete/' + datos[i].Id + '" type="button" class="btnGenerico margenBoton">Eliminar</a></td>';
+                tabla += '<td><a href="/Procesos/Edit/' + datos[i].Id + '" type="button" class="btnGenerico margenBoton">Editar</a><a href="#modal1" onclick="detalleProcesos(' + datos[i].Id + ');" type="button" class="btnGenerico margenBoton modal-trigger">Detalle</a><a href="#modal2" onclick="eliminarProceso(' + datos[i].Id + ');" type="button" class="btnGenerico margenBoton modal-trigger">Eliminar</a></td>';
                 tabla += '</tr>';
             }
 
@@ -67,6 +67,31 @@ function detalleProcesos(id) {
             procesoDetalle += '</form>';
 
             $('#datosdetalleProceso').html(procesoDetalle);
+        },
+        error: function () {
+            alert('Peticion con error');
+        }
+    });
+}
+
+function eliminarProceso(id) {
+    var boton = '<div class="col s6 center">';
+    boton += '<a href="#!" class="modal-close waves-effect waves-green btn-flat" onclick="confirmarEliminacion(' + id + ')">Eliminar</a>';
+    boton += '</div>';
+    boton += '<div class="col s6 center">';
+    boton += '<a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancelar</a>';
+    boton += '</div>';
+
+    $('#datoseliminarProceso').html(boton);
+}
+
+function confirmarEliminacion(id) {
+    var id = id;
+    $.ajax({
+        url: '/Procesos/eliminar/' + id,
+        type: 'GET',
+        success: function () {
+            window.location.href = '/Procesos/Index';
         },
         error: function () {
             alert('Peticion con error');

@@ -141,6 +141,7 @@ namespace TransportadoraMVC.Controllers
             return View(actividad);
         }
 
+        
         // POST: Actividad/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -150,6 +151,14 @@ namespace TransportadoraMVC.Controllers
             db.Actividad.Remove(actividad);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public string eliminar(long id)
+        {
+            Actividad actividad = db.Actividad.Find(id);
+            db.Actividad.Remove(actividad);
+            db.SaveChanges();
+            return null;
         }
 
         protected override void Dispose(bool disposing)

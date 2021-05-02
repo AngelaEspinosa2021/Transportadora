@@ -21,7 +21,7 @@
                 tabla += '<td class="fuenteTitulo">' + datos[i].Valor + '</td>';
                 tabla += '<td class="fuenteTitulo">' + datos[i].Fecha + '</td>';
                 tabla += '<td class="fuenteTitulo">' + datos[i].Descripcion + '</td>';                
-                tabla += '<td><a href="/Monedas/Edit/' + datos[i].Id + '" type="button" class="btnGenerico margenBoton">Editar</a><a href="#modal1" onclick="detalleMonedas(' + datos[i].Id + ');" type="button" class="btnGenerico margenBoton modal-trigger">Detalle</a><a href="/Monedas/Delete/' + datos[i].Id + '" type="button" class="btnGenerico margenBoton">Eliminar</a></td>';
+                tabla += '<td><a href="/Monedas/Edit/' + datos[i].Id + '" type="button" class="btnGenerico margenBoton">Editar</a><a href="#modal1" onclick="detalleMonedas(' + datos[i].Id + ');" type="button" class="btnGenerico margenBoton modal-trigger">Detalle</a><a href="#modal2" onclick="eliminarMoneda(' + datos[i].Id + ');" type="button" class="btnGenerico margenBoton modal-trigger">Eliminar</a></td>';
                 tabla += '</tr>';
             }
 
@@ -86,7 +86,32 @@ function detalleMonedas(id) {
             monedaDetalle += '</div>';
             monedaDetalle += '</form>';
 
-            $('#datosdetalleProceso').html(monedaDetalle);
+            $('#datosdetalleMoneda').html(monedaDetalle);
+        },
+        error: function () {
+            alert('Peticion con error');
+        }
+    });
+}
+
+function eliminarMoneda(id) {
+    var boton = '<div class="col s6 center">';
+    boton += '<a href="#!" class="modal-close waves-effect waves-green btn-flat" onclick="confirmarEliminacion(' + id + ')">Eliminar</a>';
+    boton += '</div>';
+    boton += '<div class="col s6 center">';
+    boton += '<a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancelar</a>';
+    boton += '</div>';
+
+    $('#datoseliminarMoneda').html(boton);
+}
+
+function confirmarEliminacion(id) {
+    var id = id;
+    $.ajax({
+        url: '/Monedas/eliminar/' + id,
+        type: 'GET',
+        success: function () {
+            window.location.href = '/Monedas/Index';
         },
         error: function () {
             alert('Peticion con error');

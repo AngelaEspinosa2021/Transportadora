@@ -25,7 +25,7 @@
                 tabla += '<td class="fuenteTitulo">' + datos[i].Proceso.Sucursal + '</td>';
                 tabla += '<td class="fuenteTitulo">' + datos[i].Usuario.Correo + '</td>';
                 tabla += '<td class="fuenteTitulo">' + datos[i].Observacion + '</td>';
-                tabla += '<td><a href="/Actividad/Edit/' + datos[i].Id + '" type="button" class="btnGenerico margenBoton">Editar</a><a href="#modal1" onclick="detalleActividad(' + datos[i].Id + ');" type="button" class="btnGenerico margenBoton modal-trigger">Detalle</a><a href="/Actividad/Delete/' + datos[i].Id + '" type="button" class="btnGenerico margenBoton">Eliminar</a></td>';
+                tabla += '<td><a href="/Actividad/Edit/' + datos[i].Id + '" type="button" class="btnGenerico margenBoton">Editar</a><a href="#modal1" onclick="detalleActividad(' + datos[i].Id + ');" type="button" class="btnGenerico margenBoton modal-trigger">Detalle</a><a href="#modal2" onclick="eliminarActividad(' + datos[i].Id + ');" type="button" class="btnGenerico margenBoton modal-trigger">Eliminar</a></td>';
                 tabla += '</tr>';
             }
 
@@ -113,6 +113,32 @@ function detalleActividad(id) {
         }
     });
 }
+
+function eliminarActividad(id) {
+    var boton = '<div class="col s6 center">';
+    boton += '<a href="#!" class="modal-close waves-effect waves-green btn-flat" onclick="confirmarEliminacion(' + id + ')">Eliminar</a>';
+    boton += '</div>';
+    boton += '<div class="col s6 center">';
+    boton += '<a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancelar</a>';
+    boton += '</div>';   
+
+    $('#datoseliminarActividad').html(boton);
+}
+
+function confirmarEliminacion(id) {
+    var id = id;
+    $.ajax({
+        url: '/Actividad/eliminar/' + id,
+        type: 'GET',
+        success: function () {
+            window.location.href = '/Actividad/Index';
+        },
+        error: function () {
+            alert('Peticion con error');
+        }
+    });
+}
+
 
 $(document).ready(function () {
     ListarActividades();

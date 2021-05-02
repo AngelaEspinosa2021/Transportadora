@@ -139,6 +139,14 @@ namespace TransportadoraMVC.Controllers
             return RedirectToAction("Index");
         }
 
+        public string eliminar(long id)
+        {
+            Moneda moneda = db.Moneda.Find(id);
+            db.Moneda.Remove(moneda);
+            db.SaveChanges();
+            return null;
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
