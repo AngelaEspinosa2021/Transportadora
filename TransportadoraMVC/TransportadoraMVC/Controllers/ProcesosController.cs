@@ -139,6 +139,14 @@ namespace TransportadoraMVC.Controllers
             return RedirectToAction("Index");
         }
 
+        public string eliminar(long id)
+        {
+            Proceso proceso = db.Proceso.Find(id);
+            db.Proceso.Remove(proceso);
+            db.SaveChanges();
+            return null;
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

@@ -92,4 +92,7 @@ body {
       color: #26a 69a;
     }
 
-
+    .input-field input[type].valid, .input-field input[type].valid:focus, .input-field textarea.valid, .input-field textarea.valid:focus {
+        border-bottom: 1px solid #48add9 !important;
+        box-shadow: 0 1px 0 0 #48add9 !important;
+    }
