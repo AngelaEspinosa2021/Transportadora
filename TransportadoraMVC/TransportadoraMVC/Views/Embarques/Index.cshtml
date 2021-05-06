@@ -25,13 +25,67 @@
     </div>
 </div>
 
-<div id="modalTrazabilidad" class="modal">
+<div id="modal2" class="modal">
     <div class="modal-content">
         <h4>Trazabilidad del Embarque</h4>
         <div id="datosTrazabilidadEmbarque">
+            <div class="form-horizontal">
+
+                <div class="row">
+                    <div class="col col s5 input-field">
+                        <input id="tipoOperacion" name="tipoOperacion" type="text">
+                        <label for="tipoOperacion">Tipo de Operación: </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col s5 input-field">
+                        <input id="paisOrigen" name="paisOrigen" type="text">
+                        <label for="paisOrigen">Pais Origen: </label>
+                    </div>
+                    <div class="col col s5 input-field">
+                        <input id="ciudadOrigen" name="ciudadOrigen" type="text">
+                        <label for="ciudadOrigen">Ciudad Origen: </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col s5 input-field">
+                        <input id="paisDestino" name="paisDestino" type="text">
+                        <label for="paisDestino">Pais Destino: </label>
+                    </div>
+                    <div class="col col s5 input-field">
+                        <input id="ciudadDestino" name="ciudadDestino" type="text">
+                        <label for="ciudadDestino">Ciudad Destino: </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col s5 input-field">
+                        <input id="kilos" name="kilos" type="text">
+                        <label for="kilos">Kilos: </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col s5 input-field">
+                        <input id="teus" name="teus" type="text">
+                        <label for="teus">Teus: </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col s5">
+                        <input id="idEmbarque" name="idEmbarque" type="text" disabled>
+                        <label for="idEmbarque">Id Embarque </label>
+                    </div>
+                </div>
+
+                <div class="form-group fuente">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="button" value="Guardar" class="btnGuardar" onclick="GuardarTrazabilidad()" />
+                    </div>
+                </div>
+
+            </div>
         </div>
-    </div>
-    <div class="modal-footer">
-        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cerrar</a>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cerrar</a>
+        </div>
     </div>
 </div>

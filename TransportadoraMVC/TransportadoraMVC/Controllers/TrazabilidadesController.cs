@@ -47,18 +47,18 @@ namespace TransportadoraMVC.Controllers
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,TipoOperacion,PaisOrigen,CiudadOrigen,PaisDestino,CiudadDesstino,Kilos,Teus,IdEmbarque")] Trazabilidad trazabilidad)
+        
+        public ActionResult Create(Trazabilidad trazabilidad)
         {
-            if (ModelState.IsValid)
+            if (trazabilidad != null)
             {
                 db.Trazabilidad.Add(trazabilidad);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return new HttpStatusCodeResult(HttpStatusCode.OK);
             }
 
-            ViewBag.IdEmbarque = new SelectList(db.Embarque, "Id", "Direccion", trazabilidad.IdEmbarque);
-            return View(trazabilidad);
+                
+            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
         }
 
         // GET: Trazabilidades/Edit/5

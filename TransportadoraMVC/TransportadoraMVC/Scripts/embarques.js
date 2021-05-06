@@ -40,7 +40,7 @@
                 tabla += '<td class="fuenteTitulo">' + datos[i].INCOTERM + '</td>';
                 tabla += '<td class="fuenteTitulo">' + datos[i].Observacion + '</td>';
                 tabla += '<td><a href="#modal1" onclick="detalleEmbarque(' + datos[i].Id + ');" type="button" class="btnGenerico margenBoton modal-trigger">Detalle</a><a href="/Embarques/Edit/' + datos[i].Id + '" type="button" class="btnContrasena margenBoton">Editar</a>';
-                tabla += '<td><a href="#modalTrazabilidad" onclick="Trazabilidad(' + datos[i].Id + ');" type="button" class="btnGenerico margenBoton modal-trigger">Trazabilidad</a>';
+                tabla += '<td><a href="#modal2" onclick="OpenModalCreateTrazabilidad(' + datos[i].Id + ');" type="button" class="btnGenerico margenBoton modal-trigger">Trazabilidad</a>';
                 tabla += '</tr>';
             }
 
@@ -184,6 +184,39 @@ function detalleEmbarque(id) {
         }
     });
 }
+
+function GuardarTrazabilidad(id) {
+    
+    $.ajax({
+        url: '/Trazabilidades/Create/',
+        type: 'post',
+        data: {
+            TipoOperacion: $('#tipoOperacion').val(),
+            PaisOrigen: $('#paisOrigen').val(),
+            CiudadOrigen: $('#ciudadOrigen').val(),
+            PaisDestino: $('#paisDestino').val(),
+            CiudadDesstino: $('#ciudadDestino').val(),
+            Kilos: $('#kilos').val(),
+            Teus: $('#teus').val(),
+            IdEmbarque: $('#idEmbarque').val(),
+        },
+        
+        success: function (datos) {
+            alert('Trazabilidad Creada.');
+            window.location.href = '/Embarques/Index';
+        },
+        error: function () {
+            alert('Peticion con error');
+        }
+
+    });
+}
+
+function OpenModalCreateTrazabilidad(id) {
+    $('#idEmbarque').val(id);
+}
+
+
 
 $(document).ready(function () {
     ListarEmbarques();
