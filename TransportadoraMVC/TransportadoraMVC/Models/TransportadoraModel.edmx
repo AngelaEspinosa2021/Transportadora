@@ -64,7 +64,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TipoOperacion" Type="nvarchar" MaxLength="10" />
+          <Property Name="TipoOperacion" Type="nvarchar" MaxLength="20" />
           <Property Name="PaisOrigen" Type="nvarchar" MaxLength="50" />
           <Property Name="CiudadOrigen" Type="nvarchar" MaxLength="50" />
           <Property Name="PaisDestino" Type="nvarchar" MaxLength="50" />
@@ -221,7 +221,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TipoOperacion" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="TipoOperacion" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="PaisOrigen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CiudadOrigen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="PaisDestino" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />

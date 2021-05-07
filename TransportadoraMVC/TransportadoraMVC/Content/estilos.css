@@ -177,6 +177,6 @@ input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):
     box-shadow: 0 1px 0 0 #48add9;
 }
 
-.modal4{
-    height: 300px;
+.modal {
+   min-height: 500px;
 }
