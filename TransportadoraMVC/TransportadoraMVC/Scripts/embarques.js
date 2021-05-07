@@ -7,40 +7,28 @@
             var tabla = '<table class="highlight">';
             tabla += '<tr>';
             tabla += '<th class="fuente">Direccion</th>';
-            tabla += '<th class="fuente">Telefono</th>';
-            tabla += '<th class="fuente">Fax</th>';
             tabla += '<th class="fuente">Contacto</th>';
-            tabla += '<th class="fuente">Orden de Compra</th>';
             tabla += '<th class="fuente">Consignatario</th>';
             tabla += '<th class="fuente">Zona Aduanera</th>';
             tabla += '<th class="fuente">Origen</th>';
             tabla += '<th class="fuente">Destino</th>';
-            tabla += '<th class="fuente">Embarque Aereo</th>';
-            tabla += '<th class="fuente">Embarque Maritimo</th>';
             tabla += '<th class="fuente">Contenedor</th>';
             tabla += '<th class="fuente">INCOTERM</th>';
-            tabla += '<th class="fuente">Observación</th>';
             tabla += '<th></th>';
             tabla += '</tr >';
             console.log(datos);
             for (var i = 0; i < datos.length; i++) {
                 tabla += '<tr>';
-                tabla += '<td class="fuenteTitulo">' + datos[i].Direccion + '</td>';
-                tabla += '<td class="fuenteTitulo">' + datos[i].Telefono + '</td>';
-                tabla += '<td class="fuenteTitulo">' + datos[i].Fax + '</td>';
-                tabla += '<td class="fuenteTitulo">' + datos[i].Contacto + '</td>';
-                tabla += '<td class="fuenteTitulo">' + datos[i].OrdenCompra + '</td>';
+                tabla += '<td class="fuenteTitulo">' + datos[i].Direccion + '</td>';                
+                tabla += '<td class="fuenteTitulo">' + datos[i].Contacto + '</td>';                
                 tabla += '<td class="fuenteTitulo">' + datos[i].Consignatario + '</td>';
                 tabla += '<td class="fuenteTitulo">' + datos[i].ZonaAduanera + '</td>';
                 tabla += '<td class="fuenteTitulo">' + datos[i].Origen + '</td>';
                 tabla += '<td class="fuenteTitulo">' + datos[i].Destino + '</td>';
-                tabla += '<td class="fuenteTitulo">' + datos[i].EmbarqueAereo + '</td>';
-                tabla += '<td class="fuenteTitulo">' + datos[i].EmbarqueMaritimo + '</td>';
                 tabla += '<td class="fuenteTitulo">' + datos[i].Contenedor + '</td>';
                 tabla += '<td class="fuenteTitulo">' + datos[i].INCOTERM + '</td>';
-                tabla += '<td class="fuenteTitulo">' + datos[i].Observacion + '</td>';
-                tabla += '<td><a href="#modal1" onclick="detalleEmbarque(' + datos[i].Id + ');" type="button" class="btnGenerico margenBoton modal-trigger">Detalle</a><a href="/Embarques/Edit/' + datos[i].Id + '" type="button" class="btnContrasena margenBoton">Editar</a>';
-                tabla += '<td><a href="#modal2" onclick="OpenModalCreateTrazabilidad(' + datos[i].Id + ');" type="button" class="btnGenerico margenBoton modal-trigger">Trazabilidad</a>';
+                tabla += '<td><a href="#modal1" onclick="detalleEmbarque(' + datos[i].Id + ');" type="button" class="btnGenerico margenBoton modal-trigger">Detalle</a><a href="/Embarques/Edit/' + datos[i].Id + '" type="button" class="btnGenerico margenBoton">Editar</a><a href="#modal3" onclick="eliminarEmbarque(' + datos[i].Id + ');" type="button" class="btnGenerico margenBoton modal-trigger">Eliminar</a></td>';
+                tabla += '<td><a href="#modal2" onclick="OpenModalCreateTrazabilidad(' + datos[i].Id + ');" type="button" class="btnGenerico2 margenBoton modal-trigger">Crear Trazabilidad</a><a href="#modal4" onclick="ListarTrazabilidades(' + datos[i].Id + ');" type="button" class="btnGenerico2 margenBoton modal-trigger">Historial Trazabilidades</a>';
                 tabla += '</tr>';
             }
 
@@ -216,7 +204,98 @@ function OpenModalCreateTrazabilidad(id) {
     $('#idEmbarque').val(id);
 }
 
+function eliminarEmbarque(id) {
+    var boton = '<div class="col s6 center">';
+    boton += '<a href="#!" class="modal-close waves-effect waves-green btn-flat" onclick="confirmarEliminacion(' + id + ')">Eliminar</a>';
+    boton += '</div>';
+    boton += '<div class="col s6 center">';
+    boton += '<a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancelar</a>';
+    boton += '</div>';
 
+    $('#datoseliminarEmbarque').html(boton);
+}
+
+function confirmarEliminacion(id) {
+    var id = id;
+    $.ajax({
+        url: '/Embarques/Eliminar/' + id,
+        type: 'GET',
+        success: function () {
+            window.location.href = '/Embarques/Index';
+        },
+        error: function () {
+            alert('Peticion con error');
+        }
+    });
+}
+
+function ListarTrazabilidades(id) {
+    $.ajax({
+        url: '/Trazabilidades/Listar/' + id,
+        type: 'get',
+        dataType: 'json',
+        success: function (datos) {
+            var tabla = '<table class="highlight">';
+            tabla += '<tr>';
+            tabla += '<th class="fuente">Tipo de Operacion</th>';
+            tabla += '<th class="fuente">Pais Origen</th>';
+            tabla += '<th class="fuente">Ciudad Origen</th>';
+            tabla += '<th class="fuente">Pais Destino</th>';
+            tabla += '<th class="fuente">Ciudad Destino</th>';
+            tabla += '<th class="fuente">Kilos</th>';
+            tabla += '<th class="fuente">Teus</th>';
+            tabla += '<th class="fuente">IdEmbarque</th>';
+            tabla += '<th></th>';
+            tabla += '</tr >';
+            console.log(datos);
+            for (var i = 0; i < datos.length; i++) {
+                tabla += '<tr>';
+                tabla += '<td class="fuenteTitulo center">' + datos[i].TipoOperacion + '</td>';
+                tabla += '<td class="fuenteTitulo center">' + datos[i].PaisOrigen + '</td>';
+                tabla += '<td class="fuenteTitulo center">' + datos[i].CiudadOrigen + '</td>';
+                tabla += '<td class="fuenteTitulo center">' + datos[i].PaisDestino + '</td>';
+                tabla += '<td class="fuenteTitulo center">' + datos[i].CiudadDesstino + '</td>';
+                tabla += '<td class="fuenteTitulo center">' + datos[i].Kilos + '</td>';
+                tabla += '<td class="fuenteTitulo center">' + datos[i].Teus + '</td>';
+                tabla += '<td class="fuenteTitulo center">' + datos[i].IdEmbarque + '</td>';
+                tabla += '<td><a href="#modal5" onclick="eliminarTrazabilidad(' + datos[i].Id + ');" type="button" class="btnGenerico margenBoton modal-trigger">Eliminar</a></td>';
+                tabla += '</tr>';
+            }
+
+            tabla += '</table>';
+
+            $('#datosTrazabilidades').html(tabla);
+        },
+        error: function () {
+            alert('Peticion con error');
+        }
+    });
+}
+
+function eliminarTrazabilidad(id) {
+    var boton = '<div class="col s6 center">';
+    boton += '<a href="#!" class="modal-close waves-effect waves-green btn-flat" onclick="confirmarEliminacionTrazabilidad(' + id + ')">Eliminar</a>';
+    boton += '</div>';
+    boton += '<div class="col s6 center">';
+    boton += '<a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancelar</a>';
+    boton += '</div>';
+
+    $('#datosEliminarTrazabilidad').html(boton);
+}
+
+function confirmarEliminacionTrazabilidad(id) {
+    var id = id;
+    $.ajax({
+        url: '/Trazabilidades/Eliminar/' + id,
+        type: 'GET',
+        success: function () {
+            window.location.href = '/Embarques/Index/';
+        },
+        error: function () {
+            alert('Peticion con error');
+        }
+    });
+}
 
 $(document).ready(function () {
     ListarEmbarques();

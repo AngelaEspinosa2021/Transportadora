@@ -142,6 +142,29 @@ namespace TransportadoraMVC.Controllers
             return RedirectToAction("Index");
         }
 
+        public string Eliminar(long id)
+        {
+            Embarque embarque = db.Embarque.Find(id);
+            EliminarTrazas(id);
+            db.Embarque.Remove(embarque);
+            db.SaveChanges();
+            return null;
+        }
+
+        public void EliminarTrazas(long? idEmbarque)
+        {
+            var trazas = (from u in db.Trazabilidad
+                          where u.IdEmbarque==idEmbarque
+                          select u).ToList();
+
+            foreach(var traza in trazas)
+            {
+                db.Trazabilidad.Remove(traza);                               
+            }
+            db.SaveChanges();
+        }
+
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

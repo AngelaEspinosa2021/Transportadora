@@ -52,7 +52,7 @@ footer{
 }
 
 .btnContrasena {
-    background-color: #48add9;    
+    background-color: #48add9;
     width: 170px;
     height: 30px;
     border-radius: 10px;
@@ -63,6 +63,7 @@ footer{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 12px;
     font-weight: bold;
+    display: inline-block;
 }
 
 .btnGenerico {
@@ -78,13 +79,30 @@ footer{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 12px;
     font-weight: bold;
+    display: inline-block;
+}
+
+.btnGenerico2 {
+    background-color: #48add9;
+    width: 120px;
+    border: none;
+    height: 50px;
+    border-radius: 10px;
+    color: white;
+    letter-spacing: 1px;
+    text-align: center;
+    padding-top: 6px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    display: inline-block;
 }
 
 .btnGuardar {
     background-color: #48add9;
-    width: 120px;
+    width: 120px !important;
     border: none;
-    height: 30px;
+    height: 30px !important;
     border-radius: 10px;
     color: white;
     letter-spacing: 1px;
@@ -92,6 +110,7 @@ footer{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 12px;
     font-weight: bold;
+    
 }
 
 h4 {
@@ -156,4 +175,8 @@ input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):
     border-bottom: 1px solid #48add9;
     -webkit-box-shadow: 0 1px 0 0 #48add9;
     box-shadow: 0 1px 0 0 #48add9;
+}
+
+.modal4{
+    height: 300px;
 }
