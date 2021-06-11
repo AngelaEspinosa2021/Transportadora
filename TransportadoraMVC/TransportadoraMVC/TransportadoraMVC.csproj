@@ -201,6 +201,7 @@
     </Content>
     <Content Include="Scripts\actividades.js" />
     <Content Include="Scripts\CambiarPassword.js" />
+    <Content Include="Scripts\embarques.js" />
     <Content Include="Scripts\materialize\css\materialize.css" />
     <Content Include="Scripts\materialize\css\materialize.min.css" />
     <Content Include="Scripts\iniciarMaterialize.js" />

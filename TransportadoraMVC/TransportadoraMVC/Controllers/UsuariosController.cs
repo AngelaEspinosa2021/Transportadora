@@ -113,6 +113,14 @@ namespace TransportadoraMVC.Controllers
             return RedirectToAction("Index");
         }
 
+        public string eliminar(long id)
+        {
+            Usuario usuario = db.Usuario.Find(id);
+            db.Usuario.Remove(usuario);
+            db.SaveChanges();
+            return null;
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

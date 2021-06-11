@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -19,6 +20,19 @@ namespace TransportadoraMVC.Controllers
         {
             var trazabilidad = db.Trazabilidad.Include(t => t.Embarque);
             return View(trazabilidad.ToList());
+        }
+
+        public string Listar(long? id)
+        {
+            var trazabilidad = (from p in db.Trazabilidad
+                                where p.IdEmbarque==id
+                            select p).ToList();
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(trazabilidad,
+                new JsonSerializerSettings
+                {
+                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                });
         }
 
         // GET: Trazabilidades/Details/5
@@ -47,18 +61,18 @@ namespace TransportadoraMVC.Controllers
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,TipoOperacion,PaisOrigen,CiudadOrigen,PaisDestino,CiudadDesstino,Kilos,Teus,IdEmbarque")] Trazabilidad trazabilidad)
+        
+        public ActionResult Create(Trazabilidad trazabilidad)
         {
-            if (ModelState.IsValid)
+            if (trazabilidad != null)
             {
                 db.Trazabilidad.Add(trazabilidad);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return new HttpStatusCodeResult(HttpStatusCode.OK);
             }
 
-            ViewBag.IdEmbarque = new SelectList(db.Embarque, "Id", "Direccion", trazabilidad.IdEmbarque);
-            return View(trazabilidad);
+                
+            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
         }
 
         // GET: Trazabilidades/Edit/5
@@ -77,21 +91,22 @@ namespace TransportadoraMVC.Controllers
             return View(trazabilidad);
         }
 
+      
         // POST: Trazabilidades/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,TipoOperacion,PaisOrigen,CiudadOrigen,PaisDestino,CiudadDesstino,Kilos,Teus,IdEmbarque")] Trazabilidad trazabilidad)
+        public ActionResult Edit(Trazabilidad trazabilidad)
         {
-            if (ModelState.IsValid)
+            if (trazabilidad != null)
             {
                 db.Entry(trazabilidad).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return new HttpStatusCodeResult(HttpStatusCode.OK);
             }
-            ViewBag.IdEmbarque = new SelectList(db.Embarque, "Id", "Direccion", trazabilidad.IdEmbarque);
-            return View(trazabilidad);
+            
+            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
         }
 
         // GET: Trazabilidades/Delete/5
@@ -118,6 +133,13 @@ namespace TransportadoraMVC.Controllers
             db.Trazabilidad.Remove(trazabilidad);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+        public string Eliminar(long id)
+        {
+            Trazabilidad trazabilidad = db.Trazabilidad.Find(id);
+            db.Trazabilidad.Remove(trazabilidad);
+            db.SaveChanges();
+            return null;
         }
 
         protected override void Dispose(bool disposing)

@@ -6,16 +6,14 @@
         success: function (datos) {
             var tabla = '<table class="highlight">';
             tabla += '<tr>';
-            tabla += '<th class="fuente">Correo</th>';
-            tabla += '<th class="fuente">Constraseña</th>';
+            tabla += '<th class="fuente">Correo</th>';            
             tabla += '<th></th>';
             tabla += '</tr >';
             console.log(datos);
             for (var i = 0; i < datos.length; i++) {
                 tabla += '<tr>';
-                tabla += '<td class="fuenteTitulo">' + datos[i].Correo + '</td>';
-                tabla += '<td class="fuenteTitulo">' + datos[i].Contraseña + '</td>';
-                tabla += '<td><a href="#modal1" onclick="detalleUsuarios(' + datos[i].Id + ');" type="button" class="btnGenerico margenBoton modal-trigger">Detalle</a><a href="/Usuarios/Edit/' + datos[i].Id + '" type="button" class="btnContrasena margenBoton">Cambiar Contraseña</a>';
+                tabla += '<td class="fuenteTitulo">' + datos[i].Correo + '</td>';                
+                tabla += '<td><a href="#modal1" onclick="detalleUsuarios(' + datos[i].Id + ');" type="button" class="btnGenerico margenBoton modal-trigger">Detalle</a><a href="/Usuarios/Edit/' + datos[i].Id + '" type="button" class="btnContrasena margenBoton">Cambiar Contraseña</a><a href="#modal2" onclick="eliminarUsuario(' + datos[i].Id + ');" type="button" class="btnGenerico margenBoton modal-trigger">Eliminar</a></td>';
                 tabla += '</tr>';
             }
 
@@ -57,6 +55,30 @@ function detalleUsuarios(id) {
             usuarioDetalle += '</form>';
 
             $('#datosdetalleUsuario').html(usuarioDetalle);
+        },
+        error: function () {
+            alert('Peticion con error');
+        }
+    });
+}
+function eliminarUsuario(id) {
+    var boton = '<div class="col s6 center">';
+    boton += '<a href="#!" class="modal-close waves-effect waves-green btn-flat" onclick="confirmarEliminacion(' + id + ')">Eliminar</a>';
+    boton += '</div>';
+    boton += '<div class="col s6 center">';
+    boton += '<a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancelar</a>';
+    boton += '</div>';
+
+    $('#datoseliminarUsuario').html(boton);
+}
+
+function confirmarEliminacion(id) {
+    var id = id;
+    $.ajax({
+        url: '/Usuarios/eliminar/' + id,
+        type: 'GET',
+        success: function () {
+            window.location.href = '/Usuarios/Index';
         },
         error: function () {
             alert('Peticion con error');

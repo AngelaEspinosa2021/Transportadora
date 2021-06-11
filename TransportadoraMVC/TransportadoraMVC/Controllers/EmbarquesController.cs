@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -20,6 +21,19 @@ namespace TransportadoraMVC.Controllers
             return View(db.Embarque.ToList());
         }
 
+        public string Listar()
+        {
+            var embarques = (from u in db.Embarque
+                               select u).ToList();
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(embarques,
+                new JsonSerializerSettings
+                {
+                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                });
+        }
+
+
         // GET: Embarques/Details/5
         public ActionResult Details(long? id)
         {
@@ -34,6 +48,19 @@ namespace TransportadoraMVC.Controllers
             }
             return View(embarque);
         }
+
+        public string Detalle(long? id)
+        {
+            var detalleEmbarque = db.Embarque.Find(id);
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(detalleEmbarque,
+                new JsonSerializerSettings
+                {
+                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                });
+        }
+
+
 
         // GET: Embarques/Create
         public ActionResult Create()
@@ -114,6 +141,29 @@ namespace TransportadoraMVC.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public string Eliminar(long id)
+        {
+            Embarque embarque = db.Embarque.Find(id);
+            EliminarTrazas(id);
+            db.Embarque.Remove(embarque);
+            db.SaveChanges();
+            return null;
+        }
+
+        public void EliminarTrazas(long? idEmbarque)
+        {
+            var trazas = (from u in db.Trazabilidad
+                          where u.IdEmbarque==idEmbarque
+                          select u).ToList();
+
+            foreach(var traza in trazas)
+            {
+                db.Trazabilidad.Remove(traza);                               
+            }
+            db.SaveChanges();
+        }
+
 
         protected override void Dispose(bool disposing)
         {
