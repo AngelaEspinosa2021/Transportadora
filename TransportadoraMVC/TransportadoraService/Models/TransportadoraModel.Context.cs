@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TransportadoraMVC.Models
+namespace TransportadoraService.Models
 {
     using System;
     using System.Data.Entity;
@@ -18,7 +18,8 @@ namespace TransportadoraMVC.Models
         public TransportadoraEntities()
             : base("name=TransportadoraEntities")
         {
-            
+            this.Configuration.LazyLoadingEnabled = false;
+            this.Configuration.ProxyCreationEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
