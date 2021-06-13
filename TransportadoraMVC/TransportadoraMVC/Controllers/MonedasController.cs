@@ -56,16 +56,16 @@ namespace TransportadoraMVC.Controllers
             return View(moneda);
         }
 
-        //public string Detalle(long? id)
-        //{
-        //    var detalleActividad = db.Moneda.Find(id);
+        public string Detalle(long? id)
+        {
+            var detalleActividad = cliente.BuscarMoneda(id.Value);
 
-        //    return Newtonsoft.Json.JsonConvert.SerializeObject(detalleActividad,
-        //        new JsonSerializerSettings
-        //        {
-        //            ReferenceLoopHandling = ReferenceLoopHandling.Ignore
-        //        });
-        //}
+            return Newtonsoft.Json.JsonConvert.SerializeObject(detalleActividad,
+                new JsonSerializerSettings
+                {
+                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                });
+        }
 
         // GET: Monedas/Create
         public ActionResult Create()
@@ -131,13 +131,22 @@ namespace TransportadoraMVC.Controllers
         //    {
         //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
         //    }
-        //    Moneda moneda = db.Moneda.Find(id);
+        //    Moneda moneda = cliente.BuscarMoneda(id.Value);
         //    if (moneda == null)
         //    {
         //        return HttpNotFound();
         //    }
         //    return View(moneda);
         //}
+
+        public string eliminar(long id)
+        {
+            //Moneda moneda = db.Moneda.Find(id);
+            //db.Moneda.Remove(moneda);
+            //db.SaveChanges();
+            cliente.EliminarMoneda(id);
+            return null;
+        }
 
         // POST: Monedas/Delete/5
         [HttpPost, ActionName("Delete")]
@@ -150,14 +159,7 @@ namespace TransportadoraMVC.Controllers
             cliente.EliminarMoneda(id);
             return RedirectToAction("Index");
         }
-
-        //public string eliminar(long id)
-        //{
-        //    Moneda moneda = db.Moneda.Find(id);
-        //    db.Moneda.Remove(moneda);
-        //    db.SaveChanges();
-        //    return null;
-        //}
+        
 
         //protected override void Dispose(bool disposing)
         //{
