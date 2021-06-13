@@ -1,0 +1,461 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="transportadoraModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Actividad">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreadaPor" Type="bigint" />
+          <Property Name="AsignadaA" Type="bigint" />
+          <Property Name="RelacionadaCon" Type="bigint" />
+          <Property Name="Asunto" Type="nvarchar" MaxLength="50" />
+          <Property Name="FechaVencimiento" Type="date" />
+          <Property Name="Observacion" Type="nvarchar" MaxLength="50" />
+          <Property Name="Estado" Type="nvarchar" MaxLength="20" />
+          <Property Name="Prioridad" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Embarque">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Direccion" Type="nvarchar" MaxLength="50" />
+          <Property Name="Telefono" Type="nvarchar" MaxLength="10" />
+          <Property Name="Fax" Type="nvarchar" MaxLength="10" />
+          <Property Name="Contacto" Type="nvarchar" MaxLength="50" />
+          <Property Name="OrdenCompra" Type="nvarchar" MaxLength="10" />
+          <Property Name="Consignatario" Type="nvarchar" MaxLength="50" />
+          <Property Name="ZonaAduanera" Type="nvarchar" MaxLength="50" />
+          <Property Name="Origen" Type="nvarchar" MaxLength="50" />
+          <Property Name="Destino" Type="nvarchar" MaxLength="50" />
+          <Property Name="EmbarqueAereo" Type="nvarchar" MaxLength="50" />
+          <Property Name="EmbarqueMaritimo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Contenedor" Type="nvarchar" MaxLength="50" />
+          <Property Name="INCOTERM" Type="nvarchar" MaxLength="50" />
+          <Property Name="Observacion" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Moneda">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+          <Property Name="Codigo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Valor" Type="money" />
+          <Property Name="Fecha" Type="date" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Proceso">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Sucursal" Type="nvarchar" MaxLength="50" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+          <Property Name="Estado" Type="nvarchar" MaxLength="8" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Trazabilidad">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TipoOperacion" Type="nvarchar" MaxLength="20" />
+          <Property Name="PaisOrigen" Type="nvarchar" MaxLength="50" />
+          <Property Name="CiudadOrigen" Type="nvarchar" MaxLength="50" />
+          <Property Name="PaisDestino" Type="nvarchar" MaxLength="50" />
+          <Property Name="CiudadDesstino" Type="nvarchar" MaxLength="50" />
+          <Property Name="Kilos" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Teus" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="IdEmbarque" Type="bigint" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Correo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Contraseña" Type="nvarchar" MaxLength="8" />
+        </EntityType>
+        <Association Name="FK_Actividad_Proceso">
+          <End Role="Proceso" Type="Self.Proceso" Multiplicity="0..1" />
+          <End Role="Actividad" Type="Self.Actividad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proceso">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Actividad">
+              <PropertyRef Name="RelacionadaCon" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Actividad_Usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="Actividad" Type="Self.Actividad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Actividad">
+              <PropertyRef Name="CreadaPor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Actividad_Usuario1">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="Actividad" Type="Self.Actividad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Actividad">
+              <PropertyRef Name="AsignadaA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trazabilidad_Embarque">
+          <End Role="Embarque" Type="Self.Embarque" Multiplicity="0..1" />
+          <End Role="Trazabilidad" Type="Self.Trazabilidad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Embarque">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Trazabilidad">
+              <PropertyRef Name="IdEmbarque" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="transportadoraModelStoreContainer">
+          <EntitySet Name="Actividad" EntityType="Self.Actividad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Embarque" EntityType="Self.Embarque" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Moneda" EntityType="Self.Moneda" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Proceso" EntityType="Self.Proceso" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Trazabilidad" EntityType="Self.Trazabilidad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Actividad_Proceso" Association="Self.FK_Actividad_Proceso">
+            <End Role="Proceso" EntitySet="Proceso" />
+            <End Role="Actividad" EntitySet="Actividad" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Actividad_Usuario" Association="Self.FK_Actividad_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Actividad" EntitySet="Actividad" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Actividad_Usuario1" Association="Self.FK_Actividad_Usuario1">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Actividad" EntitySet="Actividad" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trazabilidad_Embarque" Association="Self.FK_Trazabilidad_Embarque">
+            <End Role="Embarque" EntitySet="Embarque" />
+            <End Role="Trazabilidad" EntitySet="Trazabilidad" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="transportadoraModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Actividad">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreadaPor" Type="Int64" />
+          <Property Name="AsignadaA" Type="Int64" />
+          <Property Name="RelacionadaCon" Type="Int64" />
+          <Property Name="Asunto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FechaVencimiento" Type="DateTime" Precision="0" />
+          <Property Name="Observacion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Estado" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Prioridad" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Proceso" Relationship="Self.FK_Actividad_Proceso" FromRole="Actividad" ToRole="Proceso" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK_Actividad_Usuario" FromRole="Actividad" ToRole="Usuario" />
+          <NavigationProperty Name="Usuario1" Relationship="Self.FK_Actividad_Usuario1" FromRole="Actividad" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Embarque">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Telefono" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Fax" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Contacto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OrdenCompra" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Consignatario" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ZonaAduanera" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Origen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Destino" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EmbarqueAereo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EmbarqueMaritimo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Contenedor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="INCOTERM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Observacion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Trazabilidad" Relationship="Self.FK_Trazabilidad_Embarque" FromRole="Embarque" ToRole="Trazabilidad" />
+        </EntityType>
+        <EntityType Name="Moneda">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Valor" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Fecha" Type="DateTime" Precision="0" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Proceso">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Sucursal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Estado" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Actividad" Relationship="Self.FK_Actividad_Proceso" FromRole="Proceso" ToRole="Actividad" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Trazabilidad">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TipoOperacion" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="PaisOrigen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CiudadOrigen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PaisDestino" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CiudadDesstino" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Kilos" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Teus" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="IdEmbarque" Type="Int64" />
+          <NavigationProperty Name="Embarque" Relationship="Self.FK_Trazabilidad_Embarque" FromRole="Trazabilidad" ToRole="Embarque" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Correo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Contraseña" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Actividad" Relationship="Self.FK_Actividad_Usuario" FromRole="Usuario" ToRole="Actividad" />
+          <NavigationProperty Name="Actividad1" Relationship="Self.FK_Actividad_Usuario1" FromRole="Usuario" ToRole="Actividad" />
+        </EntityType>
+        <Association Name="FK_Actividad_Proceso">
+          <End Role="Proceso" Type="Self.Proceso" Multiplicity="0..1" />
+          <End Role="Actividad" Type="Self.Actividad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proceso">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Actividad">
+              <PropertyRef Name="RelacionadaCon" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Actividad_Usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="Actividad" Type="Self.Actividad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Actividad">
+              <PropertyRef Name="CreadaPor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Actividad_Usuario1">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="Actividad" Type="Self.Actividad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Actividad">
+              <PropertyRef Name="AsignadaA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trazabilidad_Embarque">
+          <End Role="Embarque" Type="Self.Embarque" Multiplicity="0..1" />
+          <End Role="Trazabilidad" Type="Self.Trazabilidad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Embarque">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Trazabilidad">
+              <PropertyRef Name="IdEmbarque" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="transportadoraEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Actividad" EntityType="Self.Actividad" />
+          <EntitySet Name="Embarque" EntityType="Self.Embarque" />
+          <EntitySet Name="Moneda" EntityType="Self.Moneda" />
+          <EntitySet Name="Proceso" EntityType="Self.Proceso" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Trazabilidad" EntityType="Self.Trazabilidad" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+          <AssociationSet Name="FK_Actividad_Proceso" Association="Self.FK_Actividad_Proceso">
+            <End Role="Proceso" EntitySet="Proceso" />
+            <End Role="Actividad" EntitySet="Actividad" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Actividad_Usuario" Association="Self.FK_Actividad_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Actividad" EntitySet="Actividad" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Actividad_Usuario1" Association="Self.FK_Actividad_Usuario1">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Actividad" EntitySet="Actividad" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trazabilidad_Embarque" Association="Self.FK_Trazabilidad_Embarque">
+            <End Role="Embarque" EntitySet="Embarque" />
+            <End Role="Trazabilidad" EntitySet="Trazabilidad" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="transportadoraModelStoreContainer" CdmEntityContainer="transportadoraEntities">
+          <EntitySetMapping Name="Actividad">
+            <EntityTypeMapping TypeName="transportadoraModel.Actividad">
+              <MappingFragment StoreEntitySet="Actividad">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CreadaPor" ColumnName="CreadaPor" />
+                <ScalarProperty Name="AsignadaA" ColumnName="AsignadaA" />
+                <ScalarProperty Name="RelacionadaCon" ColumnName="RelacionadaCon" />
+                <ScalarProperty Name="Asunto" ColumnName="Asunto" />
+                <ScalarProperty Name="FechaVencimiento" ColumnName="FechaVencimiento" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Prioridad" ColumnName="Prioridad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Embarque">
+            <EntityTypeMapping TypeName="transportadoraModel.Embarque">
+              <MappingFragment StoreEntitySet="Embarque">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="Contacto" ColumnName="Contacto" />
+                <ScalarProperty Name="OrdenCompra" ColumnName="OrdenCompra" />
+                <ScalarProperty Name="Consignatario" ColumnName="Consignatario" />
+                <ScalarProperty Name="ZonaAduanera" ColumnName="ZonaAduanera" />
+                <ScalarProperty Name="Origen" ColumnName="Origen" />
+                <ScalarProperty Name="Destino" ColumnName="Destino" />
+                <ScalarProperty Name="EmbarqueAereo" ColumnName="EmbarqueAereo" />
+                <ScalarProperty Name="EmbarqueMaritimo" ColumnName="EmbarqueMaritimo" />
+                <ScalarProperty Name="Contenedor" ColumnName="Contenedor" />
+                <ScalarProperty Name="INCOTERM" ColumnName="INCOTERM" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Moneda">
+            <EntityTypeMapping TypeName="transportadoraModel.Moneda">
+              <MappingFragment StoreEntitySet="Moneda">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proceso">
+            <EntityTypeMapping TypeName="transportadoraModel.Proceso">
+              <MappingFragment StoreEntitySet="Proceso">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="transportadoraModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Trazabilidad">
+            <EntityTypeMapping TypeName="transportadoraModel.Trazabilidad">
+              <MappingFragment StoreEntitySet="Trazabilidad">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TipoOperacion" ColumnName="TipoOperacion" />
+                <ScalarProperty Name="PaisOrigen" ColumnName="PaisOrigen" />
+                <ScalarProperty Name="CiudadOrigen" ColumnName="CiudadOrigen" />
+                <ScalarProperty Name="PaisDestino" ColumnName="PaisDestino" />
+                <ScalarProperty Name="CiudadDesstino" ColumnName="CiudadDesstino" />
+                <ScalarProperty Name="Kilos" ColumnName="Kilos" />
+                <ScalarProperty Name="Teus" ColumnName="Teus" />
+                <ScalarProperty Name="IdEmbarque" ColumnName="IdEmbarque" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="transportadoraModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Contraseña" ColumnName="Contraseña" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

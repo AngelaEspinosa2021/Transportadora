@@ -1,9 +1,10 @@
 ﻿function ListarMonedas() {
     $.ajax({
-        url: '/Monedas/Listar',
+        url: '/Monedas/Listar/',
         type: 'get',
         dataType: 'json',
         success: function (datos) {
+            console.log(datos);
             var tabla = '<table class="highlight">';
             tabla += '<tr>';
             tabla += '<th class="fuente">Nombre</th>';
@@ -14,14 +15,14 @@
             tabla += '<th></th>';
             tabla += '</tr >';
 
-            for (var i = 0; i < datos.length; i++) {
+            for (var i = 0; i < datos.Model.length; i++) {
                 tabla += '<tr>';
-                tabla += '<td class="fuenteTitulo">' + datos[i].Nombre + '</td>';
-                tabla += '<td class="fuenteTitulo">' + datos[i].Codigo + '</td>';
-                tabla += '<td class="fuenteTitulo">' + datos[i].Valor + '</td>';
-                tabla += '<td class="fuenteTitulo">' + datos[i].Fecha + '</td>';
-                tabla += '<td class="fuenteTitulo">' + datos[i].Descripcion + '</td>';                
-                tabla += '<td><a href="/Monedas/Edit/' + datos[i].Id + '" type="button" class="btnGenerico margenBoton">Editar</a><a href="#modal1" onclick="detalleMonedas(' + datos[i].Id + ');" type="button" class="btnGenerico margenBoton modal-trigger">Detalle</a><a href="#modal2" onclick="eliminarMoneda(' + datos[i].Id + ');" type="button" class="btnGenerico margenBoton modal-trigger">Eliminar</a></td>';
+                tabla += '<td class="fuenteTitulo">' + datos.Model[i].Nombre + '</td>';
+                tabla += '<td class="fuenteTitulo">' + datos.Model[i].Codigo + '</td>';
+                tabla += '<td class="fuenteTitulo">' + datos.Model[i].Valor + '</td>';
+                tabla += '<td class="fuenteTitulo">' + datos.Model[i].Fecha + '</td>';
+                tabla += '<td class="fuenteTitulo">' + datos.Model[i].Descripcion + '</td>';                
+                tabla += '<td><a href="/Monedas/Edit/' + datos.Model[i].Id + '" type="button" class="btnGenerico margenBoton">Editar</a><a href="#modal1" onclick="detalleMonedas(' + datos.Model[i].Id + ');" type="button" class="btnGenerico margenBoton modal-trigger">Detalle</a><a href="#modal2" onclick="eliminarMoneda(' + datos.Model[i].Id + ');" type="button" class="btnGenerico margenBoton modal-trigger">Eliminar</a></td>';
                 tabla += '</tr>';
             }
 

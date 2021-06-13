@@ -7,24 +7,31 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using TransportadoraMVC.Models;
+using TransportadoraMVC.MonedaReference;
 
 namespace TransportadoraMVC.Controllers
 {
     public class MonedasController : Controller
     {
-        private TransportadoraEntities db = new TransportadoraEntities();
+        MonedaReference.ServicioMonedaClient cliente = new MonedaReference.ServicioMonedaClient();
 
-        // GET: Monedas
+        //GET: Monedas
+        //public ActionResult Index()
+        //{
+        //    return View(db.Moneda.ToList());
+        //}
+
         public ActionResult Index()
         {
-            return View(db.Moneda.ToList());
+            return View(cliente.ListarMoneda());
         }
 
         public string Listar()
         {
-            var monedas = (from m in db.Moneda
-                               select m).ToList();
+
+            //var monedas = (from m in db.Moneda
+            //               select m).ToList();
+            var monedas = View(cliente.ListarMoneda());
 
             return Newtonsoft.Json.JsonConvert.SerializeObject(monedas,
                 new JsonSerializerSettings
@@ -33,6 +40,7 @@ namespace TransportadoraMVC.Controllers
                 });
         }
 
+
         // GET: Monedas/Details/5
         public ActionResult Details(long? id)
         {
@@ -40,7 +48,7 @@ namespace TransportadoraMVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Moneda moneda = db.Moneda.Find(id);
+            Moneda moneda = cliente.BuscarMoneda(id.Value);
             if (moneda == null)
             {
                 return HttpNotFound();
@@ -48,16 +56,16 @@ namespace TransportadoraMVC.Controllers
             return View(moneda);
         }
 
-        public string Detalle(long? id)
-        {
-            var detalleActividad = db.Moneda.Find(id);
+        //public string Detalle(long? id)
+        //{
+        //    var detalleActividad = db.Moneda.Find(id);
 
-            return Newtonsoft.Json.JsonConvert.SerializeObject(detalleActividad,
-                new JsonSerializerSettings
-                {
-                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
-                });
-        }
+        //    return Newtonsoft.Json.JsonConvert.SerializeObject(detalleActividad,
+        //        new JsonSerializerSettings
+        //        {
+        //            ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+        //        });
+        //}
 
         // GET: Monedas/Create
         public ActionResult Create()
@@ -74,8 +82,9 @@ namespace TransportadoraMVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Moneda.Add(moneda);
-                db.SaveChanges();
+                //db.Moneda.Add(moneda);
+                //db.SaveChanges();
+                cliente.AgregarMoneda(moneda);
                 return RedirectToAction("Index");
             }
 
@@ -89,7 +98,8 @@ namespace TransportadoraMVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Moneda moneda = db.Moneda.Find(id);
+            //Moneda moneda = db.Moneda.Find(id);
+            Moneda moneda = cliente.BuscarMoneda(id.Value);
             if (moneda == null)
             {
                 return HttpNotFound();
@@ -106,54 +116,56 @@ namespace TransportadoraMVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(moneda).State = EntityState.Modified;
-                db.SaveChanges();
+                //db.Entry(moneda).State = EntityState.Modified;
+                //db.SaveChanges();
+                cliente.EditarMoneda(moneda.Id, moneda);
                 return RedirectToAction("Index");
             }
             return View(moneda);
         }
 
         // GET: Monedas/Delete/5
-        public ActionResult Delete(long? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Moneda moneda = db.Moneda.Find(id);
-            if (moneda == null)
-            {
-                return HttpNotFound();
-            }
-            return View(moneda);
-        }
+        //public ActionResult Delete(long? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    Moneda moneda = db.Moneda.Find(id);
+        //    if (moneda == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(moneda);
+        //}
 
         // POST: Monedas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(long id)
         {
-            Moneda moneda = db.Moneda.Find(id);
-            db.Moneda.Remove(moneda);
-            db.SaveChanges();
+            //Moneda moneda = db.Moneda.Find(id);
+            //db.Moneda.Remove(moneda);
+            //db.SaveChanges();
+            cliente.EliminarMoneda(id);
             return RedirectToAction("Index");
         }
 
-        public string eliminar(long id)
-        {
-            Moneda moneda = db.Moneda.Find(id);
-            db.Moneda.Remove(moneda);
-            db.SaveChanges();
-            return null;
-        }
+        //public string eliminar(long id)
+        //{
+        //    Moneda moneda = db.Moneda.Find(id);
+        //    db.Moneda.Remove(moneda);
+        //    db.SaveChanges();
+        //    return null;
+        //}
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (disposing)
+        //    {
+        //        db.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //}
     }
 }

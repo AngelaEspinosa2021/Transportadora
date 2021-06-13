@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServicioMoneda" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:50703/ServicioMoneda.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:50703/ServicioMoneda.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:50703/ServicioMoneda.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/TranspService.Modelos" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IServicioMoneda_ListarMoneda_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarMoneda" />
+  </wsdl:message>
+  <wsdl:message name="IServicioMoneda_ListarMoneda_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarMonedaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioMoneda_AgregarMoneda_InputMessage">
+    <wsdl:part name="parameters" element="tns:AgregarMoneda" />
+  </wsdl:message>
+  <wsdl:message name="IServicioMoneda_AgregarMoneda_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AgregarMonedaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioMoneda_EditarMoneda_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditarMoneda" />
+  </wsdl:message>
+  <wsdl:message name="IServicioMoneda_EditarMoneda_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditarMonedaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioMoneda_EliminarMoneda_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarMoneda" />
+  </wsdl:message>
+  <wsdl:message name="IServicioMoneda_EliminarMoneda_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarMonedaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioMoneda_BuscarMoneda_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarMoneda" />
+  </wsdl:message>
+  <wsdl:message name="IServicioMoneda_BuscarMoneda_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarMonedaResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IServicioMoneda">
+    <wsdl:operation name="ListarMoneda">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioMoneda/ListarMoneda" message="tns:IServicioMoneda_ListarMoneda_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioMoneda/ListarMonedaResponse" message="tns:IServicioMoneda_ListarMoneda_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarMoneda">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioMoneda/AgregarMoneda" message="tns:IServicioMoneda_AgregarMoneda_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioMoneda/AgregarMonedaResponse" message="tns:IServicioMoneda_AgregarMoneda_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditarMoneda">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioMoneda/EditarMoneda" message="tns:IServicioMoneda_EditarMoneda_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioMoneda/EditarMonedaResponse" message="tns:IServicioMoneda_EditarMoneda_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarMoneda">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioMoneda/EliminarMoneda" message="tns:IServicioMoneda_EliminarMoneda_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioMoneda/EliminarMonedaResponse" message="tns:IServicioMoneda_EliminarMoneda_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarMoneda">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioMoneda/BuscarMoneda" message="tns:IServicioMoneda_BuscarMoneda_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioMoneda/BuscarMonedaResponse" message="tns:IServicioMoneda_BuscarMoneda_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IServicioMoneda" type="tns:IServicioMoneda">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ListarMoneda">
+      <soap:operation soapAction="http://tempuri.org/IServicioMoneda/ListarMoneda" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarMoneda">
+      <soap:operation soapAction="http://tempuri.org/IServicioMoneda/AgregarMoneda" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditarMoneda">
+      <soap:operation soapAction="http://tempuri.org/IServicioMoneda/EditarMoneda" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarMoneda">
+      <soap:operation soapAction="http://tempuri.org/IServicioMoneda/EliminarMoneda" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarMoneda">
+      <soap:operation soapAction="http://tempuri.org/IServicioMoneda/BuscarMoneda" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicioMoneda">
+    <wsdl:port name="BasicHttpBinding_IServicioMoneda" binding="tns:BasicHttpBinding_IServicioMoneda">
+      <soap:address location="http://localhost:50703/ServicioMoneda.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

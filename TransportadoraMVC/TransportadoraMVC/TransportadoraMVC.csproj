@@ -57,6 +57,7 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -128,6 +129,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Connected Services\MonedaReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\AccessController.cs" />
     <Compile Include="Controllers\ActividadController.cs" />
     <Compile Include="Controllers\EmbarquesController.cs" />
@@ -144,9 +150,6 @@
       <DependentUpon>TransportadoraModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Embarque.cs">
-      <DependentUpon>TransportadoraModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Moneda.cs">
       <DependentUpon>TransportadoraModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Proceso.cs">
@@ -176,6 +179,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\MonedaReference\ServicioMoneda.disco" />
+    <None Include="Connected Services\MonedaReference\configuration91.svcinfo" />
+    <None Include="Connected Services\MonedaReference\configuration.svcinfo" />
+    <None Include="Connected Services\MonedaReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Content\estilos.css" />
     <Content Include="Content\principal.css" />
     <Content Include="favicon.ico" />
@@ -269,10 +279,29 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <None Include="Connected Services\MonedaReference\ServicioMoneda.wsdl" />
+    <None Include="Connected Services\MonedaReference\ServicioMoneda.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MonedaReference\ServicioMoneda1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MonedaReference\ServicioMoneda2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Connected Services\MonedaReference\TransportadoraMVC.MonedaReference.Moneda.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\MonedaReference\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

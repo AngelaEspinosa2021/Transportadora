@@ -7,17 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TransportadoraMVC.Models
+namespace TranspService.Modelos
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class TransportadoraEntities : DbContext
+    public partial class transportadoraEntities : DbContext
     {
-        public TransportadoraEntities()
-            : base("name=TransportadoraEntities")
+        public transportadoraEntities()
+            : base("name=transportadoraEntities")
         {
+            this.Configuration.LazyLoadingEnabled = false;
+            this.Configuration.ProxyCreationEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -27,8 +29,9 @@ namespace TransportadoraMVC.Models
     
         public virtual DbSet<Actividad> Actividad { get; set; }
         public virtual DbSet<Embarque> Embarque { get; set; }
-        //public virtual DbSet<Moneda> Moneda { get; set; }
+        public virtual DbSet<Moneda> Moneda { get; set; }
         public virtual DbSet<Proceso> Proceso { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Trazabilidad> Trazabilidad { get; set; }
         public virtual DbSet<Usuario> Usuario { get; set; }
     }
