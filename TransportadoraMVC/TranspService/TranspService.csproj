@@ -90,12 +90,14 @@
     <Content Include="ServicioActividad.svc" />
     <Content Include="ServicioEmbarque.svc" />
     <Content Include="ServicioMoneda.svc" />
+    <Content Include="ServicioTrazabilidad.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IServicioActividad.cs" />
     <Compile Include="IServicioEmbarque.cs" />
     <Compile Include="IServicioMoneda.cs" />
+    <Compile Include="IServicioTrazabilidad.cs" />
     <Compile Include="Modelos\Actividad.cs">
       <DependentUpon>TranspModel.tt</DependentUpon>
     </Compile>
@@ -141,6 +143,9 @@
     </Compile>
     <Compile Include="ServicioMoneda.svc.cs">
       <DependentUpon>ServicioMoneda.svc</DependentUpon>
+    </Compile>
+    <Compile Include="ServicioTrazabilidad.svc.cs">
+      <DependentUpon>ServicioTrazabilidad.svc</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
