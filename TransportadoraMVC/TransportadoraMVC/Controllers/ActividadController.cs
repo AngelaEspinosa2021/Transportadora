@@ -7,27 +7,32 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using TransportadoraMVC.Models;
+using TransportadoraMVC.ReferenceActividad;
 
 namespace TransportadoraMVC.Controllers
 {
     public class ActividadController : Controller
     {
-        private TransportadoraEntities db = new TransportadoraEntities();
+        ReferenceActividad.ServiceActividadClient cliente = new ReferenceActividad.ServiceActividadClient();
 
         // GET: Actividad
         public ActionResult Index()
         {
-            var actividad = db.Actividad.Include(a => a.Proceso).Include(a => a.Usuario).Include(a => a.Usuario1);
-            return View(actividad.ToList());
+            //var actividad = db.Actividad.Include(a => a.Proceso).Include(a => a.Usuario).Include(a => a.Usuario1);
+            //return View(actividad.ToList());
+            return View(cliente.ListarActividad());
+
         }
 
         public string Listar()
         {
-            var actividades = (from a in db.Actividad
-                               select a).ToList();
 
-            return Newtonsoft.Json.JsonConvert.SerializeObject(actividades,
+            //var actividades = (from a in db.Actividad
+            //                   select a).ToList();
+
+            var actividad = View(cliente.ListarActividad());
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(actividad,
                 new JsonSerializerSettings
                 {
                     ReferenceLoopHandling = ReferenceLoopHandling.Ignore
@@ -41,7 +46,7 @@ namespace TransportadoraMVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Actividad actividad = db.Actividad.Find(id);
+            Actividad actividad = cliente.BuscarActividad(id.Value);
             if (actividad == null)
             {
                 return HttpNotFound();
@@ -51,7 +56,7 @@ namespace TransportadoraMVC.Controllers
 
         public string Detalle(long? id)
         {
-            var detalleActividad = db.Actividad.Find(id);
+            var detalleActividad = cliente.BuscarActividad(id.Value);
 
             return Newtonsoft.Json.JsonConvert.SerializeObject(detalleActividad,
                 new JsonSerializerSettings
@@ -63,9 +68,9 @@ namespace TransportadoraMVC.Controllers
         // GET: Actividad/Create
         public ActionResult Create()
         {
-            ViewBag.RelacionadaCon = new SelectList(db.Proceso, "Id", "Sucursal");
-            ViewBag.CreadaPor = new SelectList(db.Usuario, "Id", "Correo");
-            ViewBag.AsignadaA = new SelectList(db.Usuario, "Id", "Correo");
+            //ViewBag.RelacionadaCon = new SelectList(db.Proceso, "Id", "Sucursal");
+            //ViewBag.CreadaPor = new SelectList(db.Usuario, "Id", "Correo");
+            //ViewBag.AsignadaA = new SelectList(db.Usuario, "Id", "Correo");
             return View();
         }
 
@@ -78,14 +83,15 @@ namespace TransportadoraMVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Actividad.Add(actividad);
-                db.SaveChanges();
+                //db.Actividad.Add(actividad);
+                //db.SaveChanges();
+                cliente.AgregarActividad(actividad);
                 return RedirectToAction("Index");
             }
 
-            ViewBag.RelacionadaCon = new SelectList(db.Proceso, "Id", "Sucursal", actividad.RelacionadaCon);
-            ViewBag.CreadaPor = new SelectList(db.Usuario, "Id", "Correo", actividad.CreadaPor);
-            ViewBag.AsignadaA = new SelectList(db.Usuario, "Id", "Correo", actividad.AsignadaA);
+            //ViewBag.RelacionadaCon = new SelectList(cliente. Proceso, "Id", "Sucursal", actividad.RelacionadaCon);
+            //ViewBag.CreadaPor = new SelectList(db.Usuario, "Id", "Correo", actividad.CreadaPor);
+            //ViewBag.AsignadaA = new SelectList(db.Usuario, "Id", "Correo", actividad.AsignadaA);
             return View(actividad);
         }
 
@@ -96,14 +102,14 @@ namespace TransportadoraMVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Actividad actividad = db.Actividad.Find(id);
+            Actividad actividad = cliente.BuscarActividad(id.Value);
             if (actividad == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.RelacionadaCon = new SelectList(db.Proceso, "Id", "Sucursal", actividad.RelacionadaCon);
-            ViewBag.CreadaPor = new SelectList(db.Usuario, "Id", "Correo", actividad.CreadaPor);
-            ViewBag.AsignadaA = new SelectList(db.Usuario, "Id", "Correo", actividad.AsignadaA);
+            //ViewBag.RelacionadaCon = new SelectList(db.Proceso, "Id", "Sucursal", actividad.RelacionadaCon);
+            //ViewBag.CreadaPor = new SelectList(db.Usuario, "Id", "Correo", actividad.CreadaPor);
+            //ViewBag.AsignadaA = new SelectList(db.Usuario, "Id", "Correo", actividad.AsignadaA);
             return View(actividad);
         }
 
@@ -116,58 +122,61 @@ namespace TransportadoraMVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(actividad).State = EntityState.Modified;
-                db.SaveChanges();
+                //db.Entry(actividad).State = EntityState.Modified;
+                //db.SaveChanges();
+                cliente.EditarActividad(actividad.Id, actividad);
                 return RedirectToAction("Index");
             }
-            ViewBag.RelacionadaCon = new SelectList(db.Proceso, "Id", "Sucursal", actividad.RelacionadaCon);
-            ViewBag.CreadaPor = new SelectList(db.Usuario, "Id", "Correo", actividad.CreadaPor);
-            ViewBag.AsignadaA = new SelectList(db.Usuario, "Id", "Correo", actividad.AsignadaA);
+            //ViewBag.RelacionadaCon = new SelectList(db.Proceso, "Id", "Sucursal", actividad.RelacionadaCon);
+            //ViewBag.CreadaPor = new SelectList(db.Usuario, "Id", "Correo", actividad.CreadaPor);
+            //ViewBag.AsignadaA = new SelectList(db.Usuario, "Id", "Correo", actividad.AsignadaA);
             return View(actividad);
         }
 
         // GET: Actividad/Delete/5
-        public ActionResult Delete(long? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Actividad actividad = db.Actividad.Find(id);
-            if (actividad == null)
-            {
-                return HttpNotFound();
-            }
-            return View(actividad);
-        }
+        //public ActionResult Delete(long? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    Actividad actividad = db.Actividad.Find(id);
+        //    if (actividad == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(actividad);
+        //}
 
-        
+
         // POST: Actividad/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(long id)
         {
-            Actividad actividad = db.Actividad.Find(id);
-            db.Actividad.Remove(actividad);
-            db.SaveChanges();
+            //Actividad actividad = db.Actividad.Find(id);
+            //db.Actividad.Remove(actividad);
+            //db.SaveChanges();
+            cliente.EliminarActividad(id);
             return RedirectToAction("Index");
         }
 
         public string eliminar(long id)
         {
-            Actividad actividad = db.Actividad.Find(id);
-            db.Actividad.Remove(actividad);
-            db.SaveChanges();
+            //Actividad actividad = db.Actividad.Find(id);
+            //db.Actividad.Remove(actividad);
+            //db.SaveChanges();
+            cliente.EliminarActividad(id);
             return null;
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (disposing)
+        //    {
+        //        db.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //}
     }
 }

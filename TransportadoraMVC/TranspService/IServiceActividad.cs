@@ -8,12 +8,12 @@ using TranspService.Modelos;
 
 namespace TranspService
 {
-    // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de interfaz "IServicioActividad" en el código y en el archivo de configuración a la vez.
+    // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de interfaz "IServiceActividad" en el código y en el archivo de configuración a la vez.
     [ServiceContract]
-    public interface IServicioActividad
+    public interface IServiceActividad
     {
         [OperationContract]
-        List<Actividad> ListarActivida();
+        List<Actividad> ListarActividad();
 
         [OperationContract]
         void AgregarActividad(Actividad act);
