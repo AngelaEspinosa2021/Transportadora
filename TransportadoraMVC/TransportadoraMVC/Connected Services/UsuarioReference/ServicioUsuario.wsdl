@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServicioUsuario" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:50703/ServicioUsuario.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:50703/ServicioUsuario.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:50703/ServicioUsuario.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/TranspService.Modelos" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IServicioUsuario_ListarUsuarios_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarUsuarios" />
+  </wsdl:message>
+  <wsdl:message name="IServicioUsuario_ListarUsuarios_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarUsuariosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioUsuario_BuscarUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IServicioUsuario_BuscarUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioUsuario_AgregarUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:AgregarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IServicioUsuario_AgregarUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AgregarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioUsuario_EditarUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IServicioUsuario_EditarUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioUsuario_ConfirmarUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConfirmarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IServicioUsuario_ConfirmarUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConfirmarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioUsuario_EliminarUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IServicioUsuario_EliminarUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioUsuario_CambiarPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:CambiarPassword" />
+  </wsdl:message>
+  <wsdl:message name="IServicioUsuario_CambiarPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CambiarPasswordResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IServicioUsuario">
+    <wsdl:operation name="ListarUsuarios">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioUsuario/ListarUsuarios" message="tns:IServicioUsuario_ListarUsuarios_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioUsuario/ListarUsuariosResponse" message="tns:IServicioUsuario_ListarUsuarios_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioUsuario/BuscarUsuario" message="tns:IServicioUsuario_BuscarUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioUsuario/BuscarUsuarioResponse" message="tns:IServicioUsuario_BuscarUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioUsuario/AgregarUsuario" message="tns:IServicioUsuario_AgregarUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioUsuario/AgregarUsuarioResponse" message="tns:IServicioUsuario_AgregarUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditarUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioUsuario/EditarUsuario" message="tns:IServicioUsuario_EditarUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioUsuario/EditarUsuarioResponse" message="tns:IServicioUsuario_EditarUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioUsuario/ConfirmarUsuario" message="tns:IServicioUsuario_ConfirmarUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioUsuario/ConfirmarUsuarioResponse" message="tns:IServicioUsuario_ConfirmarUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioUsuario/EliminarUsuario" message="tns:IServicioUsuario_EliminarUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioUsuario/EliminarUsuarioResponse" message="tns:IServicioUsuario_EliminarUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CambiarPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioUsuario/CambiarPassword" message="tns:IServicioUsuario_CambiarPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioUsuario/CambiarPasswordResponse" message="tns:IServicioUsuario_CambiarPassword_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IServicioUsuario" type="tns:IServicioUsuario">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ListarUsuarios">
+      <soap:operation soapAction="http://tempuri.org/IServicioUsuario/ListarUsuarios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarUsuario">
+      <soap:operation soapAction="http://tempuri.org/IServicioUsuario/BuscarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarUsuario">
+      <soap:operation soapAction="http://tempuri.org/IServicioUsuario/AgregarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditarUsuario">
+      <soap:operation soapAction="http://tempuri.org/IServicioUsuario/EditarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarUsuario">
+      <soap:operation soapAction="http://tempuri.org/IServicioUsuario/ConfirmarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarUsuario">
+      <soap:operation soapAction="http://tempuri.org/IServicioUsuario/EliminarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CambiarPassword">
+      <soap:operation soapAction="http://tempuri.org/IServicioUsuario/CambiarPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicioUsuario">
+    <wsdl:port name="BasicHttpBinding_IServicioUsuario" binding="tns:BasicHttpBinding_IServicioUsuario">
+      <soap:address location="http://localhost:50703/ServicioUsuario.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

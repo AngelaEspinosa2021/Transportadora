@@ -7,26 +7,26 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using TransportadoraMVC.Models;
+using TransportadoraMVC.TrazabilidadReference;
 
 namespace TransportadoraMVC.Controllers
 {
     public class TrazabilidadesController : Controller
     {
-        private TransportadoraEntities db = new TransportadoraEntities();
+        TrazabilidadReference.ServicioTrazabilidadClient cliente = new TrazabilidadReference.ServicioTrazabilidadClient();
 
         // GET: Trazabilidades
         public ActionResult Index()
-        {
-            var trazabilidad = db.Trazabilidad.Include(t => t.Embarque);
-            return View(trazabilidad.ToList());
+        {            
+            return View(cliente.ListarTrazabilidades());
         }
 
         public string Listar(long? id)
         {
-            var trazabilidad = (from p in db.Trazabilidad
-                                where p.IdEmbarque==id
-                            select p).ToList();
+            var trazabilidad = cliente.ListarTrazabilidades();
+            //var trazabilidad = (from p in cliente.Trazabilidad
+            //                    where p.IdEmbarque==id
+            //                select p).ToList();
 
             return Newtonsoft.Json.JsonConvert.SerializeObject(trazabilidad,
                 new JsonSerializerSettings
@@ -42,7 +42,7 @@ namespace TransportadoraMVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Trazabilidad trazabilidad = db.Trazabilidad.Find(id);
+            Trazabilidad trazabilidad = cliente.BuscarTrazabilidad(id.Value);
             if (trazabilidad == null)
             {
                 return HttpNotFound();
@@ -66,8 +66,7 @@ namespace TransportadoraMVC.Controllers
         {
             if (trazabilidad != null)
             {
-                db.Trazabilidad.Add(trazabilidad);
-                db.SaveChanges();
+                cliente.AgregarTrazabilidad(trazabilidad);
                 return new HttpStatusCodeResult(HttpStatusCode.OK);
             }
 
@@ -82,7 +81,7 @@ namespace TransportadoraMVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Trazabilidad trazabilidad = db.Trazabilidad.Find(id);
+            Trazabilidad trazabilidad = cliente.BuscarTrazabilidad(id.Value);
             if (trazabilidad == null)
             {
                 return HttpNotFound();
@@ -116,7 +115,7 @@ namespace TransportadoraMVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Trazabilidad trazabilidad = db.Trazabilidad.Find(id);
+            Trazabilidad trazabilidad = cliente.BuscarTrazabilidad(id.Value);
             if (trazabilidad == null)
             {
                 return HttpNotFound();
@@ -127,28 +126,17 @@ namespace TransportadoraMVC.Controllers
         // POST: Trazabilidades/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(long id)
+        public ActionResult DeleteConfirmed(long? id)
         {
-            Trazabilidad trazabilidad = db.Trazabilidad.Find(id);
-            db.Trazabilidad.Remove(trazabilidad);
-            db.SaveChanges();
+            cliente.ConfirmarTraza(id.Value);
             return RedirectToAction("Index");
         }
-        public string Eliminar(long id)
+        public string Eliminar(long? id)
         {
-            Trazabilidad trazabilidad = db.Trazabilidad.Find(id);
-            db.Trazabilidad.Remove(trazabilidad);
-            db.SaveChanges();
+            cliente.EliminarTraza(id.Value);
             return null;
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        
     }
 }

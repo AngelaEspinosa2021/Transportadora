@@ -129,7 +129,22 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Connected Services\EmbarqueReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\MonedaReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\TrazabilidadReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\UsuarioReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -179,10 +194,57 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\EmbarqueReference\ServicioEmbarque.wsdl" />
+    <None Include="Connected Services\EmbarqueReference\ServicioEmbarque.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\EmbarqueReference\ServicioEmbarque1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\EmbarqueReference\ServicioEmbarque2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Connected Services\EmbarqueReference\TransportadoraMVC.EmbarqueReference.Embarque.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\MonedaReference\ServicioMoneda.disco" />
     <None Include="Connected Services\MonedaReference\configuration91.svcinfo" />
     <None Include="Connected Services\MonedaReference\configuration.svcinfo" />
     <None Include="Connected Services\MonedaReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\TrazabilidadReference\ServicioTrazabilidad.wsdl" />
+    <None Include="Connected Services\TrazabilidadReference\ServicioTrazabilidad.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TrazabilidadReference\ServicioTrazabilidad1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TrazabilidadReference\ServicioTrazabilidad2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Connected Services\TrazabilidadReference\TransportadoraMVC.TrazabilidadReference.Trazabilidad.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\UsuarioReference\ServicioUsuario.disco" />
+    <None Include="Connected Services\UsuarioReference\configuration91.svcinfo" />
+    <None Include="Connected Services\UsuarioReference\configuration.svcinfo" />
+    <None Include="Connected Services\UsuarioReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\EmbarqueReference\ServicioEmbarque.disco" />
+    <None Include="Connected Services\EmbarqueReference\configuration91.svcinfo" />
+    <None Include="Connected Services\EmbarqueReference\configuration.svcinfo" />
+    <None Include="Connected Services\EmbarqueReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\TrazabilidadReference\ServicioTrazabilidad.disco" />
+    <None Include="Connected Services\TrazabilidadReference\configuration91.svcinfo" />
+    <None Include="Connected Services\TrazabilidadReference\configuration.svcinfo" />
+    <None Include="Connected Services\TrazabilidadReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -292,6 +354,19 @@
     <Content Include="Connected Services\MonedaReference\TransportadoraMVC.MonedaReference.Moneda.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <None Include="Connected Services\UsuarioReference\ServicioUsuario.wsdl" />
+    <None Include="Connected Services\UsuarioReference\ServicioUsuario.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\UsuarioReference\ServicioUsuario1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\UsuarioReference\ServicioUsuario2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Connected Services\UsuarioReference\TransportadoraMVC.UsuarioReference.Usuario.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -301,7 +376,10 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\EmbarqueReference\" />
     <WCFMetadataStorage Include="Connected Services\MonedaReference\" />
+    <WCFMetadataStorage Include="Connected Services\TrazabilidadReference\" />
+    <WCFMetadataStorage Include="Connected Services\UsuarioReference\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

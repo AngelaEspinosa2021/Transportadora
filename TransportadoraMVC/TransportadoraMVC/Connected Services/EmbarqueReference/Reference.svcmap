@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="71f85b65-2150-4ce4-9cb9-b2375ebda129" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:50703/ServicioEmbarque.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ServicioEmbarque.wsdl" MetadataType="Wsdl" ID="e4ccef67-6539-40ed-a169-a6815f73b615" SourceId="1" SourceUrl="http://localhost:50703/ServicioEmbarque.svc?wsdl" />
+    <MetadataFile FileName="ServicioEmbarque.disco" MetadataType="Disco" ID="e432c47d-aa01-454f-b15a-3bc279aeca35" SourceId="1" SourceUrl="http://localhost:50703/ServicioEmbarque.svc?disco" />
+    <MetadataFile FileName="ServicioEmbarque.xsd" MetadataType="Schema" ID="58225954-dd18-403e-9e6d-61e1a261a436" SourceId="1" SourceUrl="http://localhost:50703/ServicioEmbarque.svc?xsd=xsd2" />
+    <MetadataFile FileName="ServicioEmbarque1.xsd" MetadataType="Schema" ID="d71a3260-8c7a-4639-b7a2-da3b7a1e2a3b" SourceId="1" SourceUrl="http://localhost:50703/ServicioEmbarque.svc?xsd=xsd0" />
+    <MetadataFile FileName="ServicioEmbarque2.xsd" MetadataType="Schema" ID="20b6d595-1291-4fd6-9b04-ba35534e47d0" SourceId="1" SourceUrl="http://localhost:50703/ServicioEmbarque.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
