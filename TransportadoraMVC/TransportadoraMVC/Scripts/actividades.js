@@ -3,7 +3,8 @@
         url: '/Actividad/Listar',
         type: 'get',
         dataType: 'json',
-        success: function(datos) {
+        success: function (datos) {
+            console.log(datos);
             var tabla = '<table class="highlight">';
             tabla += '<tr>';
             tabla += '<th class="fuente">Asunto</th>';
@@ -16,16 +17,16 @@
             tabla += '<th></th>';
             tabla += '</tr >';
 
-            for (var i = 0; i < datos.length; i++) {
+            for (var i = 0; i < datos.Model.length; i++) {
                 tabla += '<tr>';
-                tabla += '<td class="fuenteTitulo">' + datos[i].Asunto + '</td>';
-                tabla += '<td class="fuenteTitulo">' + datos[i].FechaVencimiento + '</td>';
-                tabla += '<td class="fuenteTitulo">' + datos[i].Estado + '</td>';
-                tabla += '<td class="fuenteTitulo">' + datos[i].Prioridad + '</td>';
-                tabla += '<td class="fuenteTitulo">' + datos[i].Proceso.Sucursal + '</td>';
-                tabla += '<td class="fuenteTitulo">' + datos[i].Usuario.Correo + '</td>';
-                tabla += '<td class="fuenteTitulo">' + datos[i].Observacion + '</td>';
-                tabla += '<td><a href="/Actividad/Edit/' + datos[i].Id + '" type="button" class="btnGenerico margenBoton">Editar</a><a href="#modal1" onclick="detalleActividad(' + datos[i].Id + ');" type="button" class="btnGenerico margenBoton modal-trigger">Detalle</a><a href="#modal2" onclick="eliminarActividad(' + datos[i].Id + ');" type="button" class="btnGenerico margenBoton modal-trigger">Eliminar</a></td>';
+                tabla += '<td class="fuenteTitulo">' + datos.Model[i].Asunto + '</td>';
+                tabla += '<td class="fuenteTitulo">' + datos.Model[i].FechaVencimiento + '</td>';
+                tabla += '<td class="fuenteTitulo">' + datos.Model[i].Estado + '</td>';
+                tabla += '<td class="fuenteTitulo">' + datos.Model[i].Prioridad + '</td>';
+                //tabla += '<td class="fuenteTitulo">' + datos.Model[i].Proceso.Sucursal + '</td>';
+                //tabla += '<td class="fuenteTitulo">' + datos.Model[i].Usuario.Correo + '</td>';
+                tabla += '<td class="fuenteTitulo">' + datos.Model[i].Observacion + '</td>';
+                tabla += '<td><a href="/Actividad/Edit/' + datos.Model[i].Id + '" type="button" class="btnGenerico margenBoton">Editar</a><a href="#modal1" onclick="detalleActividad(' + datos.Model[i].Id + ');" type="button" class="btnGenerico margenBoton modal-trigger">Detalle</a><a href="#modal2" onclick="eliminarActividad(' + datos.Model[i].Id + ');" type="button" class="btnGenerico margenBoton modal-trigger">Eliminar</a></td>';
                 tabla += '</tr>';
             }
 

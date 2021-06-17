@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TransportadoraMVC.Controllers;
-using TransportadoraMVC.Models;
+using TransportadoraMVC.ReferenceUsuario;
 
 namespace TransportadoraMVC.Filters
 {

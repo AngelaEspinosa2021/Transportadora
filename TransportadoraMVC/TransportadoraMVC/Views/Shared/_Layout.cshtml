@@ -1,6 +1,6 @@
 ﻿
 @{ 
-    var user = (TransportadoraMVC.Models.Usuario) HttpContext.Current.Session["User"] ?? new TransportadoraMVC.Models.Usuario();
+    var user = (TransportadoraMVC.ReferenceUsuario.Usuario) HttpContext.Current.Session["User"] ?? new TransportadoraMVC.ReferenceUsuario.Usuario();
 }
 
 <!DOCTYPE html>

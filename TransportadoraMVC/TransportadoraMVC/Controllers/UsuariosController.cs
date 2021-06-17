@@ -156,7 +156,7 @@ namespace TransportadoraMVC.Controllers
 
         public ActionResult Edit(long id)
         {
-            Usuario usuario = db.Usuario.Find(id);
+            Usuario usuario = cliente.BuscarUsuario(id);
             return View(usuario);
         }
 

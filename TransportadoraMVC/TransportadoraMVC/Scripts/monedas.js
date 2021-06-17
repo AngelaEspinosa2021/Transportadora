@@ -4,7 +4,6 @@
         type: 'get',
         dataType: 'json',
         success: function (datos) {
-            console.log(datos);
             var tabla = '<table class="highlight">';
             tabla += '<tr>';
             tabla += '<th class="fuente">Nombre</th>';
