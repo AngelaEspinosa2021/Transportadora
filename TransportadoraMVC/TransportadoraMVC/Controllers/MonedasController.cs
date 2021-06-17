@@ -58,9 +58,9 @@ namespace TransportadoraMVC.Controllers
 
         public string Detalle(long? id)
         {
-            var detalleActividad = cliente.BuscarMoneda(id.Value);
+            var detalleMoneda= cliente.BuscarMoneda(id.Value);
 
-            return Newtonsoft.Json.JsonConvert.SerializeObject(detalleActividad,
+            return Newtonsoft.Json.JsonConvert.SerializeObject(detalleMoneda,
                 new JsonSerializerSettings
                 {
                     ReferenceLoopHandling = ReferenceLoopHandling.Ignore

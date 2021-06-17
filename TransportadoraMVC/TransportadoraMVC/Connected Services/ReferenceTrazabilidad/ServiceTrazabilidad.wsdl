@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServiceTrazabilidad" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:50703/ServiceTrazabilidad.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:50703/ServiceTrazabilidad.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:50703/ServiceTrazabilidad.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/TranspService.Modelos" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IServiceTrazabilidad_ListarTrazabilidad_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarTrazabilidad" />
+  </wsdl:message>
+  <wsdl:message name="IServiceTrazabilidad_ListarTrazabilidad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarTrazabilidadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceTrazabilidad_AgregarTrazabilidad_InputMessage">
+    <wsdl:part name="parameters" element="tns:AgregarTrazabilidad" />
+  </wsdl:message>
+  <wsdl:message name="IServiceTrazabilidad_AgregarTrazabilidad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AgregarTrazabilidadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceTrazabilidad_EditarTrazabilidad_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditarTrazabilidad" />
+  </wsdl:message>
+  <wsdl:message name="IServiceTrazabilidad_EditarTrazabilidad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditarTrazabilidadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceTrazabilidad_EliminarTrazabilidad_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarTrazabilidad" />
+  </wsdl:message>
+  <wsdl:message name="IServiceTrazabilidad_EliminarTrazabilidad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarTrazabilidadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceTrazabilidad_BuscarTrazabilidad_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarTrazabilidad" />
+  </wsdl:message>
+  <wsdl:message name="IServiceTrazabilidad_BuscarTrazabilidad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarTrazabilidadResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IServiceTrazabilidad">
+    <wsdl:operation name="ListarTrazabilidad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceTrazabilidad/ListarTrazabilidad" message="tns:IServiceTrazabilidad_ListarTrazabilidad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceTrazabilidad/ListarTrazabilidadResponse" message="tns:IServiceTrazabilidad_ListarTrazabilidad_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarTrazabilidad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceTrazabilidad/AgregarTrazabilidad" message="tns:IServiceTrazabilidad_AgregarTrazabilidad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceTrazabilidad/AgregarTrazabilidadResponse" message="tns:IServiceTrazabilidad_AgregarTrazabilidad_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditarTrazabilidad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceTrazabilidad/EditarTrazabilidad" message="tns:IServiceTrazabilidad_EditarTrazabilidad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceTrazabilidad/EditarTrazabilidadResponse" message="tns:IServiceTrazabilidad_EditarTrazabilidad_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarTrazabilidad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceTrazabilidad/EliminarTrazabilidad" message="tns:IServiceTrazabilidad_EliminarTrazabilidad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceTrazabilidad/EliminarTrazabilidadResponse" message="tns:IServiceTrazabilidad_EliminarTrazabilidad_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarTrazabilidad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceTrazabilidad/BuscarTrazabilidad" message="tns:IServiceTrazabilidad_BuscarTrazabilidad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceTrazabilidad/BuscarTrazabilidadResponse" message="tns:IServiceTrazabilidad_BuscarTrazabilidad_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IServiceTrazabilidad" type="tns:IServiceTrazabilidad">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ListarTrazabilidad">
+      <soap:operation soapAction="http://tempuri.org/IServiceTrazabilidad/ListarTrazabilidad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarTrazabilidad">
+      <soap:operation soapAction="http://tempuri.org/IServiceTrazabilidad/AgregarTrazabilidad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditarTrazabilidad">
+      <soap:operation soapAction="http://tempuri.org/IServiceTrazabilidad/EditarTrazabilidad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarTrazabilidad">
+      <soap:operation soapAction="http://tempuri.org/IServiceTrazabilidad/EliminarTrazabilidad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarTrazabilidad">
+      <soap:operation soapAction="http://tempuri.org/IServiceTrazabilidad/BuscarTrazabilidad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiceTrazabilidad">
+    <wsdl:port name="BasicHttpBinding_IServiceTrazabilidad" binding="tns:BasicHttpBinding_IServiceTrazabilidad">
+      <soap:address location="http://localhost:50703/ServiceTrazabilidad.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

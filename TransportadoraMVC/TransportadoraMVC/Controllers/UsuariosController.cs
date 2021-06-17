@@ -8,29 +8,26 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
-using TransportadoraMVC.Models;
+using TransportadoraMVC.ReferenceUsuario;
 
 namespace TransportadoraMVC.Controllers
 {
     public class UsuariosController : Controller
     {
-        private TransportadoraEntities db = new TransportadoraEntities();
+        ReferenceUsuario.ServiceUsuarioClient cliente = new ReferenceUsuario.ServiceUsuarioClient();
+        //private TransportadoraEntities db = new TransportadoraEntities();
 
         // GET: Usuarios
         public ActionResult Index()
         {
-            var usuarios = (from m in db.Usuario
-                           select m).ToList();
-
-            return View(usuarios);
-
+            //var usuarios = (from m in db.Usuario select m).ToList();
+            return View(cliente.ListarUsuario());
         }
         public string Listar()
         {
-            var actividades = (from u in db.Usuario
-                               select u).ToList();
+            var usuarios = View(cliente.ListarUsuario());
 
-            return Newtonsoft.Json.JsonConvert.SerializeObject(actividades,
+            return Newtonsoft.Json.JsonConvert.SerializeObject(usuarios,
                 new JsonSerializerSettings
                 {
                     ReferenceLoopHandling = ReferenceLoopHandling.Ignore
@@ -45,7 +42,7 @@ namespace TransportadoraMVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Usuario usuario = db.Usuario.Find(id);
+            Usuario usuario = cliente.BuscarUsuario(id.Value);
             if (usuario == null)
             {
                 return HttpNotFound();
@@ -55,7 +52,7 @@ namespace TransportadoraMVC.Controllers
 
         public string Detalle(long? id)
         {
-            var detalleUsuario = db.Usuario.Find(id);
+            var detalleUsuario = cliente.BuscarUsuario(id.Value);
 
             return Newtonsoft.Json.JsonConvert.SerializeObject(detalleUsuario,
                 new JsonSerializerSettings
@@ -79,8 +76,9 @@ namespace TransportadoraMVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Usuario.Add(usuario);
-                db.SaveChanges();
+                //db.Usuario.Add(usuario);
+                //db.SaveChanges();
+                cliente.AgregarUsuario(usuario);
                 return RedirectToAction("Index");
             }
 
@@ -88,7 +86,7 @@ namespace TransportadoraMVC.Controllers
         }
                 
         // GET: Usuarios/Delete/5
-        public ActionResult Delete(long? id)
+        /*public ActionResult Delete(long? id)
         {
             if (id == null)
             {
@@ -100,46 +98,49 @@ namespace TransportadoraMVC.Controllers
                 return HttpNotFound();
             }
             return View(usuario);
-        }
+        }*/
 
         // POST: Usuarios/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
+        //[HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(long id)
         {
-            Usuario usuario = db.Usuario.Find(id);
-            db.Usuario.Remove(usuario);
-            db.SaveChanges();
+            //Usuario usuario = db.Usuario.Find(id);
+            //db.Usuario.Remove(usuario);
+            //db.SaveChanges();
+            cliente.EliminarUsuario(id);
             return RedirectToAction("Index");
         }
 
         public string eliminar(long id)
         {
-            Usuario usuario = db.Usuario.Find(id);
-            db.Usuario.Remove(usuario);
-            db.SaveChanges();
+            //Usuario usuario = db.Usuario.Find(id);
+            //db.Usuario.Remove(usuario);
+            //db.SaveChanges();
+            cliente.EliminarUsuario(id);
             return null;
         }
 
-        protected override void Dispose(bool disposing)
+       /* protected override void Dispose(bool disposing)
         {
             if (disposing)
             {
                 db.Dispose();
             }
             base.Dispose(disposing);
-        }
+        }*/
 
         public string CambiarPassword(long? id, string contraseñaActual, string nuevaContraseña)
         {
-            Usuario usuario = db.Usuario.Find(id);
+            Usuario usuario = cliente.BuscarUsuario(id.Value);
 
             if (usuario != null)
             {
                 if (usuario.Contraseña == contraseñaActual)
                 {
-                    usuario.Contraseña = nuevaContraseña;
-                    db.SaveChanges();
+                    //usuario.Contraseña = nuevaContraseña;
+                    //db.SaveChanges();
+                    cliente.CambiarPassword(id.Value, contraseñaActual, nuevaContraseña);
                     var mensaje = "Cambio de Contraseña Exitoso.";
                     return Newtonsoft.Json.JsonConvert.SerializeObject(mensaje);
                 }

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="bbc1fdf1-05f0-4544-9cb7-2b2a7e3024bc" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:50703/ServiceEmbarque.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ServiceEmbarque.wsdl" MetadataType="Wsdl" ID="2a8102ff-acdc-4b29-a2a5-7d132adbc7a6" SourceId="1" SourceUrl="http://localhost:50703/ServiceEmbarque.svc?wsdl" />
+    <MetadataFile FileName="ServiceEmbarque.xsd" MetadataType="Schema" ID="1debcd31-3858-447c-9d76-76cb42f77603" SourceId="1" SourceUrl="http://localhost:50703/ServiceEmbarque.svc?xsd=xsd2" />
+    <MetadataFile FileName="ServiceEmbarque1.xsd" MetadataType="Schema" ID="302fe4f1-c65d-4c0d-921d-6bc2d72dd4c0" SourceId="1" SourceUrl="http://localhost:50703/ServiceEmbarque.svc?xsd=xsd1" />
+    <MetadataFile FileName="ServiceEmbarque2.xsd" MetadataType="Schema" ID="574430af-8d6f-42ed-b65e-791484d07d72" SourceId="1" SourceUrl="http://localhost:50703/ServiceEmbarque.svc?xsd=xsd0" />
+    <MetadataFile FileName="ServiceEmbarque.disco" MetadataType="Disco" ID="5b174fee-b250-4eb7-a465-5880f1bc95d4" SourceId="1" SourceUrl="http://localhost:50703/ServiceEmbarque.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

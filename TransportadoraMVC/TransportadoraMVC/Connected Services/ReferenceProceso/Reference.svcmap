@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="29f5e0d8-f75f-40a4-8991-047ca03cb773" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:50703/ServiceProceso.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ServiceProceso.xsd" MetadataType="Schema" ID="f032f744-cbee-4080-ab98-3c38df4e1d28" SourceId="1" SourceUrl="http://localhost:50703/ServiceProceso.svc?xsd=xsd2" />
+    <MetadataFile FileName="ServiceProceso1.xsd" MetadataType="Schema" ID="98b2c37c-7c47-4011-a72a-586c500e0e11" SourceId="1" SourceUrl="http://localhost:50703/ServiceProceso.svc?xsd=xsd0" />
+    <MetadataFile FileName="ServiceProceso.wsdl" MetadataType="Wsdl" ID="74a95efc-25af-42d5-af1f-18575edbb8d3" SourceId="1" SourceUrl="http://localhost:50703/ServiceProceso.svc?wsdl" />
+    <MetadataFile FileName="ServiceProceso.disco" MetadataType="Disco" ID="3bcdb099-c110-40e1-b77d-3c1de357e1bb" SourceId="1" SourceUrl="http://localhost:50703/ServiceProceso.svc?disco" />
+    <MetadataFile FileName="ServiceProceso2.xsd" MetadataType="Schema" ID="7143f271-857f-4f4f-8b38-bae7396bb7f6" SourceId="1" SourceUrl="http://localhost:50703/ServiceProceso.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

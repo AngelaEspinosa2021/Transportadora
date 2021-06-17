@@ -88,11 +88,19 @@
       <LastGenOutput>TranspModel.cs</LastGenOutput>
     </Content>
     <Content Include="ServiceActividad.svc" />
+    <Content Include="ServiceEmbarque.svc" />
+    <Content Include="ServiceProceso.svc" />
+    <Content Include="ServiceTrazabilidad.svc" />
+    <Content Include="ServiceUsuario.svc" />
     <Content Include="ServicioMoneda.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IServiceActividad.cs" />
+    <Compile Include="IServiceEmbarque.cs" />
+    <Compile Include="IServiceProceso.cs" />
+    <Compile Include="IServiceTrazabilidad.cs" />
+    <Compile Include="IServiceUsuario.cs" />
     <Compile Include="IServicioMoneda.cs" />
     <Compile Include="Modelos\Actividad.cs">
       <DependentUpon>TranspModel.tt</DependentUpon>
@@ -133,6 +141,18 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceActividad.svc.cs">
       <DependentUpon>ServiceActividad.svc</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceEmbarque.svc.cs">
+      <DependentUpon>ServiceEmbarque.svc</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceProceso.svc.cs">
+      <DependentUpon>ServiceProceso.svc</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceTrazabilidad.svc.cs">
+      <DependentUpon>ServiceTrazabilidad.svc</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceUsuario.svc.cs">
+      <DependentUpon>ServiceUsuario.svc</DependentUpon>
     </Compile>
     <Compile Include="ServicioMoneda.svc.cs">
       <DependentUpon>ServicioMoneda.svc</DependentUpon>

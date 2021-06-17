@@ -7,24 +7,25 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using TransportadoraMVC.Models;
+using TransportadoraMVC.ReferenceProceso;
 
 namespace TransportadoraMVC.Controllers
 {
     public class ProcesosController : Controller
     {
-        private TransportadoraEntities db = new TransportadoraEntities();
+        ReferenceProceso.ServiceProcesoClient cliente = new ReferenceProceso.ServiceProcesoClient();
 
         // GET: Procesos
         public ActionResult Index()
         {
-            return View(db.Proceso.ToList());
+            return View(cliente.ListarProceso());
         }
 
         public string Listar()
         {
-            var procesos = (from p in db.Proceso
-                               select p).ToList();
+            //var procesos = (from p in db.Proceso
+            //                   select p).ToList();
+            var procesos = View(cliente.ListarProceso());
 
             return Newtonsoft.Json.JsonConvert.SerializeObject(procesos,
                 new JsonSerializerSettings
@@ -40,7 +41,7 @@ namespace TransportadoraMVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Proceso proceso = db.Proceso.Find(id);
+            Proceso proceso = cliente.BuscarProceso(id.Value);
             if (proceso == null)
             {
                 return HttpNotFound();
@@ -50,9 +51,9 @@ namespace TransportadoraMVC.Controllers
 
         public string Detalle(long? id)
         {
-            var detalleProceso = db.Proceso.Find(id);
+            var detalleProeceso = cliente.BuscarProceso(id.Value);
 
-            return Newtonsoft.Json.JsonConvert.SerializeObject(detalleProceso,
+            return Newtonsoft.Json.JsonConvert.SerializeObject(detalleProeceso,
                 new JsonSerializerSettings
                 {
                     ReferenceLoopHandling = ReferenceLoopHandling.Ignore
@@ -74,8 +75,9 @@ namespace TransportadoraMVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Proceso.Add(proceso);
-                db.SaveChanges();
+                //db.Proceso.Add(proceso);
+                //db.SaveChanges();
+                cliente.AgregarProceso(proceso);
                 return RedirectToAction("Index");
             }
 
@@ -89,7 +91,7 @@ namespace TransportadoraMVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Proceso proceso = db.Proceso.Find(id);
+            Proceso proceso = cliente.BuscarProceso(id.Value);
             if (proceso == null)
             {
                 return HttpNotFound();
@@ -106,54 +108,57 @@ namespace TransportadoraMVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(proceso).State = EntityState.Modified;
-                db.SaveChanges();
+                //db.Entry(proceso).State = EntityState.Modified;
+                //db.SaveChanges();
+                cliente.EditarProceso(proceso.Id, proceso);
                 return RedirectToAction("Index");
             }
             return View(proceso);
         }
 
         // GET: Procesos/Delete/5
-        public ActionResult Delete(long? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Proceso proceso = db.Proceso.Find(id);
-            if (proceso == null)
-            {
-                return HttpNotFound();
-            }
-            return View(proceso);
-        }
+        //public ActionResult Delete(long? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    Proceso proceso = db.Proceso.Find(id);
+        //    if (proceso == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(proceso);
+        //}
 
         // POST: Procesos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(long id)
         {
-            Proceso proceso = db.Proceso.Find(id);
-            db.Proceso.Remove(proceso);
-            db.SaveChanges();
+            //Proceso proceso = db.Proceso.Find(id);
+            //db.Proceso.Remove(proceso);
+            //db.SaveChanges();
+            cliente.EliminarProceso(id);
             return RedirectToAction("Index");
         }
 
         public string eliminar(long id)
         {
-            Proceso proceso = db.Proceso.Find(id);
-            db.Proceso.Remove(proceso);
-            db.SaveChanges();
+            //Proceso proceso = db.Proceso.Find(id);
+            //db.Proceso.Remove(proceso);
+            //db.SaveChanges();
+            cliente.EliminarProceso(id);
             return null;
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (disposing)
+        //    {
+        //        db.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //}
     }
 }

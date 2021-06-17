@@ -139,6 +139,26 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\ReferenceEmbarque\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ReferenceProceso\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ReferenceTrazabilidad\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ReferenceUsuario\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\AccessController.cs" />
     <Compile Include="Controllers\ActividadController.cs" />
     <Compile Include="Controllers\EmbarquesController.cs" />
@@ -195,6 +215,47 @@
     <None Include="Connected Services\ReferenceActividad\configuration91.svcinfo" />
     <None Include="Connected Services\ReferenceActividad\configuration.svcinfo" />
     <None Include="Connected Services\ReferenceActividad\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\ReferenceEmbarque\ServiceEmbarque.wsdl" />
+    <None Include="Connected Services\ReferenceEmbarque\ServiceEmbarque.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ReferenceEmbarque\ServiceEmbarque1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ReferenceEmbarque\ServiceEmbarque2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Connected Services\ReferenceEmbarque\TransportadoraMVC.ReferenceEmbarque.Embarque.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\ReferenceProceso\ServiceProceso.disco" />
+    <None Include="Connected Services\ReferenceProceso\configuration91.svcinfo" />
+    <None Include="Connected Services\ReferenceProceso\configuration.svcinfo" />
+    <None Include="Connected Services\ReferenceProceso\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\ReferenceEmbarque\ServiceEmbarque.disco" />
+    <None Include="Connected Services\ReferenceEmbarque\configuration91.svcinfo" />
+    <None Include="Connected Services\ReferenceEmbarque\configuration.svcinfo" />
+    <None Include="Connected Services\ReferenceEmbarque\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\ReferenceTrazabilidad\ServiceTrazabilidad.disco" />
+    <None Include="Connected Services\ReferenceTrazabilidad\configuration91.svcinfo" />
+    <None Include="Connected Services\ReferenceTrazabilidad\configuration.svcinfo" />
+    <None Include="Connected Services\ReferenceTrazabilidad\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\ReferenceUsuario\ServiceUsuario.disco" />
+    <None Include="Connected Services\ReferenceUsuario\configuration91.svcinfo" />
+    <None Include="Connected Services\ReferenceUsuario\configuration.svcinfo" />
+    <None Include="Connected Services\ReferenceUsuario\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -317,6 +378,45 @@
     <Content Include="Connected Services\ReferenceActividad\TransportadoraMVC.ReferenceActividad.Actividad.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <None Include="Connected Services\ReferenceProceso\ServiceProceso.wsdl" />
+    <None Include="Connected Services\ReferenceProceso\ServiceProceso.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ReferenceProceso\ServiceProceso1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ReferenceProceso\ServiceProceso2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Connected Services\ReferenceProceso\TransportadoraMVC.ReferenceProceso.Proceso.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\ReferenceTrazabilidad\ServiceTrazabilidad.wsdl" />
+    <None Include="Connected Services\ReferenceTrazabilidad\ServiceTrazabilidad.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ReferenceTrazabilidad\ServiceTrazabilidad1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ReferenceTrazabilidad\ServiceTrazabilidad2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Connected Services\ReferenceTrazabilidad\TransportadoraMVC.ReferenceTrazabilidad.Trazabilidad.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\ReferenceUsuario\ServiceUsuario.wsdl" />
+    <None Include="Connected Services\ReferenceUsuario\ServiceUsuario.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ReferenceUsuario\ServiceUsuario1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ReferenceUsuario\ServiceUsuario2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Connected Services\ReferenceUsuario\TransportadoraMVC.ReferenceUsuario.Usuario.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -328,6 +428,10 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\MonedaReference\" />
     <WCFMetadataStorage Include="Connected Services\ReferenceActividad\" />
+    <WCFMetadataStorage Include="Connected Services\ReferenceEmbarque\" />
+    <WCFMetadataStorage Include="Connected Services\ReferenceProceso\" />
+    <WCFMetadataStorage Include="Connected Services\ReferenceTrazabilidad\" />
+    <WCFMetadataStorage Include="Connected Services\ReferenceUsuario\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

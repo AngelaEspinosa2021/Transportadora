@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="699ffabc-458f-441a-bc4c-be3c41120591" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:50703/ServiceTrazabilidad.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ServiceTrazabilidad.xsd" MetadataType="Schema" ID="a5820cfd-5756-4196-bbba-fb0684b54339" SourceId="1" SourceUrl="http://localhost:50703/ServiceTrazabilidad.svc?xsd=xsd0" />
+    <MetadataFile FileName="ServiceTrazabilidad1.xsd" MetadataType="Schema" ID="0c7acdce-6fda-40cf-a368-bde6164cd661" SourceId="1" SourceUrl="http://localhost:50703/ServiceTrazabilidad.svc?xsd=xsd2" />
+    <MetadataFile FileName="ServiceTrazabilidad2.xsd" MetadataType="Schema" ID="c1200b19-1c09-4f8a-ac5d-90564e1b1846" SourceId="1" SourceUrl="http://localhost:50703/ServiceTrazabilidad.svc?xsd=xsd1" />
+    <MetadataFile FileName="ServiceTrazabilidad.wsdl" MetadataType="Wsdl" ID="68675726-5f83-4121-8d49-d3846e8dc695" SourceId="1" SourceUrl="http://localhost:50703/ServiceTrazabilidad.svc?wsdl" />
+    <MetadataFile FileName="ServiceTrazabilidad.disco" MetadataType="Disco" ID="d187054f-818f-49ed-a719-c95c01bed6db" SourceId="1" SourceUrl="http://localhost:50703/ServiceTrazabilidad.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

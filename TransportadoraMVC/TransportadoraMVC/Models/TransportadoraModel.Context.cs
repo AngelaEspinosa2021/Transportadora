@@ -25,10 +25,10 @@ namespace TransportadoraMVC.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Actividad> Actividad { get; set; }
+        //public virtual DbSet<Actividad> Actividad { get; set; }
         public virtual DbSet<Embarque> Embarque { get; set; }
         //public virtual DbSet<Moneda> Moneda { get; set; }
-        public virtual DbSet<Proceso> Proceso { get; set; }
+        //public virtual DbSet<Proceso> Proceso { get; set; }
         public virtual DbSet<Trazabilidad> Trazabilidad { get; set; }
         public virtual DbSet<Usuario> Usuario { get; set; }
     }
