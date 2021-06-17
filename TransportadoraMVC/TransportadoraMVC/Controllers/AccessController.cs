@@ -9,6 +9,7 @@ namespace TransportadoraMVC.Controllers
 {
     public class AccessController : Controller
     {
+        AccessReference.ServicioAccessClient cliente = new AccessReference.ServicioAccessClient();
         // GET: Access
         public ActionResult Index()
         {
@@ -19,24 +20,17 @@ namespace TransportadoraMVC.Controllers
         {
             try
             {
-                using (TransportadoraEntities db = new TransportadoraEntities())
+                var usuario = cliente.ValidarUsuario(txtUsuario,txtPassword);
+
+                if (usuario != null)
                 {
-                    var listaUsuario = (from m in db.Usuario
-                                        where m.Correo == txtUsuario && m.Contraseña == txtPassword
-                                        select m);
-                    if (listaUsuario.Count() > 0)
-                    {
-                        Usuario User = listaUsuario.First(); //creacion de sesion en c#
-                        Session["User"] = User;
-                        return Content("1");
-                    }
-                    else
-                    {
-                        return Content("Usuario Invalido");
-                    }
+                    Session["User"] = usuario;
+                    return Content("1");
                 }
-
-
+                else
+                {
+                    return Content("Usuario Invalido");
+                }             
             }
             catch (Exception ex)
             {
