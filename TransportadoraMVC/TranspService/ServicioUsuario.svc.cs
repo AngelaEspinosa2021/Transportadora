@@ -75,5 +75,17 @@ namespace TranspService
         {
             return bd.Usuario.ToList();
         }
+
+        public Usuario ValidarUsuario(string txtUsuario, string txtPassword)
+        {
+            using (transportadoraEntities bd = new transportadoraEntities())
+            {
+                var listaUsuario = (from m in bd.Usuario
+                                    where m.Correo == txtUsuario && m.Contraseña == txtPassword
+                                    select m).ToList().FirstOrDefault();
+
+                return listaUsuario;
+            }
+        }
     }
 }

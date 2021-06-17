@@ -9,476 +9,35 @@
 //------------------------------------------------------------------------------
 
 namespace TransportadoraMVC.UsuarioReference {
-    using System.Runtime.Serialization;
-    using System;
     
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Usuario", Namespace="http://schemas.datacontract.org/2004/07/TranspService.Modelos")]
-    [System.SerializableAttribute()]
-    public partial class Usuario : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private TransportadoraMVC.UsuarioReference.Actividad[] ActividadField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private TransportadoraMVC.UsuarioReference.Actividad[] Actividad1Field;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ContraseñaField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CorreoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private long IdField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public TransportadoraMVC.UsuarioReference.Actividad[] Actividad {
-            get {
-                return this.ActividadField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ActividadField, value) != true)) {
-                    this.ActividadField = value;
-                    this.RaisePropertyChanged("Actividad");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public TransportadoraMVC.UsuarioReference.Actividad[] Actividad1 {
-            get {
-                return this.Actividad1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Actividad1Field, value) != true)) {
-                    this.Actividad1Field = value;
-                    this.RaisePropertyChanged("Actividad1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Contraseña {
-            get {
-                return this.ContraseñaField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ContraseñaField, value) != true)) {
-                    this.ContraseñaField = value;
-                    this.RaisePropertyChanged("Contraseña");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Correo {
-            get {
-                return this.CorreoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CorreoField, value) != true)) {
-                    this.CorreoField = value;
-                    this.RaisePropertyChanged("Correo");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public long Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Actividad", Namespace="http://schemas.datacontract.org/2004/07/TranspService.Modelos")]
-    [System.SerializableAttribute()]
-    public partial class Actividad : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<long> AsignadaAField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string AsuntoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<long> CreadaPorField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string EstadoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> FechaVencimientoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private long IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ObservacionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PrioridadField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private TransportadoraMVC.UsuarioReference.Proceso ProcesoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<long> RelacionadaConField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private TransportadoraMVC.UsuarioReference.Usuario UsuarioField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private TransportadoraMVC.UsuarioReference.Usuario Usuario1Field;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<long> AsignadaA {
-            get {
-                return this.AsignadaAField;
-            }
-            set {
-                if ((this.AsignadaAField.Equals(value) != true)) {
-                    this.AsignadaAField = value;
-                    this.RaisePropertyChanged("AsignadaA");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Asunto {
-            get {
-                return this.AsuntoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AsuntoField, value) != true)) {
-                    this.AsuntoField = value;
-                    this.RaisePropertyChanged("Asunto");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<long> CreadaPor {
-            get {
-                return this.CreadaPorField;
-            }
-            set {
-                if ((this.CreadaPorField.Equals(value) != true)) {
-                    this.CreadaPorField = value;
-                    this.RaisePropertyChanged("CreadaPor");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Estado {
-            get {
-                return this.EstadoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EstadoField, value) != true)) {
-                    this.EstadoField = value;
-                    this.RaisePropertyChanged("Estado");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> FechaVencimiento {
-            get {
-                return this.FechaVencimientoField;
-            }
-            set {
-                if ((this.FechaVencimientoField.Equals(value) != true)) {
-                    this.FechaVencimientoField = value;
-                    this.RaisePropertyChanged("FechaVencimiento");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public long Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Observacion {
-            get {
-                return this.ObservacionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ObservacionField, value) != true)) {
-                    this.ObservacionField = value;
-                    this.RaisePropertyChanged("Observacion");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Prioridad {
-            get {
-                return this.PrioridadField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PrioridadField, value) != true)) {
-                    this.PrioridadField = value;
-                    this.RaisePropertyChanged("Prioridad");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public TransportadoraMVC.UsuarioReference.Proceso Proceso {
-            get {
-                return this.ProcesoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ProcesoField, value) != true)) {
-                    this.ProcesoField = value;
-                    this.RaisePropertyChanged("Proceso");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<long> RelacionadaCon {
-            get {
-                return this.RelacionadaConField;
-            }
-            set {
-                if ((this.RelacionadaConField.Equals(value) != true)) {
-                    this.RelacionadaConField = value;
-                    this.RaisePropertyChanged("RelacionadaCon");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public TransportadoraMVC.UsuarioReference.Usuario Usuario {
-            get {
-                return this.UsuarioField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UsuarioField, value) != true)) {
-                    this.UsuarioField = value;
-                    this.RaisePropertyChanged("Usuario");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public TransportadoraMVC.UsuarioReference.Usuario Usuario1 {
-            get {
-                return this.Usuario1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Usuario1Field, value) != true)) {
-                    this.Usuario1Field = value;
-                    this.RaisePropertyChanged("Usuario1");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Proceso", Namespace="http://schemas.datacontract.org/2004/07/TranspService.Modelos")]
-    [System.SerializableAttribute()]
-    public partial class Proceso : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private TransportadoraMVC.UsuarioReference.Actividad[] ActividadField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string EstadoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private long IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NombreField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string SucursalField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public TransportadoraMVC.UsuarioReference.Actividad[] Actividad {
-            get {
-                return this.ActividadField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ActividadField, value) != true)) {
-                    this.ActividadField = value;
-                    this.RaisePropertyChanged("Actividad");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Estado {
-            get {
-                return this.EstadoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EstadoField, value) != true)) {
-                    this.EstadoField = value;
-                    this.RaisePropertyChanged("Estado");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public long Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Nombre {
-            get {
-                return this.NombreField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NombreField, value) != true)) {
-                    this.NombreField = value;
-                    this.RaisePropertyChanged("Nombre");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Sucursal {
-            get {
-                return this.SucursalField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SucursalField, value) != true)) {
-                    this.SucursalField = value;
-                    this.RaisePropertyChanged("Sucursal");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="UsuarioReference.IServicioUsuario")]
     public interface IServicioUsuario {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioUsuario/ListarUsuarios", ReplyAction="http://tempuri.org/IServicioUsuario/ListarUsuariosResponse")]
-        TransportadoraMVC.UsuarioReference.Usuario[] ListarUsuarios();
+        TranspService.Modelos.Usuario[] ListarUsuarios();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioUsuario/ListarUsuarios", ReplyAction="http://tempuri.org/IServicioUsuario/ListarUsuariosResponse")]
-        System.Threading.Tasks.Task<TransportadoraMVC.UsuarioReference.Usuario[]> ListarUsuariosAsync();
+        System.Threading.Tasks.Task<TranspService.Modelos.Usuario[]> ListarUsuariosAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioUsuario/BuscarUsuario", ReplyAction="http://tempuri.org/IServicioUsuario/BuscarUsuarioResponse")]
-        TransportadoraMVC.UsuarioReference.Usuario BuscarUsuario(long Id);
+        TranspService.Modelos.Usuario BuscarUsuario(long Id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioUsuario/BuscarUsuario", ReplyAction="http://tempuri.org/IServicioUsuario/BuscarUsuarioResponse")]
-        System.Threading.Tasks.Task<TransportadoraMVC.UsuarioReference.Usuario> BuscarUsuarioAsync(long Id);
+        System.Threading.Tasks.Task<TranspService.Modelos.Usuario> BuscarUsuarioAsync(long Id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioUsuario/AgregarUsuario", ReplyAction="http://tempuri.org/IServicioUsuario/AgregarUsuarioResponse")]
-        void AgregarUsuario(TransportadoraMVC.UsuarioReference.Usuario usuario);
+        void AgregarUsuario(TranspService.Modelos.Usuario usuario);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioUsuario/AgregarUsuario", ReplyAction="http://tempuri.org/IServicioUsuario/AgregarUsuarioResponse")]
-        System.Threading.Tasks.Task AgregarUsuarioAsync(TransportadoraMVC.UsuarioReference.Usuario usuario);
+        System.Threading.Tasks.Task AgregarUsuarioAsync(TranspService.Modelos.Usuario usuario);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioUsuario/EditarUsuario", ReplyAction="http://tempuri.org/IServicioUsuario/EditarUsuarioResponse")]
-        void EditarUsuario(long Id, TransportadoraMVC.UsuarioReference.Usuario usuario);
+        void EditarUsuario(long Id, TranspService.Modelos.Usuario usuario);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioUsuario/EditarUsuario", ReplyAction="http://tempuri.org/IServicioUsuario/EditarUsuarioResponse")]
-        System.Threading.Tasks.Task EditarUsuarioAsync(long Id, TransportadoraMVC.UsuarioReference.Usuario usuario);
+        System.Threading.Tasks.Task EditarUsuarioAsync(long Id, TranspService.Modelos.Usuario usuario);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioUsuario/ConfirmarUsuario", ReplyAction="http://tempuri.org/IServicioUsuario/ConfirmarUsuarioResponse")]
         void ConfirmarUsuario(long Id);
@@ -497,6 +56,12 @@ namespace TransportadoraMVC.UsuarioReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioUsuario/CambiarPassword", ReplyAction="http://tempuri.org/IServicioUsuario/CambiarPasswordResponse")]
         System.Threading.Tasks.Task CambiarPasswordAsync(long Id, string contraseñaActual, string nuevaContraseña);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioUsuario/ValidarUsuario", ReplyAction="http://tempuri.org/IServicioUsuario/ValidarUsuarioResponse")]
+        TranspService.Modelos.Usuario ValidarUsuario(string txtUsuario, string txtPassword);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioUsuario/ValidarUsuario", ReplyAction="http://tempuri.org/IServicioUsuario/ValidarUsuarioResponse")]
+        System.Threading.Tasks.Task<TranspService.Modelos.Usuario> ValidarUsuarioAsync(string txtUsuario, string txtPassword);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -526,35 +91,35 @@ namespace TransportadoraMVC.UsuarioReference {
                 base(binding, remoteAddress) {
         }
         
-        public TransportadoraMVC.UsuarioReference.Usuario[] ListarUsuarios() {
+        public TranspService.Modelos.Usuario[] ListarUsuarios() {
             return base.Channel.ListarUsuarios();
         }
         
-        public System.Threading.Tasks.Task<TransportadoraMVC.UsuarioReference.Usuario[]> ListarUsuariosAsync() {
+        public System.Threading.Tasks.Task<TranspService.Modelos.Usuario[]> ListarUsuariosAsync() {
             return base.Channel.ListarUsuariosAsync();
         }
         
-        public TransportadoraMVC.UsuarioReference.Usuario BuscarUsuario(long Id) {
+        public TranspService.Modelos.Usuario BuscarUsuario(long Id) {
             return base.Channel.BuscarUsuario(Id);
         }
         
-        public System.Threading.Tasks.Task<TransportadoraMVC.UsuarioReference.Usuario> BuscarUsuarioAsync(long Id) {
+        public System.Threading.Tasks.Task<TranspService.Modelos.Usuario> BuscarUsuarioAsync(long Id) {
             return base.Channel.BuscarUsuarioAsync(Id);
         }
         
-        public void AgregarUsuario(TransportadoraMVC.UsuarioReference.Usuario usuario) {
+        public void AgregarUsuario(TranspService.Modelos.Usuario usuario) {
             base.Channel.AgregarUsuario(usuario);
         }
         
-        public System.Threading.Tasks.Task AgregarUsuarioAsync(TransportadoraMVC.UsuarioReference.Usuario usuario) {
+        public System.Threading.Tasks.Task AgregarUsuarioAsync(TranspService.Modelos.Usuario usuario) {
             return base.Channel.AgregarUsuarioAsync(usuario);
         }
         
-        public void EditarUsuario(long Id, TransportadoraMVC.UsuarioReference.Usuario usuario) {
+        public void EditarUsuario(long Id, TranspService.Modelos.Usuario usuario) {
             base.Channel.EditarUsuario(Id, usuario);
         }
         
-        public System.Threading.Tasks.Task EditarUsuarioAsync(long Id, TransportadoraMVC.UsuarioReference.Usuario usuario) {
+        public System.Threading.Tasks.Task EditarUsuarioAsync(long Id, TranspService.Modelos.Usuario usuario) {
             return base.Channel.EditarUsuarioAsync(Id, usuario);
         }
         
@@ -580,6 +145,14 @@ namespace TransportadoraMVC.UsuarioReference {
         
         public System.Threading.Tasks.Task CambiarPasswordAsync(long Id, string contraseñaActual, string nuevaContraseña) {
             return base.Channel.CambiarPasswordAsync(Id, contraseñaActual, nuevaContraseña);
+        }
+        
+        public TranspService.Modelos.Usuario ValidarUsuario(string txtUsuario, string txtPassword) {
+            return base.Channel.ValidarUsuario(txtUsuario, txtPassword);
+        }
+        
+        public System.Threading.Tasks.Task<TranspService.Modelos.Usuario> ValidarUsuarioAsync(string txtUsuario, string txtPassword) {
+            return base.Channel.ValidarUsuarioAsync(txtUsuario, txtPassword);
         }
     }
 }

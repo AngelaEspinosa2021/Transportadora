@@ -9,7 +9,7 @@ namespace TransportadoraMVC.Controllers
 {
     public class AccessController : Controller
     {
-        AccessReference.ServicioAccessClient cliente = new AccessReference.ServicioAccessClient();
+        UsuarioReference.ServicioUsuarioClient cliente = new UsuarioReference.ServicioUsuarioClient();
         // GET: Access
         public ActionResult Index()
         {

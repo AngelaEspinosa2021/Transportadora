@@ -139,7 +139,6 @@ namespace TransportadoraMVC.Controllers
 
         public string Eliminar(long? id)
         {
-            Embarque embarque = cliente.BuscarEmbarque(id.Value);
             EliminarTrazas(id);
             cliente.EliminarEmbarque(id.Value);
             return null;

@@ -9,8 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using TransportadoraMVC.UsuarioReference;
-
-
+using TranspService.Modelos;
 
 namespace TransportadoraMVC.Controllers
 {
@@ -43,7 +42,7 @@ namespace TransportadoraMVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Usuario usuario = cliente.BuscarUsuario(id.Value);
+             var usuario = cliente.BuscarUsuario(id.Value);
 
             if (usuario == null)
             {
@@ -92,7 +91,7 @@ namespace TransportadoraMVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Usuario usuario = cliente.BuscarUsuario(id.Value);
+            var  usuario = cliente.BuscarUsuario(id.Value);
             if (usuario == null)
             {
                 return HttpNotFound();
@@ -117,7 +116,7 @@ namespace TransportadoraMVC.Controllers
 
         public string CambiarPassword(long? id, string contraseñaActual, string nuevaContraseña)
         {
-            Usuario usuario = cliente.BuscarUsuario(id.Value);
+            var usuario = cliente.BuscarUsuario(id.Value);
             
             if (usuario != null)
             {
@@ -135,7 +134,7 @@ namespace TransportadoraMVC.Controllers
 
         public ActionResult Edit(long? id)
         {
-            Usuario usuario = cliente.BuscarUsuario(id.Value);
+            var usuario = cliente.BuscarUsuario(id.Value);
             cliente.EditarUsuario(id.Value, usuario);
             return View(usuario);
         }

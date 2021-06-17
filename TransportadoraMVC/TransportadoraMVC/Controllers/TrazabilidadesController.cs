@@ -53,7 +53,6 @@ namespace TransportadoraMVC.Controllers
         // GET: Trazabilidades/Create
         public ActionResult Create()
         {
-            ViewBag.IdEmbarque = new SelectList(db.Embarque, "Id", "Direccion");
             return View();
         }
 
@@ -86,7 +85,7 @@ namespace TransportadoraMVC.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.IdEmbarque = new SelectList(db.Embarque, "Id", "Direccion", trazabilidad.IdEmbarque);
+            
             return View(trazabilidad);
         }
 
@@ -100,8 +99,7 @@ namespace TransportadoraMVC.Controllers
         {
             if (trazabilidad != null)
             {
-                db.Entry(trazabilidad).State = EntityState.Modified;
-                db.SaveChanges();
+                cliente.EditarTrazabilidad(trazabilidad.Id, trazabilidad);
                 return new HttpStatusCodeResult(HttpStatusCode.OK);
             }
             

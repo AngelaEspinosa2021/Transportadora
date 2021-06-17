@@ -49,6 +49,12 @@
   <wsdl:message name="IServicioUsuario_CambiarPassword_OutputMessage">
     <wsdl:part name="parameters" element="tns:CambiarPasswordResponse" />
   </wsdl:message>
+  <wsdl:message name="IServicioUsuario_ValidarUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IServicioUsuario_ValidarUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarUsuarioResponse" />
+  </wsdl:message>
   <wsdl:portType name="IServicioUsuario">
     <wsdl:operation name="ListarUsuarios">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioUsuario/ListarUsuarios" message="tns:IServicioUsuario_ListarUsuarios_InputMessage" />
@@ -77,6 +83,10 @@
     <wsdl:operation name="CambiarPassword">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioUsuario/CambiarPassword" message="tns:IServicioUsuario_CambiarPassword_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioUsuario/CambiarPasswordResponse" message="tns:IServicioUsuario_CambiarPassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidarUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioUsuario/ValidarUsuario" message="tns:IServicioUsuario_ValidarUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioUsuario/ValidarUsuarioResponse" message="tns:IServicioUsuario_ValidarUsuario_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IServicioUsuario" type="tns:IServicioUsuario">
@@ -137,6 +147,15 @@
     </wsdl:operation>
     <wsdl:operation name="CambiarPassword">
       <soap:operation soapAction="http://tempuri.org/IServicioUsuario/CambiarPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidarUsuario">
+      <soap:operation soapAction="http://tempuri.org/IServicioUsuario/ValidarUsuario" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

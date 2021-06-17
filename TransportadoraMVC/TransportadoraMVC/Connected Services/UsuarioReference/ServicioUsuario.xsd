@@ -90,4 +90,19 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="ValidarUsuario">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="txtUsuario" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="txtPassword" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidarUsuarioResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/TranspService.Modelos" minOccurs="0" name="ValidarUsuarioResult" nillable="true" type="q5:Usuario" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

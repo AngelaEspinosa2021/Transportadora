@@ -33,6 +33,8 @@ namespace TranspService
         [OperationContract]
         void CambiarPassword(long Id, string contraseñaActual, string nuevaContraseña);
 
+        [OperationContract]
+        Usuario ValidarUsuario(string txtUsuario, string txtPassword);
 
     }
 }
