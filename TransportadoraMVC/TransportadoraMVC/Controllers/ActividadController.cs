@@ -8,12 +8,17 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using TransportadoraMVC.ReferenceActividad;
+using TransportadoraMVC.ReferenceProceso;
+using TransportadoraMVC.ReferenceUsuario;
+
 
 namespace TransportadoraMVC.Controllers
 {
     public class ActividadController : Controller
     {
         ReferenceActividad.ServiceActividadClient cliente = new ReferenceActividad.ServiceActividadClient();
+        ReferenceProceso.ServiceProcesoClient clientePro = new ReferenceProceso.ServiceProcesoClient();
+        ReferenceUsuario.ServiceUsuarioClient clienteUsu = new ReferenceUsuario.ServiceUsuarioClient();
 
         // GET: Actividad
         public ActionResult Index()
@@ -46,7 +51,7 @@ namespace TransportadoraMVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Actividad actividad = cliente.BuscarActividad(id.Value);
+            ReferenceActividad.Actividad actividad = cliente.BuscarActividad(id.Value);
             if (actividad == null)
             {
                 return HttpNotFound();
@@ -68,9 +73,9 @@ namespace TransportadoraMVC.Controllers
         // GET: Actividad/Create
         public ActionResult Create()
         {
-            //ViewBag.RelacionadaCon = new SelectList(db.Proceso, "Id", "Sucursal");
-            //ViewBag.CreadaPor = new SelectList(db.Usuario, "Id", "Correo");
-            //ViewBag.AsignadaA = new SelectList(db.Usuario, "Id", "Correo");
+            ViewBag.RelacionadaCon = new SelectList(clientePro.ListarProceso(), "Id", "Sucursal");
+            ViewBag.CreadaPor = new SelectList(clienteUsu.ListarUsuario(), "Id", "Correo");
+            ViewBag.AsignadaA = new SelectList(clienteUsu.ListarUsuario(), "Id", "Correo");
             return View();
         }
 
@@ -79,7 +84,7 @@ namespace TransportadoraMVC.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,CreadaPor,AsignadaA,RelacionadaCon,Asunto,FechaVencimiento,Observacion,Estado,Prioridad")] Actividad actividad)
+        public ActionResult Create([Bind(Include = "Id,CreadaPor,AsignadaA,RelacionadaCon,Asunto,FechaVencimiento,Observacion,Estado,Prioridad")] ReferenceActividad.Actividad actividad)
         {
             if (ModelState.IsValid)
             {
@@ -89,9 +94,9 @@ namespace TransportadoraMVC.Controllers
                 return RedirectToAction("Index");
             }
 
-            //ViewBag.RelacionadaCon = new SelectList(cliente. Proceso, "Id", "Sucursal", actividad.RelacionadaCon);
-            //ViewBag.CreadaPor = new SelectList(db.Usuario, "Id", "Correo", actividad.CreadaPor);
-            //ViewBag.AsignadaA = new SelectList(db.Usuario, "Id", "Correo", actividad.AsignadaA);
+            ViewBag.RelacionadaCon = new SelectList(clientePro.ListarProceso(), "Id", "Sucursal", actividad.RelacionadaCon);
+            ViewBag.CreadaPor = new SelectList(clienteUsu.ListarUsuario(), "Id", "Correo", actividad.CreadaPor);
+            ViewBag.AsignadaA = new SelectList(clienteUsu.ListarUsuario(), "Id", "Correo", actividad.AsignadaA);
             return View(actividad);
         }
 
@@ -102,14 +107,14 @@ namespace TransportadoraMVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Actividad actividad = cliente.BuscarActividad(id.Value);
+            ReferenceActividad.Actividad actividad = cliente.BuscarActividad(id.Value);
             if (actividad == null)
             {
                 return HttpNotFound();
             }
-            //ViewBag.RelacionadaCon = new SelectList(db.Proceso, "Id", "Sucursal", actividad.RelacionadaCon);
-            //ViewBag.CreadaPor = new SelectList(db.Usuario, "Id", "Correo", actividad.CreadaPor);
-            //ViewBag.AsignadaA = new SelectList(db.Usuario, "Id", "Correo", actividad.AsignadaA);
+            ViewBag.RelacionadaCon = new SelectList(clientePro.ListarProceso(), "Id", "Sucursal", actividad.RelacionadaCon);
+            ViewBag.CreadaPor = new SelectList(clienteUsu.ListarUsuario(), "Id", "Correo", actividad.CreadaPor);
+            ViewBag.AsignadaA = new SelectList(clienteUsu.ListarUsuario(), "Id", "Correo", actividad.AsignadaA);
             return View(actividad);
         }
 
@@ -118,7 +123,7 @@ namespace TransportadoraMVC.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,CreadaPor,AsignadaA,RelacionadaCon,Asunto,FechaVencimiento,Observacion,Estado,Prioridad")] Actividad actividad)
+        public ActionResult Edit([Bind(Include = "Id,CreadaPor,AsignadaA,RelacionadaCon,Asunto,FechaVencimiento,Observacion,Estado,Prioridad")] ReferenceActividad.Actividad actividad)
         {
             if (ModelState.IsValid)
             {

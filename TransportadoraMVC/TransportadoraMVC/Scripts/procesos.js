@@ -12,12 +12,12 @@
             tabla += '<th></th>';
             tabla += '</tr >';
 
-            for (var i = 0; i < datos.length; i++) {
+            for (var i = 0; i < datos.Model.length; i++) {
                 tabla += '<tr>';
-                tabla += '<td class="fuenteTitulo">' + datos[i].Sucursal + '</td>';
-                tabla += '<td class="fuenteTitulo">' + datos[i].Nombre + '</td>';
-                tabla += '<td class="fuenteTitulo">' + datos[i].Estado + '</td>';
-                tabla += '<td><a href="/Procesos/Edit/' + datos[i].Id + '" type="button" class="btnGenerico margenBoton">Editar</a><a href="#modal1" onclick="detalleProcesos(' + datos[i].Id + ');" type="button" class="btnGenerico margenBoton modal-trigger">Detalle</a><a href="#modal2" onclick="eliminarProceso(' + datos[i].Id + ');" type="button" class="btnGenerico margenBoton modal-trigger">Eliminar</a></td>';
+                tabla += '<td class="fuenteTitulo">' + datos.Model[i].Sucursal + '</td>';
+                tabla += '<td class="fuenteTitulo">' + datos.Model[i].Nombre + '</td>';
+                tabla += '<td class="fuenteTitulo">' + datos.Model[i].Estado + '</td>';
+                tabla += '<td><a href="/Procesos/Edit/' + datos.Model[i].Id + '" type="button" class="btnGenerico margenBoton">Editar</a><a href="#modal1" onclick="detalleProcesos(' + datos.Model[i].Id + ');" type="button" class="btnGenerico margenBoton modal-trigger">Detalle</a><a href="#modal2" onclick="eliminarProceso(' + datos.Model[i].Id + ');" type="button" class="btnGenerico margenBoton modal-trigger">Eliminar</a></td>';
                 tabla += '</tr>';
             }
 

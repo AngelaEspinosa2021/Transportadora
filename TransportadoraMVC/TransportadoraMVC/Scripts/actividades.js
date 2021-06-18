@@ -4,7 +4,7 @@
         type: 'get',
         dataType: 'json',
         success: function (datos) {
-            console.log(datos);
+            //console.log(datos);
             var tabla = '<table class="highlight">';
             tabla += '<tr>';
             tabla += '<th class="fuente">Asunto</th>';
@@ -47,7 +47,7 @@ function detalleActividad(id) {
         type: 'get',
         dataType: 'json',
         success: function (datos) {
-
+            console.log(datos);
             var actividad = '<form class="col s12">';
             actividad += '<div class="row">';
             actividad += '<div class="col s2 fuente">';

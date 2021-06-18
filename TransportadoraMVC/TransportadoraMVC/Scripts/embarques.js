@@ -17,18 +17,18 @@
             tabla += '<th></th>';
             tabla += '</tr >';
             console.log(datos);
-            for (var i = 0; i < datos.length; i++) {
+            for (var i = 0; i < datos.Model.length; i++) {
                 tabla += '<tr>';
-                tabla += '<td class="fuenteTitulo">' + datos[i].Direccion + '</td>';                
-                tabla += '<td class="fuenteTitulo">' + datos[i].Contacto + '</td>';                
-                tabla += '<td class="fuenteTitulo">' + datos[i].Consignatario + '</td>';
-                tabla += '<td class="fuenteTitulo">' + datos[i].ZonaAduanera + '</td>';
-                tabla += '<td class="fuenteTitulo">' + datos[i].Origen + '</td>';
-                tabla += '<td class="fuenteTitulo">' + datos[i].Destino + '</td>';
-                tabla += '<td class="fuenteTitulo">' + datos[i].Contenedor + '</td>';
-                tabla += '<td class="fuenteTitulo">' + datos[i].INCOTERM + '</td>';
-                tabla += '<td><a href="#modal1" onclick="detalleEmbarque(' + datos[i].Id + ');" type="button" class="btnGenerico margenBoton modal-trigger">Detalle</a><a href="/Embarques/Edit/' + datos[i].Id + '" type="button" class="btnGenerico margenBoton">Editar</a><a href="#modal3" onclick="eliminarEmbarque(' + datos[i].Id + ');" type="button" class="btnGenerico margenBoton modal-trigger">Eliminar</a></td>';
-                tabla += '<td><a href="#modal2" onclick="OpenModalCreateTrazabilidad(' + datos[i].Id + ');" type="button" class="btnGenerico2 margenBoton modal-trigger">Crear Trazabilidad</a><a href="#modal4" onclick="ListarTrazabilidades(' + datos[i].Id + ');" type="button" class="btnGenerico2 margenBoton modal-trigger">Historial Trazabilidades</a>';
+                tabla += '<td class="fuenteTitulo">' + datos.Model[i].Direccion + '</td>';
+                tabla += '<td class="fuenteTitulo">' + datos.Model[i].Contacto + '</td>';
+                tabla += '<td class="fuenteTitulo">' + datos.Model[i].Consignatario + '</td>';
+                tabla += '<td class="fuenteTitulo">' + datos.Model[i].ZonaAduanera + '</td>';
+                tabla += '<td class="fuenteTitulo">' + datos.Model[i].Origen + '</td>';
+                tabla += '<td class="fuenteTitulo">' + datos.Model[i].Destino + '</td>';
+                tabla += '<td class="fuenteTitulo">' + datos.Model[i].Contenedor + '</td>';
+                tabla += '<td class="fuenteTitulo">' + datos.Model[i].INCOTERM + '</td>';
+                tabla += '<td><a href="#modal1" onclick="detalleEmbarque(' + datos.Model[i].Id + ');" type="button" class="btnGenerico margenBoton modal-trigger">Detalle</a><a href="/Embarques/Edit/' + datos.Model[i].Id + '" type="button" class="btnGenerico margenBoton">Editar</a><a href="#modal3" onclick="eliminarEmbarque(' + datos.Model[i].Id + ');" type="button" class="btnGenerico margenBoton modal-trigger">Eliminar</a></td>';
+                tabla += '<td><a href="#modal2" onclick="OpenModalCreateTrazabilidad(' + datos.Model[i].Id + ');" type="button" class="btnGenerico2 margenBoton modal-trigger">Crear Trazabilidad</a><a href="#modal4" onclick="ListarTrazabilidades(' + datos.Model[i].Id + ');" type="button" class="btnGenerico2 margenBoton modal-trigger">Historial Trazabilidades</a>';
                 tabla += '</tr>';
             }
 
@@ -247,18 +247,18 @@ function ListarTrazabilidades(id) {
             tabla += '<th class="fuente">IdEmbarque</th>';
             tabla += '<th></th>';
             tabla += '</tr >';
-            console.log(datos);
-            for (var i = 0; i < datos.length; i++) {
+            
+            for (var i = 0; i < datos.Model.length; i++) {
                 tabla += '<tr>';
-                tabla += '<td class="fuenteTitulo center">' + datos[i].TipoOperacion + '</td>';
-                tabla += '<td class="fuenteTitulo center">' + datos[i].PaisOrigen + '</td>';
-                tabla += '<td class="fuenteTitulo center">' + datos[i].CiudadOrigen + '</td>';
-                tabla += '<td class="fuenteTitulo center">' + datos[i].PaisDestino + '</td>';
-                tabla += '<td class="fuenteTitulo center">' + datos[i].CiudadDesstino + '</td>';
-                tabla += '<td class="fuenteTitulo center">' + datos[i].Kilos + '</td>';
-                tabla += '<td class="fuenteTitulo center">' + datos[i].Teus + '</td>';
-                tabla += '<td class="fuenteTitulo center">' + datos[i].IdEmbarque + '</td>';
-                tabla += '<td><a href="#modal5" onclick="eliminarTrazabilidad(' + datos[i].Id + ');" type="button" class="btnGenerico margenBoton modal-trigger">Eliminar</a></td>';
+                tabla += '<td class="fuenteTitulo center">' + datos.Model[i].TipoOperacion + '</td>';
+                tabla += '<td class="fuenteTitulo center">' + datos.Model[i].PaisOrigen + '</td>';
+                tabla += '<td class="fuenteTitulo center">' + datos.Model[i].CiudadOrigen + '</td>';
+                tabla += '<td class="fuenteTitulo center">' + datos.Model[i].PaisDestino + '</td>';
+                tabla += '<td class="fuenteTitulo center">' + datos.Model[i].CiudadDesstino + '</td>';
+                tabla += '<td class="fuenteTitulo center">' + datos.Model[i].Kilos + '</td>';
+                tabla += '<td class="fuenteTitulo center">' + datos.Model[i].Teus + '</td>';
+                tabla += '<td class="fuenteTitulo center">' + datos.Model[i].IdEmbarque + '</td>';
+                tabla += '<td><a href="#modal5" onclick="eliminarTrazabilidad(' + datos.Model[i].Id + ');" type="button" class="btnGenerico margenBoton modal-trigger">Eliminar</a></td>';
                 tabla += '</tr>';
             }
 

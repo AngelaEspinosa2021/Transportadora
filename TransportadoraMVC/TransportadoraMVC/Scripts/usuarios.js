@@ -9,11 +9,11 @@
             tabla += '<th class="fuente">Correo</th>';            
             tabla += '<th></th>';
             tabla += '</tr >';
-            console.log(datos);
-            for (var i = 0; i < datos.length; i++) {
+            
+            for (var i = 0; i < datos.Model.length; i++) {
                 tabla += '<tr>';
-                tabla += '<td class="fuenteTitulo">' + datos[i].Correo + '</td>';                
-                tabla += '<td><a href="#modal1" onclick="detalleUsuarios(' + datos[i].Id + ');" type="button" class="btnGenerico margenBoton modal-trigger">Detalle</a><a href="/Usuarios/Edit/' + datos[i].Id + '" type="button" class="btnContrasena margenBoton">Cambiar Contraseña</a><a href="#modal2" onclick="eliminarUsuario(' + datos[i].Id + ');" type="button" class="btnGenerico margenBoton modal-trigger">Eliminar</a></td>';
+                tabla += '<td class="fuenteTitulo">' + datos.Model[i].Correo + '</td>';
+                tabla += '<td><a href="#modal1" onclick="detalleUsuarios(' + datos.Model[i].Id + ');" type="button" class="btnGenerico margenBoton modal-trigger">Detalle</a><a href="/Usuarios/Edit/' + datos.Model[i].Id + '" type="button" class="btnContrasena margenBoton">Cambiar Contraseña</a><a href="#modal2" onclick="eliminarUsuario(' + datos.Model[i].Id + ');" type="button" class="btnGenerico margenBoton modal-trigger">Eliminar</a></td>';
                 tabla += '</tr>';
             }
 
