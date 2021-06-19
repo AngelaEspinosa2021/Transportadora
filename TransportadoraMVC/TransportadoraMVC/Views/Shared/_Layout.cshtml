@@ -1,9 +1,8 @@
 ﻿
 @{ 
-    var user = (TransportadoraMVC.Models.Usuario) HttpContext.Current.Session["User"] ?? new TransportadoraMVC.Models.Usuario();
+    var user = (TransportadoraMVC.AccessReference.Usuario)HttpContext.Current.Session["User"] ?? new TransportadoraMVC.AccessReference.Usuario();
 }
-
-<!DOCTYPE html>
+<!DOCTYPE html >
 <html>
 <head>
     @*JQUERY*@

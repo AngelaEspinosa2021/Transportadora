@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="d8aa99a8-eb91-436f-8337-d7719a1f7bea" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://localhost:44345/AccessService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="AccessService.xsd" MetadataType="Schema" ID="70856589-1e33-4ed2-9ddd-54b6299e7d46" SourceId="1" SourceUrl="https://localhost:44345/AccessService.svc?xsd=xsd2" />
+    <MetadataFile FileName="AccessService.wsdl" MetadataType="Wsdl" ID="0f641cec-518d-48a3-bdda-37890a686cd8" SourceId="1" SourceUrl="https://localhost:44345/AccessService.svc?wsdl" />
+    <MetadataFile FileName="AccessService1.xsd" MetadataType="Schema" ID="8f057fd8-4c1b-47cb-9855-52d9c8a3368e" SourceId="1" SourceUrl="https://localhost:44345/AccessService.svc?xsd=xsd1" />
+    <MetadataFile FileName="AccessService.disco" MetadataType="Disco" ID="5744acc8-417f-44cb-9102-cfb36a37b2ac" SourceId="1" SourceUrl="https://localhost:44345/AccessService.svc?disco" />
+    <MetadataFile FileName="AccessService2.xsd" MetadataType="Schema" ID="c2ef1fac-4b02-4ade-9ba3-bdb028cbc049" SourceId="1" SourceUrl="https://localhost:44345/AccessService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

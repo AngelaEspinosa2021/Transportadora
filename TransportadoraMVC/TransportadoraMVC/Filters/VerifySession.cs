@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TransportadoraMVC.Controllers;
-using TransportadoraMVC.Models;
+using TransportadoraMVC.AccessReference;
 
 namespace TransportadoraMVC.Filters
 {
@@ -12,9 +12,9 @@ namespace TransportadoraMVC.Filters
     {
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            var User = (Usuario)HttpContext.Current.Session["User"]; // se evalua la sesion
+            var user = (Usuario)HttpContext.Current.Session["User"];
 
-            if(User == null) // se evalua si es null
+            if (user == null) // se evalua si es null
             {
                 if (filterContext.Controller is AccessController == false) // y ademas si el controller al que vamos es diferente a AccessController
                 {
