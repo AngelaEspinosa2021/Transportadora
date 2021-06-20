@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="EmbarqueService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="https://localhost:44345/EmbarqueService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="https://localhost:44345/EmbarqueService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://localhost:44345/EmbarqueService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/TransportadoraService.Models" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IEmbarqueService_ListarEmbarques_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarEmbarques" />
+  </wsdl:message>
+  <wsdl:message name="IEmbarqueService_ListarEmbarques_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarEmbarquesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmbarqueService_BuscarEmbarque_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarEmbarque" />
+  </wsdl:message>
+  <wsdl:message name="IEmbarqueService_BuscarEmbarque_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarEmbarqueResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmbarqueService_AgregarEmbarque_InputMessage">
+    <wsdl:part name="parameters" element="tns:AgregarEmbarque" />
+  </wsdl:message>
+  <wsdl:message name="IEmbarqueService_AgregarEmbarque_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AgregarEmbarqueResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmbarqueService_EditarEmbarque_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditarEmbarque" />
+  </wsdl:message>
+  <wsdl:message name="IEmbarqueService_EditarEmbarque_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditarEmbarqueResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmbarqueService_EliminarEmbarque_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarEmbarque" />
+  </wsdl:message>
+  <wsdl:message name="IEmbarqueService_EliminarEmbarque_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarEmbarqueResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmbarqueService_EliminarTrazas_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarTrazas" />
+  </wsdl:message>
+  <wsdl:message name="IEmbarqueService_EliminarTrazas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarTrazasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmbarqueService_Confirmacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:Confirmacion" />
+  </wsdl:message>
+  <wsdl:message name="IEmbarqueService_Confirmacion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConfirmacionResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IEmbarqueService">
+    <wsdl:operation name="ListarEmbarques">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmbarqueService/ListarEmbarques" message="tns:IEmbarqueService_ListarEmbarques_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmbarqueService/ListarEmbarquesResponse" message="tns:IEmbarqueService_ListarEmbarques_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarEmbarque">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmbarqueService/BuscarEmbarque" message="tns:IEmbarqueService_BuscarEmbarque_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmbarqueService/BuscarEmbarqueResponse" message="tns:IEmbarqueService_BuscarEmbarque_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarEmbarque">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmbarqueService/AgregarEmbarque" message="tns:IEmbarqueService_AgregarEmbarque_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmbarqueService/AgregarEmbarqueResponse" message="tns:IEmbarqueService_AgregarEmbarque_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditarEmbarque">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmbarqueService/EditarEmbarque" message="tns:IEmbarqueService_EditarEmbarque_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmbarqueService/EditarEmbarqueResponse" message="tns:IEmbarqueService_EditarEmbarque_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarEmbarque">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmbarqueService/EliminarEmbarque" message="tns:IEmbarqueService_EliminarEmbarque_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmbarqueService/EliminarEmbarqueResponse" message="tns:IEmbarqueService_EliminarEmbarque_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarTrazas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmbarqueService/EliminarTrazas" message="tns:IEmbarqueService_EliminarTrazas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmbarqueService/EliminarTrazasResponse" message="tns:IEmbarqueService_EliminarTrazas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Confirmacion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmbarqueService/Confirmacion" message="tns:IEmbarqueService_Confirmacion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmbarqueService/ConfirmacionResponse" message="tns:IEmbarqueService_Confirmacion_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IEmbarqueService" type="tns:IEmbarqueService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ListarEmbarques">
+      <soap:operation soapAction="http://tempuri.org/IEmbarqueService/ListarEmbarques" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarEmbarque">
+      <soap:operation soapAction="http://tempuri.org/IEmbarqueService/BuscarEmbarque" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarEmbarque">
+      <soap:operation soapAction="http://tempuri.org/IEmbarqueService/AgregarEmbarque" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditarEmbarque">
+      <soap:operation soapAction="http://tempuri.org/IEmbarqueService/EditarEmbarque" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarEmbarque">
+      <soap:operation soapAction="http://tempuri.org/IEmbarqueService/EliminarEmbarque" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarTrazas">
+      <soap:operation soapAction="http://tempuri.org/IEmbarqueService/EliminarTrazas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Confirmacion">
+      <soap:operation soapAction="http://tempuri.org/IEmbarqueService/Confirmacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EmbarqueService">
+    <wsdl:port name="BasicHttpBinding_IEmbarqueService" binding="tns:BasicHttpBinding_IEmbarqueService">
+      <soap:address location="http://localhost:62768/EmbarqueService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

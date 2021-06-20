@@ -7,28 +7,28 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using TransportadoraMVC.Models;
+using TransportadoraMVC.TrazabilidadReference;
+using TransportadoraMVC.EmbarqueReference;
 
 namespace TransportadoraMVC.Controllers
 {
     public class TrazabilidadesController : Controller
     {
-        private TransportadoraEntities db = new TransportadoraEntities();
+        TrazabilidadReference.TrazabilidadServiceClient trazabilidadService = new TrazabilidadReference.TrazabilidadServiceClient();
+        EmbarqueReference.EmbarqueServiceClient clienteEmb = new EmbarqueReference.EmbarqueServiceClient();
 
         // GET: Trazabilidades
         public ActionResult Index()
         {
-            var trazabilidad = db.Trazabilidad.Include(t => t.Embarque);
-            return View(trazabilidad.ToList());
+          //  var traza = trazabilidadService.Trazabilidad.Include(t => t.Embarque).ToList().FirstOrDefault();
+            return View(trazabilidadService);
         }
 
         public string Listar(long? id)
         {
-            var trazabilidad = (from p in db.Trazabilidad
-                                where p.IdEmbarque==id
-                            select p).ToList();
+            var trazas = trazabilidadService.Listar(id.Value);
 
-            return Newtonsoft.Json.JsonConvert.SerializeObject(trazabilidad,
+            return JsonConvert.SerializeObject(trazas,
                 new JsonSerializerSettings
                 {
                     ReferenceLoopHandling = ReferenceLoopHandling.Ignore
@@ -42,7 +42,7 @@ namespace TransportadoraMVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Trazabilidad trazabilidad = db.Trazabilidad.Find(id);
+            var trazabilidad = trazabilidadService.BuscarTraza(id.Value);
             if (trazabilidad == null)
             {
                 return HttpNotFound();
@@ -53,7 +53,7 @@ namespace TransportadoraMVC.Controllers
         // GET: Trazabilidades/Create
         public ActionResult Create()
         {
-            ViewBag.IdEmbarque = new SelectList(db.Embarque, "Id", "Direccion");
+            ViewBag.IdEmbarque = new SelectList(clienteEmb.ListarEmbarques(), "Id", "Direccion");
             return View();
         }
 
@@ -62,12 +62,11 @@ namespace TransportadoraMVC.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         
-        public ActionResult Create(Trazabilidad trazabilidad)
+        public ActionResult Create(TrazabilidadReference.Trazabilidad trazabilidad)
         {
             if (trazabilidad != null)
             {
-                db.Trazabilidad.Add(trazabilidad);
-                db.SaveChanges();
+                trazabilidadService.AgregarTraza(trazabilidad);
                 return new HttpStatusCodeResult(HttpStatusCode.OK);
             }
 
@@ -82,12 +81,12 @@ namespace TransportadoraMVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Trazabilidad trazabilidad = db.Trazabilidad.Find(id);
+            TrazabilidadReference.Trazabilidad trazabilidad = trazabilidadService.BuscarTraza(id.Value);
             if (trazabilidad == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.IdEmbarque = new SelectList(db.Embarque, "Id", "Direccion", trazabilidad.IdEmbarque);
+            ViewBag.IdEmbarque = new SelectList(clienteEmb.ListarEmbarques(), "Id", "Direccion", trazabilidad.IdEmbarque);
             return View(trazabilidad);
         }
 
@@ -97,16 +96,15 @@ namespace TransportadoraMVC.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Trazabilidad trazabilidad)
+        public ActionResult Edit([Bind(Include = "Id,TipoOperacion,PaisOrigen,CiudadOrigen,PaisDestino,CiudadDestino,Kilos,Teus,IdEmbarque")] TrazabilidadReference.Trazabilidad trazabilidad)
         {
-            if (trazabilidad != null)
+            if (ModelState.IsValid)
             {
-                db.Entry(trazabilidad).State = EntityState.Modified;
-                db.SaveChanges();
-                return new HttpStatusCodeResult(HttpStatusCode.OK);
+                trazabilidadService.EditarTraza(trazabilidad.Id, trazabilidad);
+                return RedirectToAction("Index");
             }
-            
-            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            ViewBag.IdEmbarque = new SelectList(clienteEmb.ListarEmbarques(), "Id", "Direccion", trazabilidad.IdEmbarque);
+            return View(trazabilidad);
         }
 
         // GET: Trazabilidades/Delete/5
@@ -116,7 +114,7 @@ namespace TransportadoraMVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Trazabilidad trazabilidad = db.Trazabilidad.Find(id);
+            TrazabilidadReference.Trazabilidad trazabilidad = trazabilidadService.BuscarTraza(id.Value);
             if (trazabilidad == null)
             {
                 return HttpNotFound();
@@ -127,28 +125,15 @@ namespace TransportadoraMVC.Controllers
         // POST: Trazabilidades/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(long id)
+        public ActionResult DeleteConfirmed(long? id)
         {
-            Trazabilidad trazabilidad = db.Trazabilidad.Find(id);
-            db.Trazabilidad.Remove(trazabilidad);
-            db.SaveChanges();
+            trazabilidadService.Confirmacion(id.Value);
             return RedirectToAction("Index");
         }
-        public string Eliminar(long id)
+        public string Eliminar(long? id)
         {
-            Trazabilidad trazabilidad = db.Trazabilidad.Find(id);
-            db.Trazabilidad.Remove(trazabilidad);
-            db.SaveChanges();
+            trazabilidadService.EliminarTraza(id.Value);
             return null;
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }

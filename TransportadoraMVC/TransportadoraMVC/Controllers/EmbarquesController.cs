@@ -7,24 +7,23 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using TransportadoraMVC.Models;
+using TransportadoraMVC.EmbarqueReference;
 
 namespace TransportadoraMVC.Controllers
 {
     public class EmbarquesController : Controller
     {
-        private TransportadoraEntities db = new TransportadoraEntities();
+        EmbarqueReference.EmbarqueServiceClient cliente = new EmbarqueReference.EmbarqueServiceClient();
 
         // GET: Embarques
         public ActionResult Index()
         {
-            return View(db.Embarque.ToList());
+            return View(cliente.ListarEmbarques());
         }
 
         public string Listar()
         {
-            var embarques = (from u in db.Embarque
-                               select u).ToList();
+            var embarques = cliente.ListarEmbarques();
 
             return Newtonsoft.Json.JsonConvert.SerializeObject(embarques,
                 new JsonSerializerSettings
@@ -33,7 +32,6 @@ namespace TransportadoraMVC.Controllers
                 });
         }
 
-
         // GET: Embarques/Details/5
         public ActionResult Details(long? id)
         {
@@ -41,7 +39,7 @@ namespace TransportadoraMVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Embarque embarque = db.Embarque.Find(id);
+            Embarque embarque = cliente.BuscarEmbarque(id.Value);
             if (embarque == null)
             {
                 return HttpNotFound();
@@ -51,7 +49,7 @@ namespace TransportadoraMVC.Controllers
 
         public string Detalle(long? id)
         {
-            var detalleEmbarque = db.Embarque.Find(id);
+            var detalleEmbarque = cliente.BuscarEmbarque(id.Value);
 
             return Newtonsoft.Json.JsonConvert.SerializeObject(detalleEmbarque,
                 new JsonSerializerSettings
@@ -59,8 +57,6 @@ namespace TransportadoraMVC.Controllers
                     ReferenceLoopHandling = ReferenceLoopHandling.Ignore
                 });
         }
-
-
 
         // GET: Embarques/Create
         public ActionResult Create()
@@ -77,8 +73,7 @@ namespace TransportadoraMVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Embarque.Add(embarque);
-                db.SaveChanges();
+                cliente.AgregarEmbarque(embarque);
                 return RedirectToAction("Index");
             }
 
@@ -92,7 +87,7 @@ namespace TransportadoraMVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Embarque embarque = db.Embarque.Find(id);
+            Embarque embarque = cliente.BuscarEmbarque(id.Value);
             if (embarque == null)
             {
                 return HttpNotFound();
@@ -109,8 +104,7 @@ namespace TransportadoraMVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(embarque).State = EntityState.Modified;
-                db.SaveChanges();
+                cliente.AgregarEmbarque(embarque);
                 return RedirectToAction("Index");
             }
             return View(embarque);
@@ -123,7 +117,7 @@ namespace TransportadoraMVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Embarque embarque = db.Embarque.Find(id);
+            Embarque embarque = cliente.BuscarEmbarque(id.Value);
             if (embarque == null)
             {
                 return HttpNotFound();
@@ -134,44 +128,17 @@ namespace TransportadoraMVC.Controllers
         // POST: Embarques/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(long id)
+        public ActionResult DeleteConfirmed(long? id)
         {
-            Embarque embarque = db.Embarque.Find(id);
-            db.Embarque.Remove(embarque);
-            db.SaveChanges();
+            cliente.Confirmacion(id.Value);
             return RedirectToAction("Index");
         }
 
-        public string Eliminar(long id)
+        public string Eliminar(long? id)
         {
-            Embarque embarque = db.Embarque.Find(id);
-            EliminarTrazas(id);
-            db.Embarque.Remove(embarque);
-            db.SaveChanges();
+            cliente.EliminarTrazas(id.Value);
+            cliente.EliminarEmbarque(id.Value);
             return null;
-        }
-
-        public void EliminarTrazas(long? idEmbarque)
-        {
-            var trazas = (from u in db.Trazabilidad
-                          where u.IdEmbarque==idEmbarque
-                          select u).ToList();
-
-            foreach(var traza in trazas)
-            {
-                db.Trazabilidad.Remove(traza);                               
-            }
-            db.SaveChanges();
-        }
-
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        }       
     }
 }
