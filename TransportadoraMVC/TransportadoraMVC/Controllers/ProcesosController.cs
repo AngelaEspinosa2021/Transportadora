@@ -7,24 +7,23 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using TransportadoraMVC.Models;
+using TransportadoraMVC.ProcesoReference;
 
 namespace TransportadoraMVC.Controllers
 {
     public class ProcesosController : Controller
     {
-        private TransportadoraEntities db = new TransportadoraEntities();
+        ProcesoReference.ProcesoServiceClient clienteProceso = new ProcesoReference.ProcesoServiceClient();
 
         // GET: Procesos
         public ActionResult Index()
         {
-            return View(db.Proceso.ToList());
+            return View(clienteProceso.ListarProcesos());
         }
 
         public string Listar()
         {
-            var procesos = (from p in db.Proceso
-                               select p).ToList();
+            var procesos = clienteProceso.ListarProcesos();
 
             return Newtonsoft.Json.JsonConvert.SerializeObject(procesos,
                 new JsonSerializerSettings
@@ -40,7 +39,7 @@ namespace TransportadoraMVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Proceso proceso = db.Proceso.Find(id);
+            Proceso proceso = clienteProceso.BuscarProceso(id.Value);
             if (proceso == null)
             {
                 return HttpNotFound();
@@ -50,7 +49,7 @@ namespace TransportadoraMVC.Controllers
 
         public string Detalle(long? id)
         {
-            var detalleProceso = db.Proceso.Find(id);
+            var detalleProceso = clienteProceso.BuscarProceso(id.Value);
 
             return Newtonsoft.Json.JsonConvert.SerializeObject(detalleProceso,
                 new JsonSerializerSettings
@@ -74,8 +73,7 @@ namespace TransportadoraMVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Proceso.Add(proceso);
-                db.SaveChanges();
+                clienteProceso.AgregarProceso(proceso);
                 return RedirectToAction("Index");
             }
 
@@ -89,7 +87,7 @@ namespace TransportadoraMVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Proceso proceso = db.Proceso.Find(id);
+            Proceso proceso = clienteProceso.BuscarProceso(id.Value);
             if (proceso == null)
             {
                 return HttpNotFound();
@@ -106,8 +104,7 @@ namespace TransportadoraMVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(proceso).State = EntityState.Modified;
-                db.SaveChanges();
+                clienteProceso.EditarProceso(proceso.Id, proceso);
                 return RedirectToAction("Index");
             }
             return View(proceso);
@@ -120,7 +117,7 @@ namespace TransportadoraMVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Proceso proceso = db.Proceso.Find(id);
+            Proceso proceso = clienteProceso.BuscarProceso(id.Value);
             if (proceso == null)
             {
                 return HttpNotFound();
@@ -131,29 +128,16 @@ namespace TransportadoraMVC.Controllers
         // POST: Procesos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(long id)
+        public ActionResult DeleteConfirmed(long? id)
         {
-            Proceso proceso = db.Proceso.Find(id);
-            db.Proceso.Remove(proceso);
-            db.SaveChanges();
+            clienteProceso.Confirmacion(id.Value);
             return RedirectToAction("Index");
         }
 
-        public string eliminar(long id)
+        public string eliminar(long? id)
         {
-            Proceso proceso = db.Proceso.Find(id);
-            db.Proceso.Remove(proceso);
-            db.SaveChanges();
+            clienteProceso.EliminarProceso(id.Value);
             return null;
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }

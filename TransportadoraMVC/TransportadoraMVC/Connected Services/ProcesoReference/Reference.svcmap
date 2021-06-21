@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="841196cf-9fb4-4414-a2a7-a620b095121c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://localhost:44345/ProcesoService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ProcesoService.xsd" MetadataType="Schema" ID="ebf4a3b2-237a-4f36-a8fb-aadc1e8e0913" SourceId="1" SourceUrl="https://localhost:44345/ProcesoService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ProcesoService.disco" MetadataType="Disco" ID="ae5dd55f-5ec4-47ce-8e12-cfc2a2aabd97" SourceId="1" SourceUrl="https://localhost:44345/ProcesoService.svc?disco" />
+    <MetadataFile FileName="ProcesoService1.xsd" MetadataType="Schema" ID="e1a677e6-4353-47ba-b95d-b39acb3a250a" SourceId="1" SourceUrl="https://localhost:44345/ProcesoService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ProcesoService.wsdl" MetadataType="Wsdl" ID="e68141d4-f7e6-4d06-b057-95196380605b" SourceId="1" SourceUrl="https://localhost:44345/ProcesoService.svc?wsdl" />
+    <MetadataFile FileName="ProcesoService2.xsd" MetadataType="Schema" ID="16d12f43-8ed6-4ea6-9d72-c702a583d67d" SourceId="1" SourceUrl="https://localhost:44345/ProcesoService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

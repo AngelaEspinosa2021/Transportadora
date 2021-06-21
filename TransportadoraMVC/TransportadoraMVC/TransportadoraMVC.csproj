@@ -144,6 +144,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\ProcesoReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\TrazabilidadReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -233,6 +238,13 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Connected Services\ProcesoReference\ProcesoService.disco" />
+    <None Include="Connected Services\ProcesoReference\configuration91.svcinfo" />
+    <None Include="Connected Services\ProcesoReference\configuration.svcinfo" />
+    <None Include="Connected Services\ProcesoReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Connected Services\TrazabilidadReference\TransportadoraMVC.TrazabilidadReference.Trazabilidad.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -247,6 +259,19 @@
       <SubType>Designer</SubType>
     </None>
     <Content Include="Connected Services\MonedaReference\TransportadoraMVC.MonedaReference.Moneda.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\ProcesoReference\ProcesoService.wsdl" />
+    <None Include="Connected Services\ProcesoReference\ProcesoService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProcesoReference\ProcesoService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProcesoReference\ProcesoService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Connected Services\ProcesoReference\TransportadoraMVC.ProcesoReference.Proceso.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Connected Services\TrazabilidadReference\TrazabilidadService.disco" />
@@ -408,6 +433,7 @@
     <WCFMetadataStorage Include="Connected Services\AccessReference\" />
     <WCFMetadataStorage Include="Connected Services\EmbarqueReference\" />
     <WCFMetadataStorage Include="Connected Services\MonedaReference\" />
+    <WCFMetadataStorage Include="Connected Services\ProcesoReference\" />
     <WCFMetadataStorage Include="Connected Services\TrazabilidadReference\" />
     <WCFMetadataStorage Include="Connected Services\UsuarioReference\" />
   </ItemGroup>
