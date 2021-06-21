@@ -78,6 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AccessService.svc" />
+    <Content Include="ActividadService.svc" />
     <Content Include="EmbarqueService.svc" />
     <Content Include="Models\TransportadoraModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -89,6 +90,8 @@
       <DependentUpon>TransportadoraModel.edmx</DependentUpon>
       <LastGenOutput>TransportadoraModel.cs</LastGenOutput>
     </Content>
+    <Content Include="MonedaService.svc" />
+    <Content Include="ProcesoService.svc" />
     <Content Include="TrazabilidadService.svc" />
     <Content Include="UsuarioService.svc" />
     <Content Include="Web.config" />
@@ -97,11 +100,17 @@
     <Compile Include="AccessService.svc.cs">
       <DependentUpon>AccessService.svc</DependentUpon>
     </Compile>
+    <Compile Include="ActividadService.svc.cs">
+      <DependentUpon>ActividadService.svc</DependentUpon>
+    </Compile>
     <Compile Include="EmbarqueService.svc.cs">
       <DependentUpon>EmbarqueService.svc</DependentUpon>
     </Compile>
     <Compile Include="IAccessService.cs" />
+    <Compile Include="IActividadService.cs" />
     <Compile Include="IEmbarqueService.cs" />
+    <Compile Include="IMonedaService.cs" />
+    <Compile Include="IProcesoService.cs" />
     <Compile Include="ITrazabilidadService.cs" />
     <Compile Include="IUsuarioService.cs" />
     <Compile Include="Models\Actividad.cs">
@@ -136,6 +145,12 @@
     </Compile>
     <Compile Include="Models\Usuario.cs">
       <DependentUpon>TransportadoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MonedaService.svc.cs">
+      <DependentUpon>MonedaService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="ProcesoService.svc.cs">
+      <DependentUpon>ProcesoService.svc</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TrazabilidadService.svc.cs">
