@@ -139,6 +139,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\MonedaReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\TrazabilidadReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -221,7 +226,27 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Connected Services\MonedaReference\MonedaService.disco" />
+    <None Include="Connected Services\MonedaReference\configuration91.svcinfo" />
+    <None Include="Connected Services\MonedaReference\configuration.svcinfo" />
+    <None Include="Connected Services\MonedaReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Connected Services\TrazabilidadReference\TransportadoraMVC.TrazabilidadReference.Trazabilidad.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\MonedaReference\MonedaService.wsdl" />
+    <None Include="Connected Services\MonedaReference\MonedaService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MonedaReference\MonedaService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MonedaReference\MonedaService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Connected Services\MonedaReference\TransportadoraMVC.MonedaReference.Moneda.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Connected Services\TrazabilidadReference\TrazabilidadService.disco" />
@@ -382,6 +407,7 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\AccessReference\" />
     <WCFMetadataStorage Include="Connected Services\EmbarqueReference\" />
+    <WCFMetadataStorage Include="Connected Services\MonedaReference\" />
     <WCFMetadataStorage Include="Connected Services\TrazabilidadReference\" />
     <WCFMetadataStorage Include="Connected Services\UsuarioReference\" />
   </ItemGroup>

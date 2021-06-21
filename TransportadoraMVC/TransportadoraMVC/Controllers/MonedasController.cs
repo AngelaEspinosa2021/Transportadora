@@ -7,24 +7,23 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using TransportadoraMVC.Models;
+using TransportadoraMVC.MonedaReference;
 
 namespace TransportadoraMVC.Controllers
 {
     public class MonedasController : Controller
     {
-        private TransportadoraEntities db = new TransportadoraEntities();
+        MonedaReference.MonedaServiceClient clienteMoneda = new MonedaReference.MonedaServiceClient();
 
         // GET: Monedas
         public ActionResult Index()
         {
-            return View(db.Moneda.ToList());
+            return View(clienteMoneda.ListarMonedas());
         }
 
         public string Listar()
         {
-            var monedas = (from m in db.Moneda
-                               select m).ToList();
+            var monedas = clienteMoneda.ListarMonedas();
 
             return Newtonsoft.Json.JsonConvert.SerializeObject(monedas,
                 new JsonSerializerSettings
@@ -40,7 +39,7 @@ namespace TransportadoraMVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Moneda moneda = db.Moneda.Find(id);
+            Moneda moneda = clienteMoneda.BuscarMoneda(id.Value);
             if (moneda == null)
             {
                 return HttpNotFound();
@@ -50,7 +49,7 @@ namespace TransportadoraMVC.Controllers
 
         public string Detalle(long? id)
         {
-            var detalleActividad = db.Moneda.Find(id);
+            var detalleActividad = clienteMoneda.BuscarMoneda(id.Value);
 
             return Newtonsoft.Json.JsonConvert.SerializeObject(detalleActividad,
                 new JsonSerializerSettings
@@ -74,8 +73,7 @@ namespace TransportadoraMVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Moneda.Add(moneda);
-                db.SaveChanges();
+                clienteMoneda.AgregarMoneda(moneda);
                 return RedirectToAction("Index");
             }
 
@@ -89,7 +87,7 @@ namespace TransportadoraMVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Moneda moneda = db.Moneda.Find(id);
+            Moneda moneda = clienteMoneda.BuscarMoneda(id.Value);
             if (moneda == null)
             {
                 return HttpNotFound();
@@ -106,8 +104,7 @@ namespace TransportadoraMVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(moneda).State = EntityState.Modified;
-                db.SaveChanges();
+                clienteMoneda.EditarMoneda(moneda.Id, moneda);
                 return RedirectToAction("Index");
             }
             return View(moneda);
@@ -120,7 +117,7 @@ namespace TransportadoraMVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Moneda moneda = db.Moneda.Find(id);
+            Moneda moneda = clienteMoneda.BuscarMoneda(id.Value);
             if (moneda == null)
             {
                 return HttpNotFound();
@@ -131,29 +128,16 @@ namespace TransportadoraMVC.Controllers
         // POST: Monedas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(long id)
+        public ActionResult DeleteConfirmed(long? id)
         {
-            Moneda moneda = db.Moneda.Find(id);
-            db.Moneda.Remove(moneda);
-            db.SaveChanges();
+            clienteMoneda.Confirmacion(id.Value);
             return RedirectToAction("Index");
         }
 
-        public string eliminar(long id)
+        public string eliminar(long? id)
         {
-            Moneda moneda = db.Moneda.Find(id);
-            db.Moneda.Remove(moneda);
-            db.SaveChanges();
+            clienteMoneda.EliminarMoneda(id.Value);
             return null;
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }
