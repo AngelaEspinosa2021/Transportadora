@@ -7,25 +7,27 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using TransportadoraMVC.Models;
+using TransportadoraMVC.ActividadReference;
+using TransportadoraMVC.ProcesoReference;
+using TransportadoraMVC.UsuarioReference;
 
 namespace TransportadoraMVC.Controllers
 {
     public class ActividadController : Controller
     {
-        private TransportadoraEntities db = new TransportadoraEntities();
-
+        ActividadReference.ActividadServiceClient clienteActividad = new ActividadReference.ActividadServiceClient();
+        ProcesoReference.ProcesoServiceClient clienteProceso = new ProcesoReference.ProcesoServiceClient();
+        UsuarioReference.UsuarioServiceClient clienteUsuario = new UsuarioReference.UsuarioServiceClient();
         // GET: Actividad
         public ActionResult Index()
         {
-            var actividad = db.Actividad.Include(a => a.Proceso).Include(a => a.Usuario).Include(a => a.Usuario1);
-            return View(actividad.ToList());
+            //var actividad = clienteActividad.ListarActividades().Include(a => a.Proceso).Include(a => a.Usuario).Include(a => a.Usuario1);
+            return View(clienteActividad.ListarActividades());
         }
 
         public string Listar()
         {
-            var actividades = (from a in db.Actividad
-                               select a).ToList();
+            var actividades = clienteActividad.ListarActividades();
 
             return Newtonsoft.Json.JsonConvert.SerializeObject(actividades,
                 new JsonSerializerSettings
@@ -41,7 +43,7 @@ namespace TransportadoraMVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Actividad actividad = db.Actividad.Find(id);
+            ActividadReference.Actividad actividad = clienteActividad.BuscarActividad(id.Value);
             if (actividad == null)
             {
                 return HttpNotFound();
@@ -51,7 +53,7 @@ namespace TransportadoraMVC.Controllers
 
         public string Detalle(long? id)
         {
-            var detalleActividad = db.Actividad.Find(id);
+            var detalleActividad = clienteActividad.BuscarActividad(id.Value);
 
             return Newtonsoft.Json.JsonConvert.SerializeObject(detalleActividad,
                 new JsonSerializerSettings
@@ -63,9 +65,9 @@ namespace TransportadoraMVC.Controllers
         // GET: Actividad/Create
         public ActionResult Create()
         {
-            ViewBag.RelacionadaCon = new SelectList(db.Proceso, "Id", "Sucursal");
-            ViewBag.CreadaPor = new SelectList(db.Usuario, "Id", "Correo");
-            ViewBag.AsignadaA = new SelectList(db.Usuario, "Id", "Correo");
+            ViewBag.RelacionadaCon = new SelectList(clienteProceso.ListarProcesos(), "Id", "Sucursal");
+            ViewBag.CreadaPor = new SelectList(clienteUsuario.ListarUsuarios(), "Id", "Correo");
+            ViewBag.AsignadaA = new SelectList(clienteUsuario.ListarUsuarios(), "Id", "Correo");
             return View();
         }
 
@@ -74,18 +76,17 @@ namespace TransportadoraMVC.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,CreadaPor,AsignadaA,RelacionadaCon,Asunto,FechaVencimiento,Observacion,Estado,Prioridad")] Actividad actividad)
+        public ActionResult Create([Bind(Include = "Id,CreadaPor,AsignadaA,RelacionadaCon,Asunto,FechaVencimiento,Observacion,Estado,Prioridad")] ActividadReference.Actividad actividad)
         {
             if (ModelState.IsValid)
             {
-                db.Actividad.Add(actividad);
-                db.SaveChanges();
+                clienteActividad.AgregarActividad(actividad);
                 return RedirectToAction("Index");
             }
 
-            ViewBag.RelacionadaCon = new SelectList(db.Proceso, "Id", "Sucursal", actividad.RelacionadaCon);
-            ViewBag.CreadaPor = new SelectList(db.Usuario, "Id", "Correo", actividad.CreadaPor);
-            ViewBag.AsignadaA = new SelectList(db.Usuario, "Id", "Correo", actividad.AsignadaA);
+            ViewBag.RelacionadaCon = new SelectList(clienteProceso.ListarProcesos(), "Id", "Sucursal", actividad.RelacionadaCon);
+            ViewBag.CreadaPor = new SelectList(clienteUsuario.ListarUsuarios(), "Id", "Correo", actividad.CreadaPor);
+            ViewBag.AsignadaA = new SelectList(clienteUsuario.ListarUsuarios(), "Id", "Correo", actividad.AsignadaA);
             return View(actividad);
         }
 
@@ -96,14 +97,14 @@ namespace TransportadoraMVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Actividad actividad = db.Actividad.Find(id);
+            ActividadReference.Actividad actividad = clienteActividad.BuscarActividad(id.Value);
             if (actividad == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.RelacionadaCon = new SelectList(db.Proceso, "Id", "Sucursal", actividad.RelacionadaCon);
-            ViewBag.CreadaPor = new SelectList(db.Usuario, "Id", "Correo", actividad.CreadaPor);
-            ViewBag.AsignadaA = new SelectList(db.Usuario, "Id", "Correo", actividad.AsignadaA);
+            ViewBag.RelacionadaCon = new SelectList(clienteProceso.ListarProcesos(), "Id", "Sucursal", actividad.RelacionadaCon);
+            ViewBag.CreadaPor = new SelectList(clienteUsuario.ListarUsuarios(), "Id", "Correo", actividad.CreadaPor);
+            ViewBag.AsignadaA = new SelectList(clienteUsuario.ListarUsuarios(), "Id", "Correo", actividad.AsignadaA);
             return View(actividad);
         }
 
@@ -112,17 +113,16 @@ namespace TransportadoraMVC.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,CreadaPor,AsignadaA,RelacionadaCon,Asunto,FechaVencimiento,Observacion,Estado,Prioridad")] Actividad actividad)
+        public ActionResult Edit([Bind(Include = "Id,CreadaPor,AsignadaA,RelacionadaCon,Asunto,FechaVencimiento,Observacion,Estado,Prioridad")] ActividadReference.Actividad actividad)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(actividad).State = EntityState.Modified;
-                db.SaveChanges();
+                clienteActividad.EditarActividad(actividad.Id, actividad);
                 return RedirectToAction("Index");
             }
-            ViewBag.RelacionadaCon = new SelectList(db.Proceso, "Id", "Sucursal", actividad.RelacionadaCon);
-            ViewBag.CreadaPor = new SelectList(db.Usuario, "Id", "Correo", actividad.CreadaPor);
-            ViewBag.AsignadaA = new SelectList(db.Usuario, "Id", "Correo", actividad.AsignadaA);
+            ViewBag.RelacionadaCon = new SelectList(clienteProceso.ListarProcesos(), "Id", "Sucursal", actividad.RelacionadaCon);
+            ViewBag.CreadaPor = new SelectList(clienteUsuario.ListarUsuarios(), "Id", "Correo", actividad.CreadaPor);
+            ViewBag.AsignadaA = new SelectList(clienteUsuario.ListarUsuarios(), "Id", "Correo", actividad.AsignadaA);
             return View(actividad);
         }
 
@@ -133,7 +133,7 @@ namespace TransportadoraMVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Actividad actividad = db.Actividad.Find(id);
+            ActividadReference.Actividad actividad = clienteActividad.BuscarActividad(id.Value);
             if (actividad == null)
             {
                 return HttpNotFound();
@@ -145,29 +145,16 @@ namespace TransportadoraMVC.Controllers
         // POST: Actividad/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(long id)
+        public ActionResult DeleteConfirmed(long? id)
         {
-            Actividad actividad = db.Actividad.Find(id);
-            db.Actividad.Remove(actividad);
-            db.SaveChanges();
+            clienteActividad.Confirmacion(id.Value);
             return RedirectToAction("Index");
         }
 
-        public string eliminar(long id)
+        public string eliminar(long? id)
         {
-            Actividad actividad = db.Actividad.Find(id);
-            db.Actividad.Remove(actividad);
-            db.SaveChanges();
+            clienteActividad.EliminarActividad(id.Value);
             return null;
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }

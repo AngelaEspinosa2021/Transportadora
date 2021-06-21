@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="37e80627-bf50-47a8-8f92-7bd33452d1de" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://localhost:44345/ActividadService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ActividadService.xsd" MetadataType="Schema" ID="7a3a9460-bc1a-45ee-bda5-fbf165e337cd" SourceId="1" SourceUrl="https://localhost:44345/ActividadService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ActividadService.disco" MetadataType="Disco" ID="c9c4b4ec-f871-4095-8f49-1c4d7ec5bcc6" SourceId="1" SourceUrl="https://localhost:44345/ActividadService.svc?disco" />
+    <MetadataFile FileName="ActividadService.wsdl" MetadataType="Wsdl" ID="44ca54f4-541d-4b2d-a244-3e43619d37c2" SourceId="1" SourceUrl="https://localhost:44345/ActividadService.svc?wsdl" />
+    <MetadataFile FileName="ActividadService1.xsd" MetadataType="Schema" ID="ca48a7fb-fb50-4135-a821-0f2bc4db8cb0" SourceId="1" SourceUrl="https://localhost:44345/ActividadService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ActividadService2.xsd" MetadataType="Schema" ID="6e2923b3-d34e-44f1-ab80-647c9979419f" SourceId="1" SourceUrl="https://localhost:44345/ActividadService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

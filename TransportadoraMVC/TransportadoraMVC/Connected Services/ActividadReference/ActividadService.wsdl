@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ActividadService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="https://localhost:44345/ActividadService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="https://localhost:44345/ActividadService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://localhost:44345/ActividadService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/TransportadoraService.Models" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IActividadService_ListarActividades_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarActividades" />
+  </wsdl:message>
+  <wsdl:message name="IActividadService_ListarActividades_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarActividadesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActividadService_BuscarActividad_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarActividad" />
+  </wsdl:message>
+  <wsdl:message name="IActividadService_BuscarActividad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarActividadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActividadService_AgregarActividad_InputMessage">
+    <wsdl:part name="parameters" element="tns:AgregarActividad" />
+  </wsdl:message>
+  <wsdl:message name="IActividadService_AgregarActividad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AgregarActividadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActividadService_EditarActividad_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditarActividad" />
+  </wsdl:message>
+  <wsdl:message name="IActividadService_EditarActividad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditarActividadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActividadService_Confirmacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:Confirmacion" />
+  </wsdl:message>
+  <wsdl:message name="IActividadService_Confirmacion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConfirmacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActividadService_EliminarActividad_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarActividad" />
+  </wsdl:message>
+  <wsdl:message name="IActividadService_EliminarActividad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarActividadResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IActividadService">
+    <wsdl:operation name="ListarActividades">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActividadService/ListarActividades" message="tns:IActividadService_ListarActividades_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActividadService/ListarActividadesResponse" message="tns:IActividadService_ListarActividades_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarActividad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActividadService/BuscarActividad" message="tns:IActividadService_BuscarActividad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActividadService/BuscarActividadResponse" message="tns:IActividadService_BuscarActividad_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarActividad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActividadService/AgregarActividad" message="tns:IActividadService_AgregarActividad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActividadService/AgregarActividadResponse" message="tns:IActividadService_AgregarActividad_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditarActividad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActividadService/EditarActividad" message="tns:IActividadService_EditarActividad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActividadService/EditarActividadResponse" message="tns:IActividadService_EditarActividad_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Confirmacion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActividadService/Confirmacion" message="tns:IActividadService_Confirmacion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActividadService/ConfirmacionResponse" message="tns:IActividadService_Confirmacion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarActividad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActividadService/EliminarActividad" message="tns:IActividadService_EliminarActividad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActividadService/EliminarActividadResponse" message="tns:IActividadService_EliminarActividad_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IActividadService" type="tns:IActividadService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ListarActividades">
+      <soap:operation soapAction="http://tempuri.org/IActividadService/ListarActividades" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarActividad">
+      <soap:operation soapAction="http://tempuri.org/IActividadService/BuscarActividad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarActividad">
+      <soap:operation soapAction="http://tempuri.org/IActividadService/AgregarActividad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditarActividad">
+      <soap:operation soapAction="http://tempuri.org/IActividadService/EditarActividad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Confirmacion">
+      <soap:operation soapAction="http://tempuri.org/IActividadService/Confirmacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarActividad">
+      <soap:operation soapAction="http://tempuri.org/IActividadService/EliminarActividad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ActividadService">
+    <wsdl:port name="BasicHttpBinding_IActividadService" binding="tns:BasicHttpBinding_IActividadService">
+      <soap:address location="http://localhost:62768/ActividadService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

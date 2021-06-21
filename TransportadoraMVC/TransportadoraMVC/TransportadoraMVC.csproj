@@ -134,6 +134,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\ActividadReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\EmbarqueReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -224,6 +229,19 @@
     <None Include="Connected Services\AccessReference\AccessService2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\ActividadReference\ActividadService.wsdl" />
+    <None Include="Connected Services\ActividadReference\ActividadService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ActividadReference\ActividadService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ActividadReference\ActividadService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Connected Services\ActividadReference\TransportadoraMVC.ActividadReference.Actividad.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\EmbarqueReference\EmbarqueService.disco" />
     <None Include="Connected Services\EmbarqueReference\configuration91.svcinfo" />
     <None Include="Connected Services\EmbarqueReference\configuration.svcinfo" />
@@ -242,6 +260,13 @@
     <None Include="Connected Services\ProcesoReference\configuration91.svcinfo" />
     <None Include="Connected Services\ProcesoReference\configuration.svcinfo" />
     <None Include="Connected Services\ProcesoReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\ActividadReference\ActividadService.disco" />
+    <None Include="Connected Services\ActividadReference\configuration91.svcinfo" />
+    <None Include="Connected Services\ActividadReference\configuration.svcinfo" />
+    <None Include="Connected Services\ActividadReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -431,6 +456,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\AccessReference\" />
+    <WCFMetadataStorage Include="Connected Services\ActividadReference\" />
     <WCFMetadataStorage Include="Connected Services\EmbarqueReference\" />
     <WCFMetadataStorage Include="Connected Services\MonedaReference\" />
     <WCFMetadataStorage Include="Connected Services\ProcesoReference\" />
