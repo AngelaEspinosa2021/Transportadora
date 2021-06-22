@@ -176,39 +176,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Actividad.cs">
-      <DependentUpon>TransportadoraModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Embarque.cs">
-      <DependentUpon>TransportadoraModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Moneda.cs">
-      <DependentUpon>TransportadoraModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Proceso.cs">
-      <DependentUpon>TransportadoraModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TransportadoraModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TransportadoraModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TransportadoraModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TransportadoraModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TransportadoraModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TransportadoraModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Trazabilidad.cs">
-      <DependentUpon>TransportadoraModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Usuario.cs">
-      <DependentUpon>TransportadoraModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -351,23 +318,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="image\logo.png" />
-    <Content Include="Models\TransportadoraModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>TransportadoraModel.Context.cs</LastGenOutput>
-      <DependentUpon>TransportadoraModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\TransportadoraModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>TransportadoraModel.edmx</DependentUpon>
-      <LastGenOutput>TransportadoraModel.cs</LastGenOutput>
-    </Content>
-    <EntityDeploy Include="Models\TransportadoraModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>TransportadoraModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\TransportadoraModel.edmx.diagram">
-      <DependentUpon>TransportadoraModel.edmx</DependentUpon>
-    </Content>
     <Content Include="Scripts\actividades.js" />
     <Content Include="Scripts\CambiarPassword.js" />
     <Content Include="Scripts\embarques.js" />
