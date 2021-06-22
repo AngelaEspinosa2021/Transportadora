@@ -57,9 +57,22 @@ namespace TransportadoraService
             datos.SaveChanges();
         }
 
-        public List<Actividad> ListarActividades()
+        public List<ActividadDTO> ListarActividades()
         {
-            return datos.Actividad.ToList();
+            var actividades = (from a in datos.Actividad
+                               select new ActividadDTO
+                               {
+                                   Id = a.Id,
+                                   CreadaPor = a.Usuario.Correo,
+                                   AsignadaA = a.Usuario1.Correo,
+                                   RelacionadaCon = a.Proceso.Sucursal,
+                                   Asunto = a.Asunto,
+                                   FechaVencimiento = a.FechaVencimiento,
+                                   Observacion = a.Observacion,
+                                   Estado = a.Estado,
+                                   Prioridad = a.Prioridad
+                               });
+            return actividades.ToList();
         }
     }
 }

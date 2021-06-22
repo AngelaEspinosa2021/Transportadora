@@ -22,7 +22,8 @@ namespace TransportadoraMVC.Controllers
         public ActionResult Index()
         {
             //var actividad = clienteActividad.ListarActividades().Include(a => a.Proceso).Include(a => a.Usuario).Include(a => a.Usuario1);
-            return View(clienteActividad.ListarActividades());
+            var actividades = clienteActividad.ListarActividades();
+            return View(actividades);
         }
 
         public string Listar()

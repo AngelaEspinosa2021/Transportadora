@@ -1,4 +1,4 @@
-﻿@model TransportadoraMVC.ActividadReference.Actividad
+﻿@model TransportadoraMVC.ActividadReference.ActividadDTO
 
 @{
     ViewBag.Title = "Details";
@@ -14,6 +14,14 @@
             <div class="fuente">Asunto</div>
             <div class="col-md-10 fuenteTitulo">
                 @Html.DisplayFor(model => model.Asunto)
+                <hr />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="fuente">Creada Por</div>
+            <div class="col-md-10 fuenteTitulo">
+                @Html.DisplayFor(model => model.CreadaPor)
                 <hr />
             </div>
         </div>
@@ -45,7 +53,7 @@
         <div class="form-group">
             <div class="fuente">Sucursal</div>
             <div class="col-md-10 fuenteTitulo">
-                @Html.DisplayFor(model => model.Proceso.Sucursal)
+                @Html.DisplayFor(model => model.RelacionadaCon)
                 <hr />
             </div>
         </div>
@@ -53,15 +61,7 @@
         <div class="form-group">
             <div class="fuente">Correo</div>
             <div class="col-md-10 fuenteTitulo">
-                @Html.DisplayFor(model => model.Usuario.Correo)
-                <hr />
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="fuente">Correo</div>
-            <div class="col-md-10 fuenteTitulo">
-                @Html.DisplayFor(model => model.Usuario1.Correo)
+                @Html.DisplayFor(model => model.AsignadaA)
                 <hr />
             </div>
         </div>

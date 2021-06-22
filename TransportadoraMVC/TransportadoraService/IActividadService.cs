@@ -13,7 +13,7 @@ namespace TransportadoraService
     public interface IActividadService
     {
         [OperationContract]
-        List<Actividad> ListarActividades();
+        List<ActividadDTO> ListarActividades();
 
         [OperationContract]
         Actividad BuscarActividad(long Id);

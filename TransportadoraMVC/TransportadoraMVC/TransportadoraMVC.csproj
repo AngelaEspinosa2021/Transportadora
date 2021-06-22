@@ -242,6 +242,9 @@
     <Content Include="Connected Services\ActividadReference\TransportadoraMVC.ActividadReference.Actividad.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\ActividadReference\TransportadoraMVC.ActividadReference.ActividadDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\EmbarqueReference\EmbarqueService.disco" />
     <None Include="Connected Services\EmbarqueReference\configuration91.svcinfo" />
     <None Include="Connected Services\EmbarqueReference\configuration.svcinfo" />

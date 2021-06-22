@@ -9,7 +9,7 @@
   <xs:element name="ListarActividadesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/TransportadoraService.Models" minOccurs="0" name="ListarActividadesResult" nillable="true" type="q1:ArrayOfActividad" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/TransportadoraService.Models" minOccurs="0" name="ListarActividadesResult" nillable="true" type="q1:ArrayOfActividadDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

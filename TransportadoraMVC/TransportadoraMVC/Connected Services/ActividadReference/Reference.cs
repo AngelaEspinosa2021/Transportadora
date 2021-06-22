@@ -15,6 +15,179 @@ namespace TransportadoraMVC.ActividadReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ActividadDTO", Namespace="http://schemas.datacontract.org/2004/07/TransportadoraService.Models")]
+    [System.SerializableAttribute()]
+    public partial class ActividadDTO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AsignadaAField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AsuntoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CreadaPorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EstadoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> FechaVencimientoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ObservacionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PrioridadField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string RelacionadaConField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AsignadaA {
+            get {
+                return this.AsignadaAField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AsignadaAField, value) != true)) {
+                    this.AsignadaAField = value;
+                    this.RaisePropertyChanged("AsignadaA");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Asunto {
+            get {
+                return this.AsuntoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AsuntoField, value) != true)) {
+                    this.AsuntoField = value;
+                    this.RaisePropertyChanged("Asunto");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CreadaPor {
+            get {
+                return this.CreadaPorField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CreadaPorField, value) != true)) {
+                    this.CreadaPorField = value;
+                    this.RaisePropertyChanged("CreadaPor");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Estado {
+            get {
+                return this.EstadoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EstadoField, value) != true)) {
+                    this.EstadoField = value;
+                    this.RaisePropertyChanged("Estado");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> FechaVencimiento {
+            get {
+                return this.FechaVencimientoField;
+            }
+            set {
+                if ((this.FechaVencimientoField.Equals(value) != true)) {
+                    this.FechaVencimientoField = value;
+                    this.RaisePropertyChanged("FechaVencimiento");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Observacion {
+            get {
+                return this.ObservacionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ObservacionField, value) != true)) {
+                    this.ObservacionField = value;
+                    this.RaisePropertyChanged("Observacion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Prioridad {
+            get {
+                return this.PrioridadField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PrioridadField, value) != true)) {
+                    this.PrioridadField = value;
+                    this.RaisePropertyChanged("Prioridad");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string RelacionadaCon {
+            get {
+                return this.RelacionadaConField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RelacionadaConField, value) != true)) {
+                    this.RelacionadaConField = value;
+                    this.RaisePropertyChanged("RelacionadaCon");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Actividad", Namespace="http://schemas.datacontract.org/2004/07/TransportadoraService.Models")]
     [System.SerializableAttribute()]
     public partial class Actividad : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -457,10 +630,10 @@ namespace TransportadoraMVC.ActividadReference {
     public interface IActividadService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IActividadService/ListarActividades", ReplyAction="http://tempuri.org/IActividadService/ListarActividadesResponse")]
-        TransportadoraMVC.ActividadReference.Actividad[] ListarActividades();
+        TransportadoraMVC.ActividadReference.ActividadDTO[] ListarActividades();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IActividadService/ListarActividades", ReplyAction="http://tempuri.org/IActividadService/ListarActividadesResponse")]
-        System.Threading.Tasks.Task<TransportadoraMVC.ActividadReference.Actividad[]> ListarActividadesAsync();
+        System.Threading.Tasks.Task<TransportadoraMVC.ActividadReference.ActividadDTO[]> ListarActividadesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IActividadService/BuscarActividad", ReplyAction="http://tempuri.org/IActividadService/BuscarActividadResponse")]
         TransportadoraMVC.ActividadReference.Actividad BuscarActividad(long Id);
@@ -520,11 +693,11 @@ namespace TransportadoraMVC.ActividadReference {
                 base(binding, remoteAddress) {
         }
         
-        public TransportadoraMVC.ActividadReference.Actividad[] ListarActividades() {
+        public TransportadoraMVC.ActividadReference.ActividadDTO[] ListarActividades() {
             return base.Channel.ListarActividades();
         }
         
-        public System.Threading.Tasks.Task<TransportadoraMVC.ActividadReference.Actividad[]> ListarActividadesAsync() {
+        public System.Threading.Tasks.Task<TransportadoraMVC.ActividadReference.ActividadDTO[]> ListarActividadesAsync() {
             return base.Channel.ListarActividadesAsync();
         }
         

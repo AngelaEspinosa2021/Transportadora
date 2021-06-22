@@ -7,23 +7,25 @@
             var tabla = '<table class="highlight">';
             tabla += '<tr>';
             tabla += '<th class="fuente">Asunto</th>';
+            tabla += '<th class="fuente">Creada Por</th>';
             tabla += '<th class="fuente">Fecha Vencimiento</th>';
             tabla += '<th class="fuente">Estado</th>';
             tabla += '<th class="fuente">Prioridad</th>';
             tabla += '<th class="fuente">Sucursal</th>';
-            tabla += '<th class="fuente">Usuario</th>';
+            tabla += '<th class="fuente">Asignada A</th>';
             tabla += '<th class="fuente">Observacion</th>';
             tabla += '<th></th>';
             tabla += '</tr >';
-
+            console.log(datos);
             for (var i = 0; i < datos.length; i++) {
                 tabla += '<tr>';
                 tabla += '<td class="fuenteTitulo">' + datos[i].Asunto + '</td>';
+                tabla += '<td class="fuenteTitulo">' + datos[i].CreadaPor + '</td>';
                 tabla += '<td class="fuenteTitulo">' + datos[i].FechaVencimiento + '</td>';
                 tabla += '<td class="fuenteTitulo">' + datos[i].Estado + '</td>';
                 tabla += '<td class="fuenteTitulo">' + datos[i].Prioridad + '</td>';
-                tabla += '<td class="fuenteTitulo">' + datos[i].Proceso.Sucursal + '</td>';
-                tabla += '<td class="fuenteTitulo">' + datos[i].Usuario.Correo + '</td>';
+                tabla += '<td class="fuenteTitulo">' + datos[i].RelacionadaCon + '</td>';
+                tabla += '<td class="fuenteTitulo">' + datos[i].AsignadaA + '</td>';
                 tabla += '<td class="fuenteTitulo">' + datos[i].Observacion + '</td>';
                 tabla += '<td><a href="/Actividad/Edit/' + datos[i].Id + '" type="button" class="btnGenerico margenBoton">Editar</a><a href="#modal1" onclick="detalleActividad(' + datos[i].Id + ');" type="button" class="btnGenerico margenBoton modal-trigger">Detalle</a><a href="#modal2" onclick="eliminarActividad(' + datos[i].Id + ');" type="button" class="btnGenerico margenBoton modal-trigger">Eliminar</a></td>';
                 tabla += '</tr>';
@@ -58,6 +60,14 @@ function detalleActividad(id) {
             actividad += '</div>';
             actividad += '<div class="row">';
             actividad += '<div class="col s2 fuente">';
+            actividad += 'Creada Por:';
+            actividad += '</div>';
+            actividad += '<div class="col s10 fuenteTitulo">';
+            actividad += datos.CreadaPor;
+            actividad += '</div>';
+            actividad += '</div>';
+            actividad += '<div class="row">';
+            actividad += '<div class="col s2 fuente">';
             actividad += 'Fecha:';
             actividad += '</div>';
             actividad += '<div class="col s10 fuenteTitulo">';
@@ -85,7 +95,7 @@ function detalleActividad(id) {
             actividad += 'Sucursal:';
             actividad += '</div>';
             actividad += '<div class="col s10 fuenteTitulo">';
-            actividad += datos.Proceso.Sucursal;
+            actividad += datos.RelacionadaCon;
             actividad += '</div>';
             actividad += '</div>';
             actividad += '<div class="row">';
@@ -93,7 +103,7 @@ function detalleActividad(id) {
             actividad += 'Usuario:';
             actividad += '</div>';
             actividad += '<div class="col s10 fuenteTitulo">';
-            actividad += datos.Usuario.Correo;
+            actividad += datos.AsignadaA;
             actividad += '</div>';
             actividad += '</div>';
             actividad += '<div class="row">';

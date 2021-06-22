@@ -116,6 +116,7 @@
     <Compile Include="Models\Actividad.cs">
       <DependentUpon>TransportadoraModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ActividadDTO.cs" />
     <Compile Include="Models\Embarque.cs">
       <DependentUpon>TransportadoraModel.tt</DependentUpon>
     </Compile>
