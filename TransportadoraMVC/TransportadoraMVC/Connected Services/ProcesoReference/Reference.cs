@@ -144,7 +144,7 @@ namespace TransportadoraMVC.ProcesoReference {
         private string EstadoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> FechaVencimientoField;
+        private System.DateTime FechaVencimientoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long IdField;
@@ -230,7 +230,7 @@ namespace TransportadoraMVC.ProcesoReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> FechaVencimiento {
+        public System.DateTime FechaVencimiento {
             get {
                 return this.FechaVencimientoField;
             }

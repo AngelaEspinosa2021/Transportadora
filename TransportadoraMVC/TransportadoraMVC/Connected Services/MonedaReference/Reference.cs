@@ -29,7 +29,7 @@ namespace TransportadoraMVC.MonedaReference {
         private string DescripcionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> FechaField;
+        private System.DateTime FechaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long IdField;
@@ -77,7 +77,7 @@ namespace TransportadoraMVC.MonedaReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> Fecha {
+        public System.DateTime Fecha {
             get {
                 return this.FechaField;
             }

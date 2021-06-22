@@ -18,7 +18,7 @@ namespace TransportadoraService.Models
         public string Nombre { get; set; }
         public string Codigo { get; set; }
         public Nullable<decimal> Valor { get; set; }
-        public Nullable<System.DateTime> Fecha { get; set; }
+        public System.DateTime Fecha { get; set; }
         public string Descripcion { get; set; }
     }
 }

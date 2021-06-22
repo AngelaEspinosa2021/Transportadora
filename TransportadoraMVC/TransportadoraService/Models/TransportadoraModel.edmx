@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="TransportadoraModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="TransportadoraModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Actividad">
           <Key>
             <PropertyRef Name="Id" />
@@ -14,7 +14,7 @@
           <Property Name="AsignadaA" Type="bigint" />
           <Property Name="RelacionadaCon" Type="bigint" />
           <Property Name="Asunto" Type="nvarchar" MaxLength="50" />
-          <Property Name="FechaVencimiento" Type="date" />
+          <Property Name="FechaVencimiento" Type="date" Nullable="false" />
           <Property Name="Observacion" Type="nvarchar" MaxLength="50" />
           <Property Name="Estado" Type="nvarchar" MaxLength="20" />
           <Property Name="Prioridad" Type="nvarchar" MaxLength="20" />
@@ -47,7 +47,7 @@
           <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
           <Property Name="Codigo" Type="nvarchar" MaxLength="50" />
           <Property Name="Valor" Type="money" />
-          <Property Name="Fecha" Type="date" />
+          <Property Name="Fecha" Type="date" Nullable="false" />
           <Property Name="Descripcion" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Proceso">
@@ -153,8 +153,7 @@
             <End Role="Trazabilidad" EntitySet="Trazabilidad" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TransportadoraModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -167,7 +166,7 @@
           <Property Name="AsignadaA" Type="Int64" />
           <Property Name="RelacionadaCon" Type="Int64" />
           <Property Name="Asunto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="FechaVencimiento" Type="DateTime" Precision="0" />
+          <Property Name="FechaVencimiento" Type="DateTime" Precision="0" Nullable="false" />
           <Property Name="Observacion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Estado" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Prioridad" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
@@ -204,7 +203,7 @@
           <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Valor" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="Fecha" Type="DateTime" Precision="0" />
+          <Property Name="Fecha" Type="DateTime" Precision="0" Nullable="false" />
           <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Proceso">

@@ -22,7 +22,7 @@
       <xs:element minOccurs="0" name="Asunto" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="CreadaPor" nillable="true" type="xs:long" />
       <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FechaVencimiento" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FechaVencimiento" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Id" type="xs:long" />
       <xs:element minOccurs="0" name="Observacion" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Prioridad" nillable="true" type="xs:string" />

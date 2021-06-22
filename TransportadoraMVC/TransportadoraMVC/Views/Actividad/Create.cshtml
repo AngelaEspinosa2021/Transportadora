@@ -34,9 +34,9 @@
                 @Html.DropDownList("RelacionadaCon", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.RelacionadaCon, "", new { @class = "text-danger" })
             </div>
-            <div class="col s6 col-md-6 datepicker fuente">
+            <div class="col s6 col-md-6 fuente">
                 @Html.LabelFor(model => model.FechaVencimiento, htmlAttributes: new { @class = "control-label col-md-2" })
-                @Html.EditorFor(model => model.FechaVencimiento, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.FechaVencimiento, new { htmlAttributes = new { @class = "form-control datepicker" } })
                 @Html.ValidationMessageFor(model => model.FechaVencimiento, "", new { @class = "text-danger" })
             </div>
         </div>

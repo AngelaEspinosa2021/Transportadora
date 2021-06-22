@@ -12,7 +12,7 @@ namespace TransportadoraService.Models
         public string AsignadaA { get; set; }
         public string RelacionadaCon { get; set; }
         public string Asunto { get; set; }
-        public Nullable<System.DateTime> FechaVencimiento { get; set; }
+        public System.DateTime FechaVencimiento { get; set; }
         public string Observacion { get; set; }
         public string Estado { get; set; }
         public string Prioridad { get; set; }
