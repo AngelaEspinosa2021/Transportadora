@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="ZDrEu7jpWC8Hd3BoYML/1f3n8wg0E5pl1yu0VDKw1lk=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="xCdPfCntrm6/udzFkENxVjj3LHCplYwKuuM2wxJIRn0=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IEmbarqueService">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="BasicHttpBinding_IEmbarqueService" contract="EmbarqueReference.IEmbarqueService" bindingType="basicHttpBinding" address="http://localhost:62768/EmbarqueService.svc" bindingConfiguration="BasicHttpBinding_IEmbarqueService">
+    <endpoint name="BasicHttpBinding_IEmbarqueService" contract="EmbarqueReference.IEmbarqueService" bindingType="basicHttpBinding" address="http://proyecto-final-angela.azurewebsites.net/EmbarqueService.svc" bindingConfiguration="BasicHttpBinding_IEmbarqueService">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost:62768/EmbarqueService.svc</serializedValue>
+          <serializedValue>http://proyecto-final-angela.azurewebsites.net/EmbarqueService.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

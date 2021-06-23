@@ -1,67 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="https://localhost:44345/TrazabilidadService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/TransportadoraService.Models" />
-  <xs:element name="Listar">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="Id" type="xs:long" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ListarResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/TransportadoraService.Models" minOccurs="0" name="ListarResult" nillable="true" type="q1:ArrayOfTrazabilidad" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="BuscarTraza">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="Id" type="xs:long" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="BuscarTrazaResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/TransportadoraService.Models" minOccurs="0" name="BuscarTrazaResult" nillable="true" type="q2:Trazabilidad" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="AgregarTraza">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/TransportadoraService.Models" minOccurs="0" name="traza" nillable="true" type="q3:Trazabilidad" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="AgregarTrazaResponse">
+  <xs:import schemaLocation="http://proyecto-final-angela.azurewebsites.net/MonedaService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/TransportadoraService.Models" />
+  <xs:element name="ListarMonedas">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="EditarTraza">
+  <xs:element name="ListarMonedasResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="Id" type="xs:long" />
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/TransportadoraService.Models" minOccurs="0" name="traza" nillable="true" type="q4:Trazabilidad" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/TransportadoraService.Models" minOccurs="0" name="ListarMonedasResult" nillable="true" type="q1:ArrayOfMoneda" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="EditarTrazaResponse">
+  <xs:element name="BuscarMoneda">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Id" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BuscarMonedaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/TransportadoraService.Models" minOccurs="0" name="BuscarMonedaResult" nillable="true" type="q2:Moneda" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AgregarMoneda">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/TransportadoraService.Models" minOccurs="0" name="moneda" nillable="true" type="q3:Moneda" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AgregarMonedaResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="EliminarTraza">
+  <xs:element name="EditarMoneda">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Id" type="xs:long" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/TransportadoraService.Models" minOccurs="0" name="moneda" nillable="true" type="q4:Moneda" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditarMonedaResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EliminarMoneda">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="Id" type="xs:long" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="EliminarTrazaResponse">
+  <xs:element name="EliminarMonedaResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>

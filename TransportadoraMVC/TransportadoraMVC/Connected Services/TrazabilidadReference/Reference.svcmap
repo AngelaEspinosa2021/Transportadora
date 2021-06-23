@@ -19,14 +19,13 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="https://localhost:44345/TrazabilidadService.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://proyecto-final-angela.azurewebsites.net/TrazabilidadService.svc?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="TrazabilidadService.wsdl" MetadataType="Wsdl" ID="9a800c41-eca9-45e4-974e-2e0ea625a90f" SourceId="1" SourceUrl="https://localhost:44345/TrazabilidadService.svc?wsdl" />
-    <MetadataFile FileName="TrazabilidadService.xsd" MetadataType="Schema" ID="7ec5c011-a44b-40f9-8be7-eafe02e2d725" SourceId="1" SourceUrl="https://localhost:44345/TrazabilidadService.svc?xsd=xsd2" />
-    <MetadataFile FileName="TrazabilidadService1.xsd" MetadataType="Schema" ID="92479d15-d941-4574-b926-2081da1a8765" SourceId="1" SourceUrl="https://localhost:44345/TrazabilidadService.svc?xsd=xsd0" />
-    <MetadataFile FileName="TrazabilidadService.disco" MetadataType="Disco" ID="2be9d0ad-1256-4484-85f5-6b88260ab80d" SourceId="1" SourceUrl="https://localhost:44345/TrazabilidadService.svc?disco" />
-    <MetadataFile FileName="TrazabilidadService2.xsd" MetadataType="Schema" ID="66821b6a-7424-43cc-b528-4baa6fd3d93d" SourceId="1" SourceUrl="https://localhost:44345/TrazabilidadService.svc?xsd=xsd1" />
+    <MetadataFile FileName="TrazabilidadService3.xsd" MetadataType="Schema" ID="92730261-0a35-4be9-acff-9986519b7e1b" SourceId="1" SourceUrl="http://proyecto-final-angela.azurewebsites.net/TrazabilidadService.svc?xsd=xsd0" />
+    <MetadataFile FileName="TrazabilidadService31.xsd" MetadataType="Schema" ID="91b1571e-c143-4eae-86f3-f9b3e71a42df" SourceId="1" SourceUrl="http://proyecto-final-angela.azurewebsites.net/TrazabilidadService.svc?xsd=xsd2" />
+    <MetadataFile FileName="TrazabilidadService1.wsdl" MetadataType="Wsdl" ID="bae52343-b6df-4b15-af93-3b264dade463" SourceId="1" SourceUrl="http://proyecto-final-angela.azurewebsites.net/TrazabilidadService.svc?wsdl" />
+    <MetadataFile FileName="TrazabilidadService32.xsd" MetadataType="Schema" ID="335860a7-1df7-42ce-8105-3b88ad77e0ea" SourceId="1" SourceUrl="http://proyecto-final-angela.azurewebsites.net/TrazabilidadService.svc?xsd=xsd1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

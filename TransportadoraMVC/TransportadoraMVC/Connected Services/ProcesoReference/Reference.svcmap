@@ -19,14 +19,13 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="https://localhost:44345/ProcesoService.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://proyecto-final-angela.azurewebsites.net/ProcesoService.svc?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ProcesoService.xsd" MetadataType="Schema" ID="ebf4a3b2-237a-4f36-a8fb-aadc1e8e0913" SourceId="1" SourceUrl="https://localhost:44345/ProcesoService.svc?xsd=xsd2" />
-    <MetadataFile FileName="ProcesoService.disco" MetadataType="Disco" ID="ae5dd55f-5ec4-47ce-8e12-cfc2a2aabd97" SourceId="1" SourceUrl="https://localhost:44345/ProcesoService.svc?disco" />
-    <MetadataFile FileName="ProcesoService1.xsd" MetadataType="Schema" ID="e1a677e6-4353-47ba-b95d-b39acb3a250a" SourceId="1" SourceUrl="https://localhost:44345/ProcesoService.svc?xsd=xsd1" />
-    <MetadataFile FileName="ProcesoService.wsdl" MetadataType="Wsdl" ID="e68141d4-f7e6-4d06-b057-95196380605b" SourceId="1" SourceUrl="https://localhost:44345/ProcesoService.svc?wsdl" />
-    <MetadataFile FileName="ProcesoService2.xsd" MetadataType="Schema" ID="16d12f43-8ed6-4ea6-9d72-c702a583d67d" SourceId="1" SourceUrl="https://localhost:44345/ProcesoService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ProcesoService3.xsd" MetadataType="Schema" ID="02d1aac5-39e5-440f-91a6-d83c42ba0549" SourceId="1" SourceUrl="http://proyecto-final-angela.azurewebsites.net/ProcesoService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ProcesoService31.xsd" MetadataType="Schema" ID="14a52a8d-2e25-49e3-afad-48d9d0e2bba3" SourceId="1" SourceUrl="http://proyecto-final-angela.azurewebsites.net/ProcesoService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ProcesoService1.wsdl" MetadataType="Wsdl" ID="511b8f8b-84be-420f-b5a3-f61b7eb9f21f" SourceId="1" SourceUrl="http://proyecto-final-angela.azurewebsites.net/ProcesoService.svc?wsdl" />
+    <MetadataFile FileName="ProcesoService32.xsd" MetadataType="Schema" ID="42e40c7d-d26b-4645-b638-6c49f5342c31" SourceId="1" SourceUrl="http://proyecto-final-angela.azurewebsites.net/ProcesoService.svc?xsd=xsd2" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

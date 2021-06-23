@@ -1,65 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="https://localhost:44345/MonedaService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/TransportadoraService.Models" />
-  <xs:element name="ListarMonedas">
+  <xs:import schemaLocation="http://proyecto-final-angela.azurewebsites.net/ProcesoService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/TransportadoraService.Models" />
+  <xs:element name="ListarProcesos">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="ListarMonedasResponse">
+  <xs:element name="ListarProcesosResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/TransportadoraService.Models" minOccurs="0" name="ListarMonedasResult" nillable="true" type="q1:ArrayOfMoneda" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/TransportadoraService.Models" minOccurs="0" name="ListarProcesosResult" nillable="true" type="q1:ArrayOfProceso" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="BuscarMoneda">
+  <xs:element name="BuscarProceso">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="Id" type="xs:long" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="BuscarMonedaResponse">
+  <xs:element name="BuscarProcesoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/TransportadoraService.Models" minOccurs="0" name="BuscarMonedaResult" nillable="true" type="q2:Moneda" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/TransportadoraService.Models" minOccurs="0" name="BuscarProcesoResult" nillable="true" type="q2:Proceso" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="AgregarMoneda">
+  <xs:element name="AgregarProceso">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/TransportadoraService.Models" minOccurs="0" name="moneda" nillable="true" type="q3:Moneda" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/TransportadoraService.Models" minOccurs="0" name="proceso" nillable="true" type="q3:Proceso" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="AgregarMonedaResponse">
+  <xs:element name="AgregarProcesoResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="EditarMoneda">
+  <xs:element name="EditarProceso">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="Id" type="xs:long" />
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/TransportadoraService.Models" minOccurs="0" name="moneda" nillable="true" type="q4:Moneda" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/TransportadoraService.Models" minOccurs="0" name="proceso" nillable="true" type="q4:Proceso" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="EditarMonedaResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="EliminarMoneda">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="Id" type="xs:long" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="EliminarMonedaResponse">
+  <xs:element name="EditarProcesoResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
@@ -72,6 +60,18 @@
     </xs:complexType>
   </xs:element>
   <xs:element name="ConfirmacionResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EliminarProceso">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Id" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EliminarProcesoResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>

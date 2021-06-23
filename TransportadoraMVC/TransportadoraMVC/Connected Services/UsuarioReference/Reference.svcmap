@@ -19,14 +19,13 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="https://localhost:44345/UsuarioService.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://proyecto-final-angela.azurewebsites.net/UsuarioService.svc?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="UsuarioService.xsd" MetadataType="Schema" ID="5007b303-f9ac-4197-b2c2-c6be0b894b33" SourceId="1" SourceUrl="https://localhost:44345/UsuarioService.svc?xsd=xsd0" />
-    <MetadataFile FileName="UsuarioService1.xsd" MetadataType="Schema" ID="bc1a5ed1-ba74-4500-bd31-cc0d18203103" SourceId="1" SourceUrl="https://localhost:44345/UsuarioService.svc?xsd=xsd1" />
-    <MetadataFile FileName="UsuarioService.disco" MetadataType="Disco" ID="893d666d-2dc7-4638-84f0-977271f2c871" SourceId="1" SourceUrl="https://localhost:44345/UsuarioService.svc?disco" />
-    <MetadataFile FileName="UsuarioService2.xsd" MetadataType="Schema" ID="68d7f11d-e11f-4a63-b6df-92fcd642b377" SourceId="1" SourceUrl="https://localhost:44345/UsuarioService.svc?xsd=xsd2" />
-    <MetadataFile FileName="UsuarioService.wsdl" MetadataType="Wsdl" ID="d4d3402b-b8fd-4b83-99bc-d0f58a225f7b" SourceId="1" SourceUrl="https://localhost:44345/UsuarioService.svc?wsdl" />
+    <MetadataFile FileName="UsuarioService3.xsd" MetadataType="Schema" ID="6d0a5edb-4f01-44d5-bc80-47408f81d045" SourceId="1" SourceUrl="http://proyecto-final-angela.azurewebsites.net/UsuarioService.svc?xsd=xsd0" />
+    <MetadataFile FileName="UsuarioService31.xsd" MetadataType="Schema" ID="7ba1d93f-1830-4493-b435-18a54a403a13" SourceId="1" SourceUrl="http://proyecto-final-angela.azurewebsites.net/UsuarioService.svc?xsd=xsd1" />
+    <MetadataFile FileName="UsuarioService32.xsd" MetadataType="Schema" ID="14cb9891-f8e5-4e8d-be27-27c3a4b0c21f" SourceId="1" SourceUrl="http://proyecto-final-angela.azurewebsites.net/UsuarioService.svc?xsd=xsd2" />
+    <MetadataFile FileName="UsuarioService1.wsdl" MetadataType="Wsdl" ID="d44af2a5-038d-475d-b86e-c13d0cf32ff3" SourceId="1" SourceUrl="http://proyecto-final-angela.azurewebsites.net/UsuarioService.svc?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

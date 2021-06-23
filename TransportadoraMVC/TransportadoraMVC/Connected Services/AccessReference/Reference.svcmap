@@ -19,14 +19,13 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="https://localhost:44345/AccessService.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://proyecto-final-angela.azurewebsites.net/AccessService.svc?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="AccessService.xsd" MetadataType="Schema" ID="70856589-1e33-4ed2-9ddd-54b6299e7d46" SourceId="1" SourceUrl="https://localhost:44345/AccessService.svc?xsd=xsd2" />
-    <MetadataFile FileName="AccessService.wsdl" MetadataType="Wsdl" ID="0f641cec-518d-48a3-bdda-37890a686cd8" SourceId="1" SourceUrl="https://localhost:44345/AccessService.svc?wsdl" />
-    <MetadataFile FileName="AccessService1.xsd" MetadataType="Schema" ID="8f057fd8-4c1b-47cb-9855-52d9c8a3368e" SourceId="1" SourceUrl="https://localhost:44345/AccessService.svc?xsd=xsd1" />
-    <MetadataFile FileName="AccessService.disco" MetadataType="Disco" ID="5744acc8-417f-44cb-9102-cfb36a37b2ac" SourceId="1" SourceUrl="https://localhost:44345/AccessService.svc?disco" />
-    <MetadataFile FileName="AccessService2.xsd" MetadataType="Schema" ID="c2ef1fac-4b02-4ade-9ba3-bdb028cbc049" SourceId="1" SourceUrl="https://localhost:44345/AccessService.svc?xsd=xsd0" />
+    <MetadataFile FileName="AccessService3.xsd" MetadataType="Schema" ID="d1319c59-2be2-4397-b738-3c245078b2da" SourceId="1" SourceUrl="http://proyecto-final-angela.azurewebsites.net/AccessService.svc?xsd=xsd2" />
+    <MetadataFile FileName="AccessService1.wsdl" MetadataType="Wsdl" ID="d3b334ee-cbd5-4017-8cb7-4404d953a54f" SourceId="1" SourceUrl="http://proyecto-final-angela.azurewebsites.net/AccessService.svc?wsdl" />
+    <MetadataFile FileName="AccessService31.xsd" MetadataType="Schema" ID="e090cb46-999d-4ccd-bc59-5e6eb01f8bb9" SourceId="1" SourceUrl="http://proyecto-final-angela.azurewebsites.net/AccessService.svc?xsd=xsd1" />
+    <MetadataFile FileName="AccessService32.xsd" MetadataType="Schema" ID="f0aef879-1f8c-4f37-a8e5-a8a9ba6db85d" SourceId="1" SourceUrl="http://proyecto-final-angela.azurewebsites.net/AccessService.svc?xsd=xsd0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

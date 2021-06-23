@@ -19,14 +19,13 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="https://localhost:44345/EmbarqueService.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://proyecto-final-angela.azurewebsites.net/EmbarqueService.svc?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="EmbarqueService.xsd" MetadataType="Schema" ID="0ea5f31a-48ee-4924-826e-67cd6d44c594" SourceId="1" SourceUrl="https://localhost:44345/EmbarqueService.svc?xsd=xsd0" />
-    <MetadataFile FileName="EmbarqueService.wsdl" MetadataType="Wsdl" ID="0a95d0a8-f470-4dfe-b112-456ecd4e2fac" SourceId="1" SourceUrl="https://localhost:44345/EmbarqueService.svc?wsdl" />
-    <MetadataFile FileName="EmbarqueService.disco" MetadataType="Disco" ID="14ea3b22-b1f6-425c-91f2-cb807d8b7ca8" SourceId="1" SourceUrl="https://localhost:44345/EmbarqueService.svc?disco" />
-    <MetadataFile FileName="EmbarqueService1.xsd" MetadataType="Schema" ID="7496b7e0-d51e-472e-856d-d608e522b03c" SourceId="1" SourceUrl="https://localhost:44345/EmbarqueService.svc?xsd=xsd1" />
-    <MetadataFile FileName="EmbarqueService2.xsd" MetadataType="Schema" ID="ed4ca335-07a3-4541-9022-b36b8c6d96cd" SourceId="1" SourceUrl="https://localhost:44345/EmbarqueService.svc?xsd=xsd2" />
+    <MetadataFile FileName="EmbarqueService1.wsdl" MetadataType="Wsdl" ID="3357aabf-b02a-4611-87d6-3d9c68a9731c" SourceId="1" SourceUrl="http://proyecto-final-angela.azurewebsites.net/EmbarqueService.svc?wsdl" />
+    <MetadataFile FileName="EmbarqueService3.xsd" MetadataType="Schema" ID="56b85852-82db-4329-ad18-f937284ff939" SourceId="1" SourceUrl="http://proyecto-final-angela.azurewebsites.net/EmbarqueService.svc?xsd=xsd1" />
+    <MetadataFile FileName="EmbarqueService31.xsd" MetadataType="Schema" ID="e073037a-89f3-410b-9e70-96e08a81ce43" SourceId="1" SourceUrl="http://proyecto-final-angela.azurewebsites.net/EmbarqueService.svc?xsd=xsd2" />
+    <MetadataFile FileName="EmbarqueService32.xsd" MetadataType="Schema" ID="e25326b0-392f-48df-9096-541ce2ce38f9" SourceId="1" SourceUrl="http://proyecto-final-angela.azurewebsites.net/EmbarqueService.svc?xsd=xsd0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

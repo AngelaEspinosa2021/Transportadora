@@ -19,14 +19,13 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="https://localhost:44345/ActividadService.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://proyecto-final-angela.azurewebsites.net/ActividadService.svc?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ActividadService.xsd" MetadataType="Schema" ID="7a3a9460-bc1a-45ee-bda5-fbf165e337cd" SourceId="1" SourceUrl="https://localhost:44345/ActividadService.svc?xsd=xsd2" />
-    <MetadataFile FileName="ActividadService.disco" MetadataType="Disco" ID="c9c4b4ec-f871-4095-8f49-1c4d7ec5bcc6" SourceId="1" SourceUrl="https://localhost:44345/ActividadService.svc?disco" />
-    <MetadataFile FileName="ActividadService.wsdl" MetadataType="Wsdl" ID="44ca54f4-541d-4b2d-a244-3e43619d37c2" SourceId="1" SourceUrl="https://localhost:44345/ActividadService.svc?wsdl" />
-    <MetadataFile FileName="ActividadService1.xsd" MetadataType="Schema" ID="ca48a7fb-fb50-4135-a821-0f2bc4db8cb0" SourceId="1" SourceUrl="https://localhost:44345/ActividadService.svc?xsd=xsd1" />
-    <MetadataFile FileName="ActividadService2.xsd" MetadataType="Schema" ID="6e2923b3-d34e-44f1-ab80-647c9979419f" SourceId="1" SourceUrl="https://localhost:44345/ActividadService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ActividadService3.xsd" MetadataType="Schema" ID="9e86bf6c-5b74-4ff5-8d12-56e319b30d03" SourceId="1" SourceUrl="http://proyecto-final-angela.azurewebsites.net/ActividadService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ActividadService31.xsd" MetadataType="Schema" ID="68b0cb9f-3536-4f24-99b7-8cd7a539ac50" SourceId="1" SourceUrl="http://proyecto-final-angela.azurewebsites.net/ActividadService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ActividadService1.wsdl" MetadataType="Wsdl" ID="8ac08482-1b4b-4a70-9f9b-ed2357dca6d4" SourceId="1" SourceUrl="http://proyecto-final-angela.azurewebsites.net/ActividadService.svc?wsdl" />
+    <MetadataFile FileName="ActividadService32.xsd" MetadataType="Schema" ID="63833259-6de8-4f2c-af15-9eaf1c2c1105" SourceId="1" SourceUrl="http://proyecto-final-angela.azurewebsites.net/ActividadService.svc?xsd=xsd1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

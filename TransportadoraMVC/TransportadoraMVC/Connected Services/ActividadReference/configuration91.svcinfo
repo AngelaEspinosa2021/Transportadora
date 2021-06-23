@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="yN4hO2+eHfydsykevR3x+aMo8wha+ldfkKw1/Q5znus=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="c0oMNAZveote16ud/5WfLFNS77cOrMq+x3jmo4fX0+4=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IActividadService">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="BasicHttpBinding_IActividadService" contract="ActividadReference.IActividadService" bindingType="basicHttpBinding" address="http://localhost:62768/ActividadService.svc" bindingConfiguration="BasicHttpBinding_IActividadService">
+    <endpoint name="BasicHttpBinding_IActividadService" contract="ActividadReference.IActividadService" bindingType="basicHttpBinding" address="http://proyecto-final-angela.azurewebsites.net/ActividadService.svc" bindingConfiguration="BasicHttpBinding_IActividadService">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost:62768/ActividadService.svc</serializedValue>
+          <serializedValue>http://proyecto-final-angela.azurewebsites.net/ActividadService.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

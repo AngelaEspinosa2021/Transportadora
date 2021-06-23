@@ -179,32 +179,21 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\AccessReference\AccessService.disco" />
+    <None Include="Connected Services\AccessReference\AccessService1.wsdl" />
+    <None Include="Connected Services\AccessReference\AccessService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AccessReference\AccessService31.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AccessReference\AccessService32.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\AccessReference\configuration91.svcinfo" />
     <None Include="Connected Services\AccessReference\configuration.svcinfo" />
     <None Include="Connected Services\AccessReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Connected Services\AccessReference\AccessService.wsdl" />
-    <None Include="Connected Services\AccessReference\AccessService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\AccessReference\AccessService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\AccessReference\AccessService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ActividadReference\ActividadService.wsdl" />
-    <None Include="Connected Services\ActividadReference\ActividadService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ActividadReference\ActividadService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ActividadReference\ActividadService2.xsd">
-      <SubType>Designer</SubType>
     </None>
     <Content Include="Connected Services\ActividadReference\TransportadoraMVC.ActividadReference.Actividad.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -212,28 +201,64 @@
     <Content Include="Connected Services\ActividadReference\TransportadoraMVC.ActividadReference.ActividadDTO.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <None Include="Connected Services\EmbarqueReference\EmbarqueService.disco" />
+    <None Include="Connected Services\ActividadReference\ActividadService1.wsdl" />
+    <None Include="Connected Services\ActividadReference\ActividadService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ActividadReference\ActividadService31.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ActividadReference\ActividadService32.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\EmbarqueReference\configuration91.svcinfo" />
     <None Include="Connected Services\EmbarqueReference\configuration.svcinfo" />
+    <None Include="Connected Services\EmbarqueReference\EmbarqueService1.wsdl" />
+    <None Include="Connected Services\EmbarqueReference\EmbarqueService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\EmbarqueReference\EmbarqueService31.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\EmbarqueReference\EmbarqueService32.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\EmbarqueReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Connected Services\MonedaReference\MonedaService.disco" />
     <None Include="Connected Services\MonedaReference\configuration91.svcinfo" />
     <None Include="Connected Services\MonedaReference\configuration.svcinfo" />
+    <None Include="Connected Services\MonedaReference\MonedaService1.wsdl" />
+    <None Include="Connected Services\MonedaReference\MonedaService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MonedaReference\MonedaService31.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MonedaReference\MonedaService32.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\MonedaReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Connected Services\ProcesoReference\ProcesoService.disco" />
     <None Include="Connected Services\ProcesoReference\configuration91.svcinfo" />
     <None Include="Connected Services\ProcesoReference\configuration.svcinfo" />
+    <None Include="Connected Services\ProcesoReference\ProcesoService1.wsdl" />
+    <None Include="Connected Services\ProcesoReference\ProcesoService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProcesoReference\ProcesoService31.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProcesoReference\ProcesoService32.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\ProcesoReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Connected Services\ActividadReference\ActividadService.disco" />
     <None Include="Connected Services\ActividadReference\configuration91.svcinfo" />
     <None Include="Connected Services\ActividadReference\configuration.svcinfo" />
     <None Include="Connected Services\ActividadReference\Reference.svcmap">
@@ -243,33 +268,12 @@
     <Content Include="Connected Services\TrazabilidadReference\TransportadoraMVC.TrazabilidadReference.Trazabilidad.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <None Include="Connected Services\MonedaReference\MonedaService.wsdl" />
-    <None Include="Connected Services\MonedaReference\MonedaService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\MonedaReference\MonedaService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\MonedaReference\MonedaService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <Content Include="Connected Services\MonedaReference\TransportadoraMVC.MonedaReference.Moneda.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <None Include="Connected Services\ProcesoReference\ProcesoService.wsdl" />
-    <None Include="Connected Services\ProcesoReference\ProcesoService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ProcesoReference\ProcesoService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ProcesoReference\ProcesoService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <Content Include="Connected Services\ProcesoReference\TransportadoraMVC.ProcesoReference.Proceso.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <None Include="Connected Services\TrazabilidadReference\TrazabilidadService.disco" />
     <None Include="Connected Services\TrazabilidadReference\configuration91.svcinfo" />
     <None Include="Connected Services\TrazabilidadReference\configuration.svcinfo" />
     <None Include="Connected Services\TrazabilidadReference\Reference.svcmap">
@@ -282,30 +286,19 @@
     <Content Include="Connected Services\AccessReference\TransportadoraMVC.AccessReference.Usuario.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <None Include="Connected Services\EmbarqueReference\EmbarqueService.wsdl" />
-    <None Include="Connected Services\EmbarqueReference\EmbarqueService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\EmbarqueReference\EmbarqueService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\EmbarqueReference\EmbarqueService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <Content Include="Connected Services\EmbarqueReference\TransportadoraMVC.EmbarqueReference.Embarque.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <None Include="Connected Services\TrazabilidadReference\TrazabilidadService.wsdl" />
-    <None Include="Connected Services\TrazabilidadReference\TrazabilidadService.xsd">
+    <None Include="Connected Services\TrazabilidadReference\TrazabilidadService1.wsdl" />
+    <None Include="Connected Services\TrazabilidadReference\TrazabilidadService3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\TrazabilidadReference\TrazabilidadService1.xsd">
+    <None Include="Connected Services\TrazabilidadReference\TrazabilidadService31.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\TrazabilidadReference\TrazabilidadService2.xsd">
+    <None Include="Connected Services\TrazabilidadReference\TrazabilidadService32.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\UsuarioReference\UsuarioService.disco" />
     <None Include="Connected Services\UsuarioReference\configuration91.svcinfo" />
     <None Include="Connected Services\UsuarioReference\configuration.svcinfo" />
     <None Include="Connected Services\UsuarioReference\Reference.svcmap">
@@ -389,14 +382,14 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <None Include="Connected Services\UsuarioReference\UsuarioService.wsdl" />
-    <None Include="Connected Services\UsuarioReference\UsuarioService.xsd">
+    <None Include="Connected Services\UsuarioReference\UsuarioService1.wsdl" />
+    <None Include="Connected Services\UsuarioReference\UsuarioService3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\UsuarioReference\UsuarioService1.xsd">
+    <None Include="Connected Services\UsuarioReference\UsuarioService31.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\UsuarioReference\UsuarioService2.xsd">
+    <None Include="Connected Services\UsuarioReference\UsuarioService32.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />

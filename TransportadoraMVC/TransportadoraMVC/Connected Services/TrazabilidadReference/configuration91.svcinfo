@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="hoZkR559AgcY53KEvlyTej2P9LMOT7Msbm+gxHk0Ftk=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="q/2CAT32jdtqenjRpqP+4GC1Ddm7XAJwmcN58PODhkY=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_ITrazabilidadService">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="BasicHttpBinding_ITrazabilidadService" contract="TrazabilidadReference.ITrazabilidadService" bindingType="basicHttpBinding" address="http://localhost:62768/TrazabilidadService.svc" bindingConfiguration="BasicHttpBinding_ITrazabilidadService">
+    <endpoint name="BasicHttpBinding_ITrazabilidadService" contract="TrazabilidadReference.ITrazabilidadService" bindingType="basicHttpBinding" address="http://proyecto-final-angela.azurewebsites.net/TrazabilidadService.svc" bindingConfiguration="BasicHttpBinding_ITrazabilidadService">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost:62768/TrazabilidadService.svc</serializedValue>
+          <serializedValue>http://proyecto-final-angela.azurewebsites.net/TrazabilidadService.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

@@ -19,14 +19,13 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="https://localhost:44345/MonedaService.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://proyecto-final-angela.azurewebsites.net/MonedaService.svc?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="MonedaService.disco" MetadataType="Disco" ID="62ad3cdd-0dcd-43c4-af4c-41271c7550f0" SourceId="1" SourceUrl="https://localhost:44345/MonedaService.svc?disco" />
-    <MetadataFile FileName="MonedaService.xsd" MetadataType="Schema" ID="a6d6c5f6-9c9c-4c7b-b090-c777c56db0c2" SourceId="1" SourceUrl="https://localhost:44345/MonedaService.svc?xsd=xsd0" />
-    <MetadataFile FileName="MonedaService1.xsd" MetadataType="Schema" ID="01ea9d63-2e4f-4a41-8683-00ee4b9a20ff" SourceId="1" SourceUrl="https://localhost:44345/MonedaService.svc?xsd=xsd1" />
-    <MetadataFile FileName="MonedaService2.xsd" MetadataType="Schema" ID="e85f842b-4b0c-447c-9a73-af0fa41ba431" SourceId="1" SourceUrl="https://localhost:44345/MonedaService.svc?xsd=xsd2" />
-    <MetadataFile FileName="MonedaService.wsdl" MetadataType="Wsdl" ID="53569c7d-afaf-4c1d-b87d-5e8adfbc212c" SourceId="1" SourceUrl="https://localhost:44345/MonedaService.svc?wsdl" />
+    <MetadataFile FileName="MonedaService3.xsd" MetadataType="Schema" ID="ef8b8c43-c040-4e47-839c-e6a04fad127e" SourceId="1" SourceUrl="http://proyecto-final-angela.azurewebsites.net/MonedaService.svc?xsd=xsd1" />
+    <MetadataFile FileName="MonedaService31.xsd" MetadataType="Schema" ID="808bf7fb-9d98-4bb0-86ee-1fd54bca3545" SourceId="1" SourceUrl="http://proyecto-final-angela.azurewebsites.net/MonedaService.svc?xsd=xsd0" />
+    <MetadataFile FileName="MonedaService1.wsdl" MetadataType="Wsdl" ID="5d8ff011-1c80-4379-b17e-d30cc0260317" SourceId="1" SourceUrl="http://proyecto-final-angela.azurewebsites.net/MonedaService.svc?wsdl" />
+    <MetadataFile FileName="MonedaService32.xsd" MetadataType="Schema" ID="21d73f3f-8593-4fe6-a1a9-66ccca716e43" SourceId="1" SourceUrl="http://proyecto-final-angela.azurewebsites.net/MonedaService.svc?xsd=xsd2" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
